@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: #f3f3f3;
+}
+.flexbox {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 330px;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 15px;
+	position: absolute;
+	top: 5rem;
+	left: 0;
+}
