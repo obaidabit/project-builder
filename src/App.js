@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./components/Navbar";
 import IFrame from "./components/IFrame";
 import LeftSideMenu from "./components/LeftSideMenu";
 import RightSideMenu from "./components/RightSideMenu";
-
 import "./App.css";
 
 export default function App() {
-  const [element, setElement] = useState(null);
-
   const drop = (e) => {
     e.preventDefault();
-    console.log(e.target);
-    e.target.appendChild(element);
+    const element_id = e.dataTransfer.getData("element_id");
+    const element = document.getElementById(element_id);
+    const clone = element.cloneNode(true);
+    e.target.appendChild(clone);
   };
 
   const dragOver = (e) => {
@@ -21,21 +20,27 @@ export default function App() {
 
   const dragStart = (e) => {
     const target = e.target;
-    setElement(target);
-    e.dataTransfer.setData("card_id", target.id);
+    e.dataTransfer.setData("element_id", target.id);
+    e.dataTransfer.effectAllowed = "copy";
   };
 
   const dragOverC = (e) => {
     e.stopPropagation();
   };
 
+  useEffect(() => {
+    const iframepage = document.querySelector("iframe");
+    iframepage.contentWindow.document.body.ondrop = drop;
+    iframepage.contentWindow.document.body.ondragover = dragOver;
+  }, []);
+
   return (
     <div className="app">
       <NavBar />
       <main className="main">
-        <LeftSideMenu onDragStart={dragStart} onDragOver={dragOverC} />
-        <IFrame onDrop={drop} onDragOver={dragOver} />
-        <RightSideMenu onDragStart={dragStart} onDragOver={dragOverC} />
+        <LeftSideMenu onDragStart={dragStart} onDragOver={dragOver} />
+        <IFrame onDrop={drop} onDragOver={dragOver}></IFrame>
+        <RightSideMenu />
       </main>
     </div>
   );
