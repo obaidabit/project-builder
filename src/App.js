@@ -5,6 +5,7 @@ import LeftSideMenu from "./components/LeftSideMenu";
 import RightSideMenu from "./components/RightSideMenu";
 import "./App.css";
 let tempElement = null;
+let inIframe = false;
 
 export default function App() {
   const [iframe, setIframe] = useState(null);
@@ -21,7 +22,14 @@ export default function App() {
 
   const drop = (e) => {
     e.preventDefault();
-    const clone = tempElement.cloneNode(true);
+    let clone = null;
+
+    if (inIframe) {
+      clone = tempElement;
+    } else {
+      clone = tempElement.cloneNode(true);
+    }
+
     e.target.appendChild(clone);
     e.target.style = elementStyle;
   };
@@ -31,6 +39,9 @@ export default function App() {
   };
 
   const dragStart = (e) => {
+    if (e.target.ownerDocument.querySelector("body").id === "target")
+      inIframe = true;
+    else inIframe = false;
     tempElement = e.target;
   };
 
@@ -42,6 +53,7 @@ export default function App() {
       frame.contentWindow.document.body.ondragenter = dragEnter;
       frame.contentWindow.document.body.ondragleave = dragLeave;
       frame.contentWindow.document.body.ondragstart = dragStart;
+      frame.contentWindow.document.body.id = "target";
 
       frame.contentWindow.addEventListener("click", (e) => {
         console.log(e.target);
