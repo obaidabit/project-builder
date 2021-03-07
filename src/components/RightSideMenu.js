@@ -5,16 +5,16 @@ export default function RightSideMenu() {
     <div className="right-side-menu">
       <h3>Right Menu</h3>
       <div className="elements">
-        <div className="element" draggable="true">
+        <div className="element">
           <p>Element One</p>
         </div>
-        <div className="element" draggable="true">
+        <div className="element">
           <p>Element Two</p>
         </div>
-        <div className="element" draggable="true">
+        <div className="element">
           <p>Element Three</p>
         </div>
-        <div className="element" draggable="true">
+        <div className="element">
           <p>Element Four</p>
         </div>
       </div>
