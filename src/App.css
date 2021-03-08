@@ -69,7 +69,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: grab;
-  min-height: 50px;
+  /* min-height: 50px; */
 }
 
 .element:active {
@@ -81,4 +81,5 @@ body {
   padding: 0.5rem;
   width: 100%;
   height: 100%;
+  text-align: center;
 }

@@ -9,21 +9,53 @@ let inIframe = false;
 
 export default function App() {
   const [iframe, setIframe] = useState(null);
-  const [elementStyle, setElementStyle] = useState(null);
+  const [oldBackground, setOldBackground] = useState(null);
+
+  const SelectTag = (element) => {
+    let tag = null;
+    switch (element.id) {
+      case "section":
+        tag = document.createElement("section");
+        tag.innerHTML = "Section";
+        break;
+      case "navbar":
+        tag = document.createElement("nav");
+        tag.innerHTML = "Navbar";
+        break;
+      case "link":
+        tag = document.createElement("a");
+        tag.innerHTML = "Link";
+        tag.href = "#";
+        break;
+      case "button":
+        tag = document.createElement("button");
+        tag.innerHTML = "Button";
+        break;
+      default:
+        break;
+    }
+    //tag.addEventListener('mouseout')
+    tag.style.padding = "1rem";
+    tag.draggable = true;
+    return tag;
+  };
 
   const dragEnter = (e) => {
-    setElementStyle(e.target.style);
+    setOldBackground(e.target.style.background);
     e.target.style.background = "#afc7ff";
   };
 
   const dragLeave = (e) => {
-    e.target.style = elementStyle;
+    e.target.style.background = oldBackground;
   };
 
   const drop = (e) => {
     e.preventDefault();
     let clone = null;
-
+    if (e.target === tempElement) {
+      e.target.style.background = oldBackground;
+      return;
+    }
     if (inIframe) {
       clone = tempElement;
     } else {
@@ -31,7 +63,7 @@ export default function App() {
     }
 
     e.target.appendChild(clone);
-    e.target.style = elementStyle;
+    e.target.style.background = oldBackground;
   };
 
   const dragOver = (e) => {
@@ -39,10 +71,13 @@ export default function App() {
   };
 
   const dragStart = (e) => {
-    if (e.target.ownerDocument.querySelector("body").id === "target")
+    if (e.target.ownerDocument.querySelector("body").id === "target") {
       inIframe = true;
-    else inIframe = false;
-    tempElement = e.target;
+      tempElement = e.target;
+    } else {
+      inIframe = false;
+      tempElement = SelectTag(e.target);
+    }
   };
 
   useEffect(() => {
@@ -57,6 +92,12 @@ export default function App() {
 
       frame.contentWindow.addEventListener("click", (e) => {
         console.log(e.target);
+      });
+      frame.contentWindow.addEventListener("mouseover", (e) => {
+        e.target.style.outline = "#66a2ff solid 2px";
+      });
+      frame.contentWindow.addEventListener("mouseout", (e) => {
+        e.target.style.outline = "";
       });
       setIframe(frame);
     }
