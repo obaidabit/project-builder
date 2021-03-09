@@ -4,13 +4,36 @@ import IFrame from "./components/IFrame";
 import LeftSideMenu from "./components/LeftSideMenu";
 import RightSideMenu from "./components/RightSideMenu";
 import "./App.css";
+
 let tempElement = null;
 let inIframe = false;
+const mousePosition = {
+  x: 0,
+  y: 0,
+};
 
 export default function App() {
   const [iframe, setIframe] = useState(null);
   const [oldBackground, setOldBackground] = useState(null);
 
+  const dropPosition = (currentNode, targetNode) => {
+    const currentRec = currentNode.getBoundingClientRect();
+    const targetRec = targetNode.getBoundingClientRect();
+    console.log(`current element :${currentRec.top + currentRec.height}`);
+    console.log(`target element :${targetRec.top + targetRec.height}`);
+    console.log(`mouse position : x:${mousePosition.x}, y:${mousePosition.y}`);
+
+    if (targetRec.top + targetRec.height / 3 > mousePosition.y) {
+      return "before";
+    } else if (
+      targetRec.top + targetRec.height / 3 < mousePosition.y &&
+      targetRec.top + targetRec.height - targetRec.height / 3 < mousePosition.y
+    ) {
+      targetNode.style.borderBottom = "2px solid green";
+      return "after";
+    }
+    return "add";
+  };
   const SelectTag = (element) => {
     let tag = null;
     switch (element.id) {
@@ -34,7 +57,7 @@ export default function App() {
       default:
         break;
     }
-    //tag.addEventListener('mouseout')
+    tag.style.border = "1px dotted #2196f3";
     tag.style.padding = "1rem";
     tag.draggable = true;
     return tag;
@@ -43,6 +66,9 @@ export default function App() {
   const dragEnter = (e) => {
     setOldBackground(e.target.style.background);
     e.target.style.background = "#afc7ff";
+    if (tempElement.ownerDocument.querySelector("body").id === "target") {
+      if (tempElement !== e.target) dropPosition(tempElement, e.target);
+    }
   };
 
   const dragLeave = (e) => {
@@ -58,12 +84,24 @@ export default function App() {
     }
     if (inIframe) {
       clone = tempElement;
+      switch (dropPosition(tempElement, e.target)) {
+        case "before":
+          e.target.parentNode.insertBefore(tempElement, e.target);
+          break;
+        case "after":
+          e.target.parentNode.insertBefore(tempElement, e.target.nextSibling);
+          break;
+        default:
+          e.target.appendChild(clone);
+          break;
+      }
     } else {
       clone = tempElement.cloneNode(true);
+      e.target.appendChild(clone);
     }
-
-    e.target.appendChild(clone);
+    //clone.contentEditable = true;
     e.target.style.background = oldBackground;
+    e.target.style.borderBottom = "";
   };
 
   const dragOver = (e) => {
@@ -80,9 +118,15 @@ export default function App() {
     }
   };
 
+  const drag = (e) => {
+    mousePosition.x = e.clientX;
+    mousePosition.y = e.clientY;
+  };
+
   useEffect(() => {
     const frame = document.querySelector("iframe");
     if (frame) {
+      frame.contentWindow.document.body.ondrag = drag;
       frame.contentWindow.document.body.ondrop = drop;
       frame.contentWindow.document.body.ondragover = dragOver;
       frame.contentWindow.document.body.ondragenter = dragEnter;
