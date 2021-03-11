@@ -8,13 +8,13 @@ const mousePosition = {
 
 const dropPosition = (targetNode) => {
   const targetRec = targetNode.getBoundingClientRect();
-  let position = "";
 
   if (
     targetNode === document.querySelector("iframe").contentWindow.document.body
   )
     return "add";
 
+  let position = "";
   if (targetRec.top + targetRec.height / 3 > mousePosition.y) {
     position = "before";
   } else if (
@@ -52,7 +52,7 @@ const SelectTag = (element) => {
     default:
       break;
   }
-  tag.style.border = "1px dotted #2196f3";
+  tag.style.outline = "1px dotted #2196f3";
   tag.style.padding = "1rem";
   tag.draggable = true;
   return tag;
@@ -110,7 +110,7 @@ const drop = (e) => {
   };
 
   e.target.style.background = oldBackground;
-  e.target.style.border = "1px dotted #2196f3";
+  e.target.style.outline = "1px dotted #2196f3";
 };
 
 const dragOver = (e) => {

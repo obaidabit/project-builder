@@ -7,6 +7,26 @@ body {
   background-color: #f3f3f3;
 }
 
+.hide {
+  display: none;
+}
+
+.hide-page {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #686868;
+  z-index: 10;
+  cursor: pointer;
+  border: none;
+}
+
+.hide-page img {
+  padding: 3px 2px 0px 2px;
+  width: 25px;
+  height: 25px;
+}
+
 .test {
   width: 300px;
   height: 300px;
@@ -15,7 +35,31 @@ body {
 .navbar {
   background: #828282;
   color: white;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.screen-btn {
+  margin: 0 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.screen-btn:active {
+  outline: none;
+}
+
+.btn-selected {
+  background: #9a9a9a;
+  outline: none;
+  border-radius: 3px;
+}
+
+.screen-btn img {
+  padding: 3px 2px 0px 2px;
+  width: 25px;
+  height: 25px;
 }
 
 .app {
@@ -46,14 +90,27 @@ body {
   width: 250px;
 }
 
+.show-target-page {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
 .target-page {
+  justify-content: center;
+  display: flex;
   flex-grow: 2;
+  background: #8e8e8e;
 }
 
 .target-page iframe {
   width: 100%;
   height: 100%;
   border: 1px solid #ff4c5b;
+  background: white;
+  transition: width 0.4s ease-in;
 }
 
 .elements {
@@ -69,7 +126,6 @@ body {
   justify-content: center;
   align-items: center;
   cursor: grab;
-  /* min-height: 50px; */
 }
 
 .element:active {
