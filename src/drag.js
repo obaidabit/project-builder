@@ -1,3 +1,5 @@
+import { createElement } from "react";
+
 let tempElement = null;
 let inIframe = false;
 let oldBackground = "";
@@ -37,8 +39,7 @@ const SelectTag = (element) => {
       tag.innerHTML = "Section";
       break;
     case "navbar":
-      tag = document.createElement("nav");
-      tag.innerHTML = "Navbar";
+      tag = document.createElement("button");
       break;
     case "link":
       tag = document.createElement("a");
@@ -48,13 +49,44 @@ const SelectTag = (element) => {
     case "button":
       tag = document.createElement("button");
       tag.innerHTML = "Button";
+      tag.className = "light-button";
+      break;
+    case "radio-button":
+      tag=document.createElement("label");
+      let spn=document.createElement("dev");
+      let radio=document.createElement("input");
+      spn.className="radio-radio";
+      radio.type="radio";
+      radio.className="radio-input";
+      tag.innerHTML="This is Radio Button";
+      tag.className="radio";
+      tag.appendChild(radio);
+      tag.appendChild(spn);
+      break;
+    case "input-text":
+      tag = document.createElement("input");
+      tag.innerHTML = "input";
+      tag.type = "text";
+      // tag.className = "light-button";
+      break;
+
+    case "image":
+      tag = document.createElement("img");
+      tag.src = "./img/adult-beanie-crisis-220365.jpg";
+      tag.className = "image";
+      break;
+    case "video":
+      tag = document.createElement("video");
+      tag.setAttribute("controls", "");
+      tag.className="video";
+      let source = document.createElement("source");
+      source.src = "./img/AHHHHHHHHHH (Alternate Extended) (Big Enough) [HD] (online-video-cutter.com).mp4";
+      source.type = "video/mp4";
+      tag.appendChild(source);
       break;
     default:
       break;
   }
-  tag.style.outline = "1px dotted #2196f3";
-  tag.style.padding = "1rem";
-  tag.draggable = true;
   return tag;
 };
 
