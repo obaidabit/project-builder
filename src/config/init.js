@@ -12,8 +12,12 @@ const init = () => {
     frame.contentWindow.document.body.ondragstart = dragStart;
     frame.contentWindow.document.body.id = "target";
 
+    const div = document.createElement("div");
+    div.style.display = "none";
+    div.id = "target-tag";
+    frame.contentWindow.document.body.appendChild(div);
+
     frame.contentWindow.addEventListener("click", (e) => {
-      console.log(e.target);
       changeElement(e);
     });
     frame.contentWindow.addEventListener("mouseover", (e) => {
