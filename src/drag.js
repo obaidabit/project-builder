@@ -1,5 +1,3 @@
-import { createElement } from "react";
-
 let tempElement = null;
 let inIframe = false;
 let oldBackground = "";
@@ -39,7 +37,8 @@ const SelectTag = (element) => {
       tag.innerHTML = "Section";
       break;
     case "navbar":
-      tag = document.createElement("button");
+      tag = document.createElement("nav");
+      tag.innerHTML = "Navbar";
       break;
     case "link":
       tag = document.createElement("a");
@@ -52,14 +51,14 @@ const SelectTag = (element) => {
       tag.className = "light-button";
       break;
     case "radio-button":
-      tag=document.createElement("label");
-      let spn=document.createElement("dev");
-      let radio=document.createElement("input");
-      spn.className="radio-radio";
-      radio.type="radio";
-      radio.className="radio-input";
-      tag.innerHTML="This is Radio Button";
-      tag.className="radio";
+      tag = document.createElement("label");
+      let spn = document.createElement("dev");
+      let radio = document.createElement("input");
+      spn.className = "radio-radio";
+      radio.type = "radio";
+      radio.className = "radio-input";
+      tag.innerHTML = "This is Radio Button";
+      tag.className = "radio";
       tag.appendChild(radio);
       tag.appendChild(spn);
       break;
@@ -78,15 +77,17 @@ const SelectTag = (element) => {
     case "video":
       tag = document.createElement("video");
       tag.setAttribute("controls", "");
-      tag.className="video";
+      tag.className = "video";
       let source = document.createElement("source");
-      source.src = "./img/AHHHHHHHHHH (Alternate Extended) (Big Enough) [HD] (online-video-cutter.com).mp4";
+      source.src =
+        "./img/AHHHHHHHHHH (Alternate Extended) (Big Enough) [HD] (online-video-cutter.com).mp4";
       source.type = "video/mp4";
       tag.appendChild(source);
       break;
     default:
       break;
   }
+  tag.draggable = "true";
   return tag;
 };
 

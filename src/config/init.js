@@ -29,7 +29,7 @@ const init = () => {
       e.target.style.outline = "#66a2ff solid 2px";
     });
     frame.contentWindow.addEventListener("mouseout", (e) => {
-      e.target.style.outline = "1px dotted #2196f3";
+      e.target.style.outline = "";
     });
   }
 };
