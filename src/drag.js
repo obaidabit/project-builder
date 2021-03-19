@@ -68,7 +68,6 @@ const SelectTag = (element) => {
       tag.type = "text";
       // tag.className = "light-button";
       break;
-
     case "image":
       tag = document.createElement("img");
       tag.src = "./img/adult-beanie-crisis-220365.jpg";
@@ -134,6 +133,7 @@ const drop = (e) => {
     clone = tempElement.cloneNode(true);
     e.target.appendChild(clone);
   }
+
   clone.onclick = (e) => {
     let right = document.getElementsByClassName("elements");
     right[1].style.display = "block";

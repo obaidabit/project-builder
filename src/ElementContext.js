@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const ElementContext = createContext();
 
 const ElementProvider = (props) => {
-  const [selectedElement, setSelectedElement] = useState("hello");
+  const [selectedElement, setSelectedElement] = useState("");
   return (
     <ElementContext.Provider value={[selectedElement, setSelectedElement]}>
       {props.children}
