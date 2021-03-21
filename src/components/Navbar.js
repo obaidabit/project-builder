@@ -15,7 +15,7 @@ export default function Navbar() {
           iframe.style.width = "100%";
           break;
       }
-      const btns = document.querySelectorAll(".screen-size .screen-btn");
+      const btns = document.querySelectorAll(".screen-group .screen-btn");
 
       btns.forEach((item) => {
         if (item === e.target.parentNode) {
@@ -53,44 +53,48 @@ export default function Navbar() {
     }
   };
 
-  const toggleDash = () => {
+  const toggleDash = (e) => {
     const doc = document.querySelector("iframe").contentWindow.document;
     if (doc) {
       if (doc.body.classList.contains("dash-elements")) {
         doc.body.classList.remove("dash-elements");
+        e.target.parentNode.classList.remove("btn-selected");
       } else {
         doc.body.classList.add("dash-elements");
+        e.target.parentNode.classList.add("btn-selected");
       }
     }
   };
 
   return (
     <header>
-      <div className="navbar">
-        <h3>Navbar</h3>
+      <div className="navbar shadow">
+        <h3>Logo</h3>
         <button onClick={toggleTargetPage} className="hide hide-page">
-          <img src="img/hide.svg" alt="full screen button" />
+          <img src="img/light/hide.svg" alt="full screen button" />
         </button>
-        <div>
-          <button onClick={toggleDash} className="screen-btn">
-            <img src="img/shape.svg" alt="outline" />
-          </button>
-          <button onClick={toggleFullScreen} className="screen-btn">
-            <img src="img/fullscreen.svg" alt="full screen button" />
-          </button>
-          <button onClick={toggleTargetPage} className="screen-btn">
-            <img src="img/visibility.svg" alt="show page button" />
-          </button>
-        </div>
-        <div className="screen-size">
+
+        <div className="screen-group">
           <button onClick={changeScreen} className="screen-btn">
-            <img src="img/phone.svg" alt="phone" />
+            <img src="img/light/phone.svg" alt="phone" />
           </button>
           <button onClick={changeScreen} className="screen-btn">
-            <img src="img/tablet.svg" alt="tablet" />
+            <img src="img/light/tablet.svg" alt="tablet" />
           </button>
           <button onClick={changeScreen} className="screen-btn btn-selected">
-            <img src="img/monitor.svg" alt="monitor" />
+            <img src="img/light/monitor.svg" alt="monitor" />
+          </button>
+        </div>
+
+        <div className="tools-group">
+          <button onClick={toggleDash} className="screen-btn">
+            <img src="img/light/shape.svg" alt="outline" />
+          </button>
+          <button onClick={toggleTargetPage} className="screen-btn">
+            <img src="img/light/visibility.svg" alt="show page button" />
+          </button>
+          <button onClick={toggleFullScreen} className="screen-btn">
+            <img src="img/light/full-screen.svg" alt="full screen button" />
           </button>
         </div>
       </div>

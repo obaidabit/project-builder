@@ -130,13 +130,13 @@ const drop = (e) => {
         break;
     }
   } else {
-    clone = tempElement.cloneNode(true);
+    clone = tempElement;
     e.target.appendChild(clone);
   }
 
   clone.onclick = (e) => {
-    let right = document.getElementsByClassName("elements");
-    right[1].style.display = "block";
+    let right = document.querySelector(".styles");
+    right.style.display = "block";
   };
   clone.ondblclick = (e) => {
     e.target.contentEditable = "true";

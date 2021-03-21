@@ -59,7 +59,7 @@ export default function General() {
   };
 
   return (
-    <div style={{ display: "none" }}>
+    <div style={{ display: "none" }} className="style-group">
       <div>
         <span>Display</span>
         <select
@@ -90,7 +90,7 @@ export default function General() {
         </select>
       </div>
       <div>
-        <span>top </span>
+        <span>Top </span>
         <input
           name="top"
           type="number"
@@ -99,7 +99,7 @@ export default function General() {
         ></input>
       </div>
       <div>
-        <span>bottom </span>
+        <span>Bottom </span>
         <input
           name="bottom"
           type="number"
@@ -108,7 +108,7 @@ export default function General() {
         ></input>
       </div>
       <div>
-        <span>right </span>
+        <span>Right </span>
         <input
           name="right"
           type="number"
@@ -117,7 +117,7 @@ export default function General() {
         ></input>
       </div>
       <div>
-        <span>left </span>
+        <span>Left </span>
         <input
           name="left"
           type="number"

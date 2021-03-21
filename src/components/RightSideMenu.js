@@ -3,17 +3,25 @@ import General from "../General";
 
 export default function RightSideMenu(props) {
   function show(e) {
-    if (e.target.nextElementSibling.style.display === "none")
-      e.target.nextElementSibling.style.display = "block";
-    else e.target.nextElementSibling.style.display = "none";
+    if (e.target.parentNode.nextElementSibling.style.display === "none") {
+      e.target.parentNode.nextElementSibling.style.display = "grid";
+      e.target.parentElement.querySelector("img").src = "img/light/line.svg";
+    } else {
+      e.target.parentNode.nextElementSibling.style.display = "none";
+      e.target.parentElement.querySelector("img").src = "img/light/plus.svg";
+    }
   }
 
   return (
     <div className="right-side-menu">
-      <h3>Right Menu </h3>
-      <div className="elements" style={{ display: "none" }}>
-        <div onClick={show}>General</div>
-        <General />
+      <div className="styles" style={{ display: "none" }}>
+        <div className="group">
+          <div className="toggle" onClick={show}>
+            <h4>General</h4>
+            <img src="img/light/plus.svg" alt="" />
+          </div>
+          <General />
+        </div>
       </div>
     </div>
   );
