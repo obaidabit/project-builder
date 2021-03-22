@@ -11,12 +11,12 @@ export default function General() {
   const [bottom, setBottom] = useState("");
 
   useEffect(() => {
-    setDisplay(selectedElement.display);
-    setPosition(selectedElement.position);
-    setTop(selectedElement.top);
-    setLeft(selectedElement.left);
-    setRight(selectedElement.right);
-    setBottom(selectedElement.bottom);
+    setDisplay(selectedElement.style.display);
+    setPosition(selectedElement.style.position);
+    setTop(selectedElement.style.top);
+    setLeft(selectedElement.style.left);
+    setRight(selectedElement.style.right);
+    setBottom(selectedElement.style.bottom);
   }, [selectedElement]);
 
   const updateState = (name, value) => {
@@ -47,14 +47,14 @@ export default function General() {
   const handleSelect = (e) => {
     updateState(e.target.name, e.target.value);
     const temp = selectedElement;
-    temp[e.target.name] = e.target.value;
+    temp.style[e.target.name] = e.target.value;
     setSelectedElement(temp);
   };
 
   const handleInput = (e) => {
     updateState(e.target.name, e.target.value);
     const temp = selectedElement;
-    temp[e.target.name] = e.target.value;
+    temp.style[e.target.name] = e.target.value;
     setSelectedElement(temp);
   };
 

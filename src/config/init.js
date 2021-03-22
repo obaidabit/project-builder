@@ -1,34 +1,39 @@
-import { changeElement } from "../components/changeStyle";
 import { drag, dragStart, dragOver, drop, dragLeave, dragEnter } from "../drag";
 
 const init = () => {
-  const frame = document.querySelector("iframe");
+  const iframe = document.querySelector("iframe");
+  const doc = iframe.contentWindow.document;
   let link = document.createElement("link");
+
   link.href = "elements-style.css"; /**** your CSS file ****/
   link.rel = "stylesheet";
   link.type = "text/css";
-  if (frame) {
-    frame.contentWindow.document.head.appendChild(link);
-    frame.contentWindow.document.body.ondrag = drag;
-    frame.contentWindow.document.body.ondrop = drop;
-    frame.contentWindow.document.body.ondragover = dragOver;
-    frame.contentWindow.document.body.ondragenter = dragEnter;
-    frame.contentWindow.document.body.ondragleave = dragLeave;
-    frame.contentWindow.document.body.ondragstart = dragStart;
-    frame.contentWindow.document.body.id = "target";
 
-    const div = document.createElement("div");
-    div.style.display = "none";
-    div.id = "target-tag";
-    frame.contentWindow.document.body.appendChild(div);
+  if (iframe) {
+    doc.head.appendChild(link);
+    doc.body.ondrag = drag;
+    doc.body.ondrop = drop;
+    doc.body.ondragover = dragOver;
+    doc.body.ondragenter = dragEnter;
+    doc.body.ondragleave = dragLeave;
+    doc.body.ondragstart = dragStart;
+    doc.body.id = "target";
 
-    frame.contentWindow.addEventListener("click", (e) => {
-      changeElement(e);
-    });
-    frame.contentWindow.addEventListener("mouseover", (e) => {
+    doc.onclick = (e) => {
+      const div = document.querySelector(".selected-element");
+      const rect = e.target.getBoundingClientRect();
+      const frect = iframe.getBoundingClientRect();
+      div.style.display = "inline";
+      div.style.width = rect.width + "px";
+      div.style.height = rect.height + "px";
+      div.style.top = frect.top + rect.top + "px";
+      div.style.left = frect.left + rect.left + "px";
+    };
+
+    iframe.contentWindow.addEventListener("mouseover", (e) => {
       e.target.style.outline = "#66a2ff solid 2px";
     });
-    frame.contentWindow.addEventListener("mouseout", (e) => {
+    iframe.contentWindow.addEventListener("mouseout", (e) => {
       e.target.style.outline = "";
     });
   }

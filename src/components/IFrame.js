@@ -7,7 +7,7 @@ export default function Iframe({ children, ...props }) {
   useEffect(() => {
     const frame = document.querySelector("iframe");
     frame.contentWindow.addEventListener("click", (e) => {
-      setSelectedElement(e.target.style);
+      setSelectedElement(e.target);
     });
   }, []);
 

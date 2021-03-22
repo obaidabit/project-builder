@@ -4,6 +4,7 @@ import IFrame from "./components/IFrame";
 import LeftSideMenu from "./components/LeftSideMenu";
 import RightSideMenu from "./components/RightSideMenu";
 import ElementProvider from "./ElementContext";
+import SelectBox from "./components/SelectBox";
 import { dragStart, dragOver, drop, dragLeave, dragEnter } from "./drag";
 import init from "./config/init";
 import "./App.css";
@@ -27,6 +28,7 @@ export default function App() {
           ></IFrame>
           <RightSideMenu />
         </main>
+        <SelectBox />
       </div>
     </ElementProvider>
   );
