@@ -1,12 +1,20 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ElementContext } from "../ElementContext";
+import savePage from "../savePage";
 
 export default function SelectBox() {
   const [selectedElement] = useContext(ElementContext);
   const [name, setName] = useState("");
 
   const close = () => {
+    const iframe = document.querySelector("iframe");
     const tool = document.querySelector(".selected-element");
+    const editable = iframe.contentWindow.document.querySelectorAll(
+      "[contenteditable]"
+    );
+    editable.forEach((item) => {
+      if (item.contentEditable) item.contentEditable = false;
+    });
     tool.style.display = "none";
   };
 
@@ -17,6 +25,7 @@ export default function SelectBox() {
     }
     close();
     selectedElement.remove();
+    savePage(false);
   };
 
   useEffect(() => {

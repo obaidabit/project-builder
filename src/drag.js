@@ -1,3 +1,5 @@
+import savePage from "./savePage";
+
 let tempElement = null;
 let inIframe = false;
 let oldBackground = "";
@@ -111,39 +113,41 @@ const dragLeave = (e) => {
 
 const drop = (e) => {
   e.preventDefault();
+
   let clone = null;
+  let dropParent = null;
+
   if (e.target === tempElement) {
     e.target.style.background = oldBackground;
     return;
   }
+
   if (inIframe) {
     clone = tempElement;
     switch (dropPosition(e.target)) {
       case "before":
         e.target.parentNode.insertBefore(tempElement, e.target);
+        dropParent = e.target.parentNode;
         break;
       case "after":
         e.target.parentNode.insertBefore(tempElement, e.target.nextSibling);
+        dropParent = e.target.parentNode;
         break;
       default:
         e.target.appendChild(clone);
+        dropParent = e.target;
         break;
     }
   } else {
     clone = tempElement;
+    clone.id = Math.random().toString(36).substr(2, 5);
     e.target.appendChild(clone);
+    dropParent = e.target;
   }
-
-  clone.onclick = (e) => {
-    let right = document.querySelector(".styles");
-    right.style.display = "block";
-  };
-  clone.ondblclick = (e) => {
-    e.target.contentEditable = "true";
-  };
 
   e.target.style.background = oldBackground;
   e.target.style.outline = "1px dotted #2196f3";
+  savePage(false);
 };
 
 const dragOver = (e) => {

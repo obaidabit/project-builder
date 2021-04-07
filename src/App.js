@@ -7,11 +7,13 @@ import ElementProvider from "./ElementContext";
 import SelectBox from "./components/SelectBox";
 import { dragStart, dragOver, drop, dragLeave, dragEnter } from "./drag";
 import init from "./config/init";
+import savePage from "./savePage";
 import "./App.css";
 
 export default function App() {
   useEffect(() => {
     init();
+    savePage(true);
   }, []);
 
   return (
