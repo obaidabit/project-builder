@@ -1,4 +1,14 @@
 import savePage from "./savePage";
+import Test from "./components/elements/Test";
+import Button from "./components/elements/Button";
+import Image from "./components/elements/Image";
+import Input from "./components/elements/Input";
+import Link from "./components/elements/Link";
+import Nav from "./components/elements/Nav";
+import RadioButton from "./components/elements/RadioButton";
+import Section from "./components/elements/Section";
+import Video from "./components/elements/Video";
+import ReactDOMServer from "react-dom/server";
 
 let tempElement = null;
 let inIframe = false;
@@ -35,59 +45,38 @@ const SelectTag = (element) => {
   let tag = null;
   switch (element.id) {
     case "section":
-      tag = document.createElement("section");
-      tag.innerHTML = "Section";
+      tag = <Section />;
       break;
     case "navbar":
-      tag = document.createElement("nav");
-      tag.innerHTML = "Navbar";
+      tag = <Nav />;
       break;
     case "link":
-      tag = document.createElement("a");
-      tag.innerHTML = "Link";
-      tag.href = "#";
+      tag = <Link />;
       break;
     case "button":
-      tag = document.createElement("button");
-      tag.innerHTML = "Button";
-      tag.className = "light-button";
+      tag = <Button />;
       break;
     case "radio-button":
-      tag = document.createElement("label");
-      let spn = document.createElement("dev");
-      let radio = document.createElement("input");
-      spn.className = "radio-radio";
-      radio.type = "radio";
-      radio.className = "radio-input";
-      tag.innerHTML = "This is Radio Button";
-      tag.className = "radio";
-      tag.appendChild(radio);
-      tag.appendChild(spn);
+      tag = <RadioButton />;
       break;
     case "input-text":
-      tag = document.createElement("input");
-      tag.innerHTML = "input";
-      tag.type = "text";
-      // tag.className = "light-button";
+      tag = <Input />;
       break;
     case "image":
-      tag = document.createElement("img");
-      tag.src = "./img/adult-beanie-crisis-220365.jpg";
-      tag.className = "image";
+      tag = <Image />;
       break;
     case "video":
-      tag = document.createElement("video");
-      tag.setAttribute("controls", "");
-      tag.className = "video";
-      let source = document.createElement("source");
-      source.src =
-        "./img/AHHHHHHHHHH (Alternate Extended) (Big Enough) [HD] (online-video-cutter.com).mp4";
-      source.type = "video/mp4";
-      tag.appendChild(source);
+      tag = <Video />;
       break;
     default:
+      tag = <Test />;
       break;
   }
+
+  const htmlString = ReactDOMServer.renderToStaticMarkup(tag);
+  const el = new DOMParser().parseFromString(htmlString, "text/html");
+  tag = el.body.firstChild;
+
   tag.draggable = "true";
   return tag;
 };
@@ -113,36 +102,31 @@ const dragLeave = (e) => {
 
 const drop = (e) => {
   e.preventDefault();
+  mousePosition.x = e.clientX;
+  mousePosition.y = e.clientY;
 
   let clone = null;
-  let dropParent = null;
 
   if (e.target === tempElement) {
     e.target.style.background = oldBackground;
     return;
   }
 
-  if (inIframe) {
-    clone = tempElement;
-    switch (dropPosition(e.target)) {
-      case "before":
-        e.target.parentNode.insertBefore(tempElement, e.target);
-        dropParent = e.target.parentNode;
-        break;
-      case "after":
-        e.target.parentNode.insertBefore(tempElement, e.target.nextSibling);
-        dropParent = e.target.parentNode;
-        break;
-      default:
-        e.target.appendChild(clone);
-        dropParent = e.target;
-        break;
-    }
-  } else {
-    clone = tempElement;
+  clone = tempElement;
+  switch (dropPosition(e.target)) {
+    case "before":
+      e.target.parentNode.insertBefore(tempElement, e.target);
+      break;
+    case "after":
+      e.target.parentNode.insertBefore(tempElement, e.target.nextSibling);
+      break;
+    default:
+      e.target.appendChild(clone);
+      break;
+  }
+
+  if (!inIframe) {
     clone.id = Math.random().toString(36).substr(2, 5);
-    e.target.appendChild(clone);
-    dropParent = e.target;
   }
 
   e.target.style.background = oldBackground;

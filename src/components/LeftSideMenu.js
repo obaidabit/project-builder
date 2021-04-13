@@ -3,13 +3,12 @@ import React from "react";
 export default function LeftSideMenu({ ...props }) {
   return (
     <div className="left-side-menu">
-      <h3>Components</h3>
       <div className="tabs shadow">
         <button>
-          <p>Tab 1</p>
+          <p>Elements</p>
         </button>
         <button>
-          <p>Tab 2</p>
+          <p>Layout</p>
         </button>
         <button>
           <p>Tab 3</p>
@@ -103,6 +102,9 @@ export default function LeftSideMenu({ ...props }) {
             alt="video"
           />
           <p>Radio</p>
+        </div>
+        <div className="element shadow" id="test" {...props} draggable="true">
+          <h4>Test</h4>
         </div>
         {/*<div className="element" id="check-button" {...props} draggable="true">
           <p>Check Button</p>
