@@ -3,18 +3,103 @@
   --bg-main: #f5f5f5;
   --font-color: #707070;
   --bg-elements: #fafafa;
+  --blue: #6aa6f5;
 }
 
-* {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: var(--font-color);
+  scrollbar-width: thin;
+  scrollbar-color: #a1a1a1 var(--bg-main);
 }
-
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #a1a1a1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #818181;
+  cursor: pointer;
+}
 body {
   background-color: var(--bg-page);
+  height: 100%;
   overflow: hidden;
+}
+
+.p-1 {
+  padding: 5px;
+}
+.p-2 {
+  padding: 10px;
+}
+.p-3 {
+  padding: 15px;
+}
+.p-x-1 {
+  padding: 0px 5px;
+}
+.p-x-2 {
+  padding: 0px 10px;
+}
+.p-x-3 {
+  padding: 0px 15px;
+}
+.p-y-1 {
+  padding: 5px 0px;
+}
+.p-y-2 {
+  padding: 10px 0px;
+}
+.p-y-3 {
+  padding: 15px 0px;
+}
+
+.m-1 {
+  margin: 5px;
+}
+.m-2 {
+  margin: 10px;
+}
+.m-3 {
+  margin: 15px;
+}
+.m-x-1 {
+  margin: 0px 5px;
+}
+.m-x-2 {
+  margin: 0px 10px;
+}
+.m-x-3 {
+  margin: 0px 15px;
+}
+.m-y-1 {
+  margin: 5px 0px;
+}
+.m-y-2 {
+  margin: 10px 0px;
+}
+.m-y-3 {
+  margin: 15px 0px;
+}
+
+.m-t-1 {
+  margin-top: 5px;
+}
+.m-t-2 {
+  margin-top: 10px;
+}
+.m-t-3 {
+  margin-top: 15px;
 }
 
 .shadow {
@@ -30,7 +115,7 @@ body {
   position: absolute;
   outline: 3px solid #6aa6f5;
   pointer-events: none;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 .selected-element button {
@@ -60,9 +145,9 @@ body {
   background: #6aa6f5;
   color: white;
   font-size: 14px;
-  top: -20px;
+  top: -18px;
   left: -4px;
-  border-radius: 3px;
+  border-radius: 2px;
   text-transform: lowercase;
   padding: 0 5px;
 }
@@ -137,14 +222,15 @@ header {
   flex-direction: column;
   min-height: 100vh;
   max-height: 100vh;
+  height: 100vh;
 }
 
 .main {
   display: flex;
   flex-grow: 2;
   width: 100%;
-  height: 100%;
-  margin-top: 5px;
+  height: calc(100% - 50px);
+  margin-top: 3px;
 }
 
 .show-target-page {
@@ -174,40 +260,71 @@ header {
 /* ------------------------------ left side menu ----------------------------*/
 
 .left-side-menu {
-  background: var(--bg-main);
   color: var(--font-color);
-  padding: 1rem 0.5rem;
-  margin-right: 5px;
+  margin-right: 3px;
   width: 260px;
+  padding: 0px 0px 0.5rem 0px;
 }
 
 .tabs {
   display: flex;
   background: var(--bg-elements);
-  border: 1px solid #d4d4d4;
   border-radius: 3px;
-  margin-top: 17px;
+  margin-bottom: 3px;
 }
 
-.tabs button {
+.tab {
   border: none;
-  padding: 5px 5px;
+  padding: 5px;
   width: 100%;
   background: var(--bg-elements);
   color: var(--font-color);
+  cursor: pointer;
+  text-align: center;
+  position: relative;
 }
 
-.tabs button:nth-child(2) {
+.tab p {
+  font-size: 14px;
+}
+
+.tab:nth-child(2) {
   border-left: 1px solid #d4d4d4;
   border-right: 1px solid #d4d4d4;
 }
 
+.active-tab {
+  background: white;
+}
+.active-tab p::before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: var(--blue);
+  display: block;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+}
+
+.group-elements {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: calc(100% - 25px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--bg-main);
+  padding-bottom: 0.5rem;
+}
+
 .elements {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 75px 75px 75px;
   column-gap: 10px;
   row-gap: 15px;
-  margin-top: 22px;
+  margin-top: 10px;
 }
 
 .element {
@@ -241,8 +358,9 @@ header {
 /* ------------------------------ right side menu ----------------------------*/
 .right-side-menu {
   color: var(--font-color);
-  margin-left: 5px;
+  margin-left: 3px;
   width: 260px;
+  overflow-y: auto;
 }
 
 .styles {
@@ -253,6 +371,7 @@ header {
   padding: 0.5rem 0.5rem 0.6rem 0.5rem;
   border-left: 10px solid #6aa6f5;
   background: var(--bg-main);
+  margin-bottom: 6px;
 }
 
 .toggle {

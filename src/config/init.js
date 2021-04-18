@@ -9,12 +9,17 @@ const resize = (target, iframe, event) => {
   const rect = target.getBoundingClientRect();
   const frect = iframe.getBoundingClientRect();
 
-  if (rect.top === 0) {
-    tools.style.top = 0;
-    tag.style.top = 0;
+  if (rect.top <= 5) {
+    if (rect.height < 20) {
+      tools.style.top = rect.height + "px";
+      tag.style.top = rect.height + "px";
+    } else {
+      tools.style.top = 0;
+      tag.style.top = 0;
+    }
   } else {
     tools.style.top = -22 + "px";
-    tag.style.top = -22 + "px";
+    tag.style.top = -20 + "px";
   }
 
   if (event === "select") {

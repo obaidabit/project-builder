@@ -1,34 +1,52 @@
-* {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  padding: 1px;
+  min-height: 100%;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 50px;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
 .dash-elements * {
   outline: 1px dashed #66a2ff;
 }
-
-/* .elements-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 0.5rem;
-    row-gap: 0.5rem;
-    margin-top: 1rem;
-    text-align: left;
-} */
-
-/* .element {
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    cursor: grab;
-    width: 100px;
-}
-
-.element:active {
-    cursor: grabbing;
-}
- */
 
 .light-button {
   color: white;
@@ -77,18 +95,6 @@ input[type="text"]:focus {
   outline: none;
   border: 1px solid #00bebe;
 }
-
-/* .light-radio-button{
-    color: white;
-    background-color: #13232E;
-    border: 5px solid black;
-    width: 40px;
-}
-.light-radio-button:checked{
-    color: #ffffff;
-    background-color: #00BEBE;
-}
- */
 
 .video {
   width: 250px;

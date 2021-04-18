@@ -9,6 +9,7 @@ import RadioButton from "./components/elements/RadioButton";
 import Section from "./components/elements/Section";
 import Video from "./components/elements/Video";
 import ReactDOMServer from "react-dom/server";
+import Container from "./components/elements/Container";
 
 let tempElement = null;
 let inIframe = false;
@@ -67,6 +68,9 @@ const SelectTag = (element) => {
       break;
     case "video":
       tag = <Video />;
+      break;
+    case "container":
+      tag = <Container />;
       break;
     default:
       tag = <Test />;

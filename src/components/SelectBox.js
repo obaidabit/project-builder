@@ -29,7 +29,7 @@ export default function SelectBox() {
   };
 
   useEffect(() => {
-    setName(selectedElement.tagName);
+    setName(selectedElement.tagName.toLowerCase());
   }, [selectedElement]);
 
   return (
