@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
-import { ElementContext } from "../../ElementContext";
+import { ElementContext } from "../../../ElementContext";
+import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 let px;
 
 export default function General() {
@@ -42,9 +43,7 @@ export default function General() {
 						num = value.indexOf("v");
 					}
 				}
-				console.log(num);
 				px = value.slice(num);
-				console.log(px);
 				value = value.slice(0, num);
 				return value;
 			}
@@ -89,6 +88,7 @@ export default function General() {
 	};
 
 	const handleSelect = e => {
+		console.log(selectedElement);
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		temp[e.target.name] = e.target.value;
@@ -100,19 +100,15 @@ export default function General() {
 		const temp = selectedElement;
 		switch (e.target.name) {
 			case "top":
-				console.log(px1);
 				temp[e.target.name] = e.target.value + px1;
 				break;
 			case "bottom":
-				console.log(px1);
 				temp[e.target.name] = e.target.value + px2;
 				break;
 			case "right":
-				console.log(px1);
 				temp[e.target.name] = e.target.value + px3;
 				break;
 			case "left":
-				console.log(px1);
 				temp[e.target.name] = e.target.value + px4;
 				break;
 
@@ -146,14 +142,36 @@ export default function General() {
 
 	const checkInput = e => {
 		var ch = String.fromCharCode(e.which);
-		console.log(e.which);
 		if (!/[0-9-auto]/.test(ch)) {
 			e.preventDefault();
 		}
 	};
+	const increase = e => {
+		var value = e.target.value;
+		if (value === "") {
+			updateState(e.target.name, "0");
+		} else {
+			value = parseInt(value) + 1;
+			e.target.value = value.toString();
+			updateState(e.target.name, e.target.value);
+			handleInput(e);
+		}
+	};
+
+	const decrease = e => {
+		var value = e.target.value;
+		if (value === "") {
+			updateState(e.target.name, "0");
+		} else {
+			value = parseInt(value) - 1;
+			e.target.value = value.toString();
+			updateState(e.target.name, e.target.value);
+			handleInput(e);
+		}
+	};
 
 	return (
-		<div style={{ display: "none" }}>
+		<div style={{ display: "none" }} className="style-group">
 			<div>
 				<div>
 					<span>Display</span>
@@ -203,6 +221,18 @@ export default function General() {
 								<option value="vh">vh</option>
 							</select>
 						</span>
+
+						<div>
+							<button id="+top" name="top" value={top ? top : ""} onClick={increase} style={{ display: "none" }} />
+							<label htmlFor="+top">
+								<TiArrowSortedUp />
+							</label>
+
+							<button id="-top" name="top" value={top ? top : ""} onClick={decrease} style={{ display: "none" }} />
+							<label htmlFor="-top">
+								<TiArrowSortedDown />
+							</label>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -221,6 +251,18 @@ export default function General() {
 							<option value="vh">vh</option>
 						</select>
 					</span>
+
+					<div>
+						<button id="+bottom" name="bottom" value={bottom ? bottom : ""} onClick={increase} style={{ display: "none" }} />
+						<label htmlFor="+bottom">
+							<TiArrowSortedUp />
+						</label>
+
+						<button id="-bottom" name="bottom" value={bottom ? bottom : ""} onClick={decrease} style={{ display: "none" }} />
+						<label htmlFor="-bottom">
+							<TiArrowSortedDown />
+						</label>
+					</div>
 				</div>
 			</div>
 			<div>
@@ -238,8 +280,21 @@ export default function General() {
 							<option value="vh">vh</option>
 						</select>
 					</span>
+
+					<div>
+						<button id="+right" name="right" value={right ? right : ""} onClick={increase} style={{ display: "none" }} />
+						<label htmlFor="+right">
+							<TiArrowSortedUp />
+						</label>
+
+						<button id="-right" name="right" value={right ? right : ""} onClick={decrease} style={{ display: "none" }} />
+						<label htmlFor="-right">
+							<TiArrowSortedDown />
+						</label>
+					</div>
 				</div>
 			</div>
+
 			<div>
 				<div>
 					<span>Left </span>
@@ -255,6 +310,17 @@ export default function General() {
 							<option value="vh">vh</option>
 						</select>
 					</span>
+					<div>
+						<button id="+left" name="left" value={left ? left : ""} onClick={increase} style={{ display: "none" }} />
+						<label htmlFor="+left">
+							<TiArrowSortedUp />
+						</label>
+
+						<button id="-left" name="left" value={left ? left : ""} onClick={decrease} style={{ display: "none" }} />
+						<label htmlFor="-left">
+							<TiArrowSortedDown />
+						</label>
+					</div>
 				</div>
 			</div>
 		</div>

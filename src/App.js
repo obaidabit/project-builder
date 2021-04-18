@@ -11,27 +11,22 @@ import savePage from "./savePage";
 import "./App.css";
 
 export default function App() {
-  useEffect(() => {
-    init();
-    savePage(true);
-  }, []);
+	useEffect(() => {
+		init();
+		savePage(true);
+	}, []);
 
-  return (
-    <ElementProvider>
-      <div className="app">
-        <NavBar />
-        <main className="main">
-          <LeftSideMenu onDragStart={dragStart} onDragOver={dragOver} />
-          <IFrame
-            onDrop={drop}
-            onDragEnter={dragEnter}
-            onDragLeave={dragLeave}
-            onDragOver={dragOver}
-          ></IFrame>
-          <RightSideMenu />
-        </main>
-        <SelectBox />
-      </div>
-    </ElementProvider>
-  );
+	return (
+		<ElementProvider>
+			<div className="app">
+				<NavBar />
+				<main className="main">
+					<LeftSideMenu onDragStart={dragStart} onDragOver={dragOver} />
+					<IFrame onDrop={drop} onDragEnter={dragEnter} onDragLeave={dragLeave} onDragOver={dragOver}></IFrame>
+					<RightSideMenu />
+				</main>
+				<SelectBox />
+			</div>
+		</ElementProvider>
+	);
 }

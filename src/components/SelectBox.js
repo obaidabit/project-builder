@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
-import { ElementContext } from "../ElementContext";
+import { ElementContext2 } from "../ElementContext";
 import savePage from "../savePage";
 
 export default function SelectBox() {
-  const [selectedElement] = useContext(ElementContext);
+  const [selectedTarget] = useContext(ElementContext2);
   const [name, setName] = useState("");
 
   const close = () => {
@@ -19,18 +19,18 @@ export default function SelectBox() {
   };
 
   const remove = () => {
-    if (selectedElement.tagName === "BODY") {
+    if (selectedTarget.tagName === "BODY") {
       close();
       return;
     }
     close();
-    selectedElement.remove();
+    selectedTarget.remove();
     savePage(false);
   };
 
   useEffect(() => {
-    setName(selectedElement.tagName.toLowerCase());
-  }, [selectedElement]);
+    if (selectedTarget.tagName) setName(selectedTarget.tagName.toLowerCase());
+  }, [selectedTarget]);
 
   return (
     <div className="selected-element">
