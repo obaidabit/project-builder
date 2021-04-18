@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="monitor.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#cfcfcf"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.25847341"
+     inkscape:cx="127.40485"
+     inkscape:cy="535.33859"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="M 232.78902,17.883802 H -22.789026 c -9.353476,0 -16.963142,7.609666 -16.963142,16.963144 V 203.34751 c 0,9.35345 7.609666,16.96315 16.963142,16.96315 h 83.119402 v 41.84239 H 14.52989 c -4.684088,0 -8.481571,3.7975 -8.481571,8.48159 0,4.6841 3.797483,8.48156 8.481571,8.48156 h 180.94023 c 4.68408,0 8.48156,-3.79746 8.48156,-8.48156 0,-4.68409 -3.79748,-8.48159 -8.48156,-8.48159 h -45.80051 v -41.84239 h 83.11941 c 9.35348,0 16.96315,-7.6097 16.96315,-16.96315 V 34.846946 c 0,-9.353478 -7.60967,-16.963143 -16.96315,-16.963144 z M 132.70648,262.15305 H 77.293514 v -41.84239 h 55.412966 z m 100.08254,-58.80554 c -7.43948,0 -249.616065,0 -255.578044,0 V 34.846946 H 232.78902 c 0.0103,172.160064 0.0566,168.500564 0,168.500564 z"
+       id="path10"
+       style="fill:#ffffff;stroke-width:0.565438" />
+  </g>
+</svg>

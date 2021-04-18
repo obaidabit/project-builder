@@ -67,39 +67,37 @@ export default function Navbar() {
   };
 
   return (
-    <>
-      <header>
-        <div className="navbar shadow">
-          <h3>Logo</h3>
+    <header>
+      <div className="navbar shadow">
+        <h3>Logo</h3>
+        <button onClick={toggleTargetPage} className="hide hide-page">
+          <img src="img/light/hide.svg" alt="full screen button" />
+        </button>
 
-          <div className="screen-group">
-            <button onClick={changeScreen} className="screen-btn">
-              <img src="img/light/phone.svg" alt="phone" />
-            </button>
-            <button onClick={changeScreen} className="screen-btn">
-              <img src="img/light/tablet.svg" alt="tablet" />
-            </button>
-            <button onClick={changeScreen} className="screen-btn btn-selected">
-              <img src="img/light/monitor.svg" alt="monitor" />
-            </button>
-          </div>
-
-          <div className="tools-group">
-            <button onClick={toggleDash} className="screen-btn">
-              <img src="img/light/shape.svg" alt="outline" />
-            </button>
-            <button onClick={toggleTargetPage} className="screen-btn">
-              <img src="img/light/visibility.svg" alt="show page button" />
-            </button>
-            <button onClick={toggleFullScreen} className="screen-btn">
-              <img src="img/light/full-screen.svg" alt="full screen button" />
-            </button>
-          </div>
+        <div className="screen-group">
+          <button onClick={changeScreen} className="screen-btn">
+            <img src="img/light/phone.svg" alt="phone" />
+          </button>
+          <button onClick={changeScreen} className="screen-btn">
+            <img src="img/light/tablet.svg" alt="tablet" />
+          </button>
+          <button onClick={changeScreen} className="screen-btn btn-selected">
+            <img src="img/light/monitor.svg" alt="monitor" />
+          </button>
         </div>
-      </header>
-      <button onClick={toggleTargetPage} className="hide hide-page">
-        <img src="img/light/hide.svg" alt="full screen button" />
-      </button>
-    </>
+
+        <div className="tools-group">
+          <button onClick={toggleDash} className="screen-btn">
+            <img src="img/light/shape.svg" alt="outline" />
+          </button>
+          <button onClick={toggleTargetPage} className="screen-btn">
+            <img src="img/light/visibility.svg" alt="show page button" />
+          </button>
+          <button onClick={toggleFullScreen} className="screen-btn">
+            <img src="img/light/full-screen.svg" alt="full screen button" />
+          </button>
+        </div>
+      </div>
+    </header>
   );
 }
