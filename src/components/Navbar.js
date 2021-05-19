@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 
 export default function Navbar() {
+  const headref = useRef();
+
   const changeScreen = (e) => {
     const iframe = document.querySelector("iframe");
+
     if (iframe) {
-      switch (e.target.alt) {
+      switch (e.target.children[0].alt) {
         case "phone":
           iframe.style.width = "320px";
           break;
@@ -18,12 +21,9 @@ export default function Navbar() {
       const btns = document.querySelectorAll(".screen-group .screen-btn");
 
       btns.forEach((item) => {
-        if (item === e.target.parentNode) {
-          item.classList.add("btn-selected");
-        } else {
-          item.classList.remove("btn-selected");
-        }
+        item.classList.remove("btn-selected");
       });
+      e.target.classList.add("btn-selected");
     }
   };
 
@@ -46,10 +46,12 @@ export default function Navbar() {
       targetPage.classList.remove("show-target-page");
       hidePageBtn.classList.add("hide");
       doc.body.classList.add("dash-elements");
+      headref.current.classList.add("show-header");
     } else {
       targetPage.classList.add("show-target-page");
       hidePageBtn.classList.remove("hide");
       doc.body.classList.remove("dash-elements");
+      headref.current.classList.remove("show-header");
     }
   };
 
@@ -58,16 +60,16 @@ export default function Navbar() {
     if (doc) {
       if (doc.body.classList.contains("dash-elements")) {
         doc.body.classList.remove("dash-elements");
-        e.target.parentNode.classList.remove("btn-selected");
+        e.target.classList.remove("btn-selected");
       } else {
         doc.body.classList.add("dash-elements");
-        e.target.parentNode.classList.add("btn-selected");
+        e.target.classList.add("btn-selected");
       }
     }
   };
 
   return (
-    <header>
+    <header className="show-header" ref={headref}>
       <div className="navbar shadow">
         <h3>Logo</h3>
         <button onClick={toggleTargetPage} className="hide hide-page">
@@ -87,7 +89,7 @@ export default function Navbar() {
         </div>
 
         <div className="tools-group">
-          <button onClick={toggleDash} className="screen-btn">
+          <button onClick={toggleDash} className="screen-btn btn-selected">
             <img src="img/light/shape.svg" alt="outline" />
           </button>
           <button onClick={toggleTargetPage} className="screen-btn">

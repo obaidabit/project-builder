@@ -10,6 +10,16 @@ import Section from "./components/elements/Section";
 import Video from "./components/elements/Video";
 import ReactDOMServer from "react-dom/server";
 import Container from "./components/elements/Container";
+import Two from "./components/elements/Two";
+import Three from "./components/elements/Three";
+import List from "./components/elements/List";
+import ListItem from "./components/elements/ListItem";
+import Form from "./components/elements/Form";
+import CheckBox from "./components/elements/CheckBox";
+import Label from "./components/elements/Label";
+import TextArea from "./components/elements/TextArea";
+import Select from "./components/elements/Select";
+import FormButton from "./components/elements/FormButton";
 
 let tempElement = null;
 let inIframe = false;
@@ -71,6 +81,36 @@ const SelectTag = (element) => {
       break;
     case "container":
       tag = <Container />;
+      break;
+    case "2column":
+      tag = <Two />;
+      break;
+    case "3column":
+      tag = <Three />;
+      break;
+    case "list":
+      tag = <List />;
+      break;
+    case "listitem":
+      tag = <ListItem />;
+      break;
+    case "form-block":
+      tag = <Form />;
+      break;
+    case "label":
+      tag = <Label />;
+      break;
+    case "checkbox":
+      tag = <CheckBox />;
+      break;
+    case "textarea":
+      tag = <TextArea />;
+      break;
+    case "select":
+      tag = <Select />;
+      break;
+    case "form-button":
+      tag = <FormButton />;
       break;
     default:
       tag = <Test />;

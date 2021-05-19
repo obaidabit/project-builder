@@ -56,7 +56,7 @@ export default function LeftSideMenu({ ...props }) {
       </div>
 
       <div className={tabIndex === 1 ? "group-elements p-x-1" : "hide"}>
-        <div className="toggle p-x-2 m-t-3" onClick={toggleLayout}>
+        <div className="toggle p-2 m-t-1  " onClick={toggleLayout}>
           <h5>Layout</h5>
           <img
             src={layout ? "img/light/line.svg" : "img/light/plus.svg"}
@@ -122,7 +122,7 @@ export default function LeftSideMenu({ ...props }) {
             <p>Container</p>
           </div>
         </div>
-        <div className="toggle p-x-2 m-t-3" onClick={toggleBasics}>
+        <div className="toggle p-2 m-t-1  " onClick={toggleBasics}>
           <h5>Basic</h5>
           <img
             src={basics ? "img/light/line.svg" : "img/light/plus.svg"}
@@ -153,11 +153,34 @@ export default function LeftSideMenu({ ...props }) {
             />
             <p>Link</p>
           </div>
+          <div className="element shadow" id="list" {...props} draggable="true">
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/link.svg"
+              alt="link"
+            />
+            <p>List</p>
+          </div>
+          <div
+            className="element shadow"
+            id="listitem"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/link.svg"
+              alt="link"
+            />
+            <p>List Item</p>
+          </div>
           <div className="element shadow" id="test" {...props} draggable="true">
             <h4>Test</h4>
           </div>
         </div>
-        <div className="toggle p-x-2 m-t-3" onClick={toggleMedia}>
+        <div className="toggle p-2 m-t-1  " onClick={toggleMedia}>
           <h5>Media</h5>
           <img
             src={media ? "img/light/line.svg" : "img/light/plus.svg"}
@@ -194,7 +217,7 @@ export default function LeftSideMenu({ ...props }) {
             <p>Video</p>
           </div>
         </div>
-        <div className="toggle p-x-2 m-t-3" onClick={toggleForm}>
+        <div className="toggle p-2 m-t-1 " onClick={toggleForm}>
           <h5>Form</h5>
           <img
             src={form ? "img/light/line.svg" : "img/light/plus.svg"}
@@ -202,6 +225,34 @@ export default function LeftSideMenu({ ...props }) {
           />
         </div>
         <div className={form ? "elements" : "hide"}>
+          <div
+            className="element shadow"
+            id="form-block"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/input.svg"
+              alt="link"
+            />
+            <p>Form block</p>
+          </div>
+          <div
+            className="element shadow"
+            id="label"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/input.svg"
+              alt="link"
+            />
+            <p>Label</p>
+          </div>
           <div
             className="element shadow"
             id="input-text"
@@ -230,8 +281,64 @@ export default function LeftSideMenu({ ...props }) {
             />
             <p>Radio</p>
           </div>
+          <div
+            className="element shadow"
+            id="checkbox"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/radio-button.svg"
+              alt="video"
+            />
+            <p>Checkbox</p>
+          </div>
+          <div
+            className="element shadow"
+            id="textarea"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/radio-button.svg"
+              alt="video"
+            />
+            <p>Text Area</p>
+          </div>
+          <div
+            className="element shadow"
+            id="select"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/radio-button.svg"
+              alt="video"
+            />
+            <p>Select</p>
+          </div>
+          <div
+            className="element shadow"
+            id="form-button"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/radio-button.svg"
+              alt="video"
+            />
+            <p>Form button</p>
+          </div>
         </div>
-        <div className="toggle p-x-2 m-t-3" onClick={toggleExtra}>
+        <div className="toggle p-2 m-t-1 " onClick={toggleExtra}>
           <h5>Extra</h5>
           <img
             src={extra ? "img/light/line.svg" : "img/light/plus.svg"}
