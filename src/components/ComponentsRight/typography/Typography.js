@@ -1,12 +1,14 @@
 import React, { useEffect, useContext, useState } from "react";
-import { ElementContext } from "../../../ElementContext";
+import { ElementContext,ElementContext2 } from "../../../ElementContext";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 import { FiAlignLeft, FiAlignRight, FiAlignCenter, FiAlignJustify, FiUnderline } from "react-icons/fi";
 import { GrStrikeThrough } from "react-icons/gr";
 import { RiCloseLine } from "react-icons/ri";
+import { saveRecord } from "../../../undo";
 let px;
 
 function Typography() {
+	const [selectedTarget] = useContext(ElementContext2);//this variable is used for undo and redo functions
 	const [selectedElement, setSelectedElement] = useContext(ElementContext);
 	const [fontFamily, setfontFamily] = useState("");
 	const [fontSize, setfontSize] = useState("");
@@ -128,6 +130,9 @@ function Typography() {
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		temp[e.target.name] = e.target.value;
+		// selectedTarget.style=temp;
+		saveRecord(selectedTarget,"style-change");
+		console.log(temp);
 		setSelectedElement(temp);
 	};
 
@@ -154,7 +159,10 @@ function Typography() {
 			default:
 				break;
 		}
-
+		selectedTarget.style=temp;
+		console.log(selectedTarget.style)
+		console.log(temp)
+		saveRecord(selectedTarget,"style-change");
 		setSelectedElement(temp);
 	};
 

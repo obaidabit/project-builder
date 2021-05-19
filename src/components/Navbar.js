@@ -1,4 +1,5 @@
 import React from "react";
+import { undo,redo } from "../undo";
 
 export default function Navbar() {
   const changeScreen = (e) => {
@@ -96,6 +97,12 @@ export default function Navbar() {
           <button onClick={toggleFullScreen} className="screen-btn">
             <img src="img/light/full-screen.svg" alt="full screen button" />
           </button>
+          <button onClick={redo} className="screen-btn">
+            <img src="img/light/full-screen.svg" alt="full screen button" />
+          </button>
+          <button onClick={undo} className="screen-btn">
+            <img src="img/light/full-screen.svg" alt="full screen button" />
+          </button> 
         </div>
       </div>
     </header>

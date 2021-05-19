@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ElementContext2 } from "../ElementContext";
 import savePage from "../savePage";
+import { saveRecord, clearRedoRecord } from "../undo";
 
 export default function SelectBox() {
   const [selectedTarget] = useContext(ElementContext2);
@@ -23,6 +24,8 @@ export default function SelectBox() {
       close();
       return;
     }
+    saveRecord(selectedTarget, "remove");
+    clearRedoRecord();
     close();
     selectedTarget.remove();
     savePage(false);

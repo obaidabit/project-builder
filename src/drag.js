@@ -10,7 +10,7 @@ import Section from "./components/elements/Section";
 import Video from "./components/elements/Video";
 import ReactDOMServer from "react-dom/server";
 import Container from "./components/elements/Container";
-
+import { saveRecord,clearRedoRecord } from "./undo";
 let tempElement = null;
 let inIframe = false;
 let oldBackground = "";
@@ -89,6 +89,8 @@ const dragStart = (e) => {
   if (e.target.ownerDocument.querySelector("body").id === "target") {
     inIframe = true;
     tempElement = e.target;
+    saveRecord(tempElement, "move");
+    clearRedoRecord();
   } else {
     inIframe = false;
     tempElement = SelectTag(e.target);
@@ -131,6 +133,8 @@ const drop = (e) => {
 
   if (!inIframe) {
     clone.id = Math.random().toString(36).substr(2, 5);
+    saveRecord(tempElement, "added");
+    clearRedoRecord();
   }
 
   e.target.style.background = oldBackground;

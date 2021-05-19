@@ -88,10 +88,10 @@ export default function General() {
 	};
 
 	const handleSelect = e => {
-		console.log(selectedElement);
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		temp[e.target.name] = e.target.value;
+		console.log("e.target.value");
 		setSelectedElement(temp);
 	};
 
