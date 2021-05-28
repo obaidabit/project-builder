@@ -51,6 +51,7 @@ const init = () => {
     doc.body.ondragleave = dragLeave;
     doc.body.ondragstart = dragStart;
     doc.body.id = "target";
+    doc.body.classList.add("dash-elements");
 
     doc.onclick = (e) => {
       let right = document.querySelector(".styles");

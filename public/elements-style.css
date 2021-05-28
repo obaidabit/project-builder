@@ -11,6 +11,19 @@ body {
   min-height: 100%;
 }
 
+.init {
+  min-height: 40px;
+  padding: 10px;
+}
+.init-label {
+  width: 100%;
+  display: block;
+}
+.init-input[type="text"] {
+  width: 100%;
+  display: block;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;
@@ -42,6 +55,21 @@ body {
   .container {
     max-width: 1140px;
   }
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-wrap: wrap;
+  }
+}
+
+.col {
+  flex: 1 1 0;
 }
 
 .dash-elements * {

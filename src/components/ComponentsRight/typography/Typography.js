@@ -229,33 +229,31 @@ function Typography() {
   };
 
   return (
-    <div style={{ display: "none" }}>
+    <div style={{ display: "none" }} className="style-group">
       <div>
+        <span>Font</span>
+
         <div>
-          <span>Font</span>
-        </div>
-        <div>
-          <span>
-            <select
-              name="fontFamily"
-              value={fontFamily ? fontFamily : ""}
-              onChange={handleSelect}
-            >
-              <option value=""></option>
-              <option value="Arial">Arial</option>
-              <option value="Arial Black">Arial Black</option>
-              <option value="Brush Script MT">Brush Script MT</option>
-              <option value="Comic Sans MS">Comic Sans MS</option>
-              <option value="Courier New">Courier New</option>
-              <option value="Georgia">Georgia</option>
-              <option value="Imapact">Imapact</option>
-              <option value="Tahoma">Tahoma</option>
-              <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
-              <option value="Times New Roman">Times New Roman</option>
-              <option value="Trebuchet MS">Trebuchet MS</option>
-              <option value="Verdana">Verdana</option>
-            </select>
-          </span>
+          <select
+            className="shadow"
+            name="fontFamily"
+            value={fontFamily ? fontFamily : ""}
+            onChange={handleSelect}
+          >
+            <option value=""></option>
+            <option value="Arial">Arial</option>
+            <option value="Arial Black">Arial Black</option>
+            <option value="Brush Script MT">Brush Script MT</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Imapact">Imapact</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Trebuchet MS">Trebuchet MS</option>
+            <option value="Verdana">Verdana</option>
+          </select>
         </div>
       </div>
 
@@ -264,27 +262,24 @@ function Typography() {
           <span>Font size </span>
         </div>
         <div>
-          <div>
-            <span>
-              <input
-                name="fontSize"
-                type="text"
-                value={fontSize ? fontSize : ""}
-                onChange={handleInput}
-                onKeyPress={checkInput}
-                placeholder="medium"
-              ></input>
-            </span>
-            <span>
-              <select name="px1" value={px1 ? px1 : ""} onChange={handlePx}>
-                <option value="px">px</option>
-                <option value="em">em</option>
-                <option value="rem">rem</option>
-                <option value="%">%</option>
-              </select>
-            </span>
+          <div className="flex-row shadow">
+            <input
+              name="fontSize"
+              type="text"
+              value={fontSize ? fontSize : ""}
+              onChange={handleInput}
+              onKeyPress={checkInput}
+              placeholder="medium"
+            ></input>
 
-            <div>
+            <select name="px1" value={px1 ? px1 : ""} onChange={handlePx}>
+              <option value="px">px</option>
+              <option value="em">em</option>
+              <option value="rem">rem</option>
+              <option value="%">%</option>
+            </select>
+
+            <div className="white">
               <button
                 id="+FontSize"
                 name="fontSize"
@@ -292,7 +287,7 @@ function Typography() {
                 onClick={increase}
                 style={{ display: "none" }}
               />
-              <label htmlFor="+FontSize">
+              <label className="icon-label" htmlFor="+FontSize">
                 <TiArrowSortedUp />
               </label>
 
@@ -303,7 +298,7 @@ function Typography() {
                 onClick={decrease}
                 style={{ display: "none" }}
               />
-              <label htmlFor="-FontSize">
+              <label className="icon-label" htmlFor="-FontSize">
                 <TiArrowSortedDown />
               </label>
             </div>
@@ -315,25 +310,23 @@ function Typography() {
         <div>
           <span>Weight</span>
         </div>
-        <div>
-          <span>
-            <select
-              name="fontWeight"
-              value={fontWeight ? fontWeight : ""}
-              onChange={handleSelect}
-            >
-              <option value=""></option>
-              <option value="100">Thin</option>
-              <option value="200">Extra-Light</option>
-              <option value="300">Light</option>
-              <option value="400">Normal</option>
-              <option value="500">Medium</option>
-              <option value="600">Semi-Bold</option>
-              <option value="700">Bold</option>
-              <option value="800">Extra-Bold</option>
-              <option value="900">Ultra-Bold</option>
-            </select>
-          </span>
+        <div className="shadow">
+          <select
+            name="fontWeight"
+            value={fontWeight ? fontWeight : ""}
+            onChange={handleSelect}
+          >
+            <option value=""></option>
+            <option value="100">Thin</option>
+            <option value="200">Extra-Light</option>
+            <option value="300">Light</option>
+            <option value="400">Normal</option>
+            <option value="500">Medium</option>
+            <option value="600">Semi-Bold</option>
+            <option value="700">Bold</option>
+            <option value="800">Extra-Bold</option>
+            <option value="900">Ultra-Bold</option>
+          </select>
         </div>
       </div>
 
@@ -342,27 +335,24 @@ function Typography() {
           <span>Letter Spacing </span>
         </div>
         <div>
-          <div>
-            <span>
-              <input
-                name="letterSpacing"
-                type="text"
-                value={letterSpacing ? letterSpacing : ""}
-                onChange={handleInput}
-                onKeyPress={checkInput}
-                placeholder="normal"
-              ></input>
-            </span>
-            <span>
-              <select name="px2" value={px2 ? px2 : ""} onChange={handlePx}>
-                <option value="px">px</option>
-                <option value="em">em</option>
-                <option value="rem">rem</option>
-                <option value="%">%</option>
-              </select>
-            </span>
+          <div className="flex-row shadow">
+            <input
+              name="letterSpacing"
+              type="text"
+              value={letterSpacing ? letterSpacing : ""}
+              onChange={handleInput}
+              onKeyPress={checkInput}
+              placeholder="normal"
+            ></input>
 
-            <div>
+            <select name="px2" value={px2 ? px2 : ""} onChange={handlePx}>
+              <option value="px">px</option>
+              <option value="em">em</option>
+              <option value="rem">rem</option>
+              <option value="%">%</option>
+            </select>
+
+            <div className="white">
               <button
                 id="+letterSpacing"
                 name="letterSpacing"
@@ -370,7 +360,7 @@ function Typography() {
                 onClick={increase}
                 style={{ display: "none" }}
               />
-              <label htmlFor="+letterSpacing">
+              <label className="icon-label" htmlFor="+letterSpacing">
                 <TiArrowSortedUp />
               </label>
 
@@ -381,7 +371,7 @@ function Typography() {
                 onClick={decrease}
                 style={{ display: "none" }}
               />
-              <label htmlFor="-letterSpacing">
+              <label className="icon-label" htmlFor="-letterSpacing">
                 <TiArrowSortedDown />
               </label>
             </div>
@@ -394,23 +384,20 @@ function Typography() {
           <span>Font Color </span>
         </div>
         <div>
-          <div>
-            <span>
-              <input
-                name="color"
-                type="text"
-                value={color ? color : ""}
-                onChange={handleSelect}
-                onKeyPress={checkInput}
-              ></input>
-              <input
-                name="color"
-                type="color"
-                value={color ? color : ""}
-                onChange={handleSelect}
-              ></input>
-            </span>
-          </div>
+          <input
+            className="shadow"
+            name="color"
+            type="text"
+            value={color ? color : ""}
+            onChange={handleSelect}
+            onKeyPress={checkInput}
+          ></input>
+          <input
+            name="color"
+            type="color"
+            value={color ? color : ""}
+            onChange={handleSelect}
+          ></input>
         </div>
       </div>
 
@@ -418,50 +405,45 @@ function Typography() {
         <div>
           <span>Line Height </span>
         </div>
-        <div>
-          <div>
-            <span>
-              <input
-                name="lineHeight"
-                type="text"
-                value={lineHeight ? lineHeight : ""}
-                onChange={handleInput}
-                onKeyPress={checkInput}
-                placeholder="normal"
-              ></input>
-            </span>
-            <span>
-              <select name="px3" value={px3 ? px3 : ""} onChange={handlePx}>
-                <option value="px">px</option>
-                <option value="em">em</option>
-                <option value="rem">rem</option>
-                <option value="%">%</option>
-              </select>
-            </span>
+        <div className="flex-row shadow">
+          <input
+            name="lineHeight"
+            type="text"
+            value={lineHeight ? lineHeight : ""}
+            onChange={handleInput}
+            onKeyPress={checkInput}
+            placeholder="normal"
+          ></input>
 
-            <div>
-              <button
-                id="+lineHeight"
-                name="lineHeight"
-                value={lineHeight ? lineHeight : ""}
-                onClick={increase}
-                style={{ display: "none" }}
-              />
-              <label htmlFor="+lineHeight">
-                <TiArrowSortedUp />
-              </label>
+          <select name="px3" value={px3 ? px3 : ""} onChange={handlePx}>
+            <option value="px">px</option>
+            <option value="em">em</option>
+            <option value="rem">rem</option>
+            <option value="%">%</option>
+          </select>
 
-              <button
-                id="-lineHeight"
-                name="lineHeight"
-                value={lineHeight ? lineHeight : ""}
-                onClick={decrease}
-                style={{ display: "none" }}
-              />
-              <label htmlFor="-lineHeight">
-                <TiArrowSortedDown />
-              </label>
-            </div>
+          <div className="white">
+            <button
+              id="+lineHeight"
+              name="lineHeight"
+              value={lineHeight ? lineHeight : ""}
+              onClick={increase}
+              style={{ display: "none" }}
+            />
+            <label className="icon-label" htmlFor="+lineHeight">
+              <TiArrowSortedUp />
+            </label>
+
+            <button
+              id="-lineHeight"
+              name="lineHeight"
+              value={lineHeight ? lineHeight : ""}
+              onClick={decrease}
+              style={{ display: "none" }}
+            />
+            <label className="icon-label" htmlFor="-lineHeight">
+              <TiArrowSortedDown />
+            </label>
           </div>
         </div>
       </div>
@@ -488,23 +470,7 @@ function Typography() {
               <FiAlignLeft />
             </label>
           </div>
-          <div>
-            <input
-              id="r2"
-              type="radio"
-              name="textAlign"
-              value="right"
-              checked={radioValue === "right"}
-              onChange={handleInput}
-              style={{ display: "none" }}
-            />
-            <label
-              htmlFor="r2"
-              style={{ cursor: "pointer", display: "block", padding: "5px" }}
-            >
-              <FiAlignRight />
-            </label>
-          </div>
+
           <div>
             <input
               id="r3"
@@ -522,7 +488,23 @@ function Typography() {
               <FiAlignCenter />
             </label>
           </div>
-
+          <div>
+            <input
+              id="r2"
+              type="radio"
+              name="textAlign"
+              value="right"
+              checked={radioValue === "right"}
+              onChange={handleInput}
+              style={{ display: "none" }}
+            />
+            <label
+              htmlFor="r2"
+              style={{ cursor: "pointer", display: "block", padding: "5px" }}
+            >
+              <FiAlignRight />
+            </label>
+          </div>
           <div>
             <input
               id="r4"
