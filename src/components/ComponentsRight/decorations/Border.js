@@ -114,6 +114,8 @@ function Border() {
 	};
 
 	const handlePx = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {

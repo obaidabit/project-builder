@@ -1,9 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import { ElementContext } from "../../../ElementContext";
+import { ElementContext,ElementContext2 } from "../../../ElementContext";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
+import { saveRecord, clearRedoRecord } from "../../../undo";
+
 let px;
 
 function FlexChildern() {
+	const [selectedTarget] = useContext(ElementContext2);
 	const [selectedElement, setSelectedElement] = useContext(ElementContext);
 	const [flexGrow, setflexGrow] = useState("");
 	const [flexShrink, setflexShrink] = useState("");
@@ -56,6 +59,8 @@ function FlexChildern() {
 	};
 
 	const handleInput = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {
@@ -76,6 +81,8 @@ function FlexChildern() {
 	};
 
 	const handlePx = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {

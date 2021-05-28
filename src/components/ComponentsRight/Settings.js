@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ElementContext2 } from "../../ElementContext";
-import { saveRecord,clearRedoRecord } from "../../undo";
+import { saveRecord, clearRedoRecord } from "../../undo";
 
 function Settings() {
 	const [selectedTarget, setSelectedTarget] = useContext(ElementContext2);
@@ -27,12 +27,16 @@ function Settings() {
 	};
 
 	const handleText = e => {
-/* 		saveRecord(selectedTarget, "style-change");
-		clearRedoRecord();	
-		you have to save the old ID
- */		updateState(e.target.name, e.target.value);
+		let oldId = selectedTarget.id;
+		updateState(e.target.name, e.target.value);
 		const temp = selectedTarget;
 		temp[e.target.name] = e.target.value;
+		if (selectedTarget.id !== oldId) {
+			saveRecord(selectedTarget, "id-change", oldId);
+		} else {
+			saveRecord(selectedTarget,"style-change");
+		}
+		clearRedoRecord();
 		setSelectedTarget(temp);
 	};
 

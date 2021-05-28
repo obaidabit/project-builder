@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import { ElementContext,ElementContext2 } from "../../../ElementContext";
+import { ElementContext, ElementContext2 } from "../../../ElementContext";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
-import { saveRecord,clearRedoRecord } from "../../../undo";
+import { saveRecord, clearRedoRecord } from "../../../undo";
 
 import Margin from "./Margin";
 import Padding from "./Padding";
@@ -84,7 +84,7 @@ function Dimension() {
 
 	const handleInput = e => {
 		saveRecord(selectedTarget, "style-change");
-		clearRedoRecord();	
+		clearRedoRecord();
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {
@@ -109,6 +109,9 @@ function Dimension() {
 	};
 
 	const handlePx = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();
+
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {
@@ -172,7 +175,7 @@ function Dimension() {
 							<input name="width" type="text" value={width ? width : ""} onChange={handleInput} onKeyPress={checkInput} placeholder="auto"></input>
 						</span>
 						<span>
-							<select name="px1" value={px1} onChange={handlePx}>
+							<select name="px1" value={px1}  onChange={handlePx}>
 								<option value="px">px</option>
 								<option value="%">%</option>
 								<option value="vh">vh</option>
