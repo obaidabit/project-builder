@@ -1,10 +1,12 @@
 import React, { useEffect, useContext, useState } from "react";
 import Transform from "./Transform";
-import { ElementContext } from "../../../ElementContext";
+import { ElementContext, ElementContext2 } from "../../../ElementContext";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
+import { saveRecord, clearRedoRecord } from "../../../undo";
 let px;
 
 function Extra() {
+	const [selectedTarget] = useContext(ElementContext2);
 	const [selectedElement, setSelectedElement] = useContext(ElementContext);
 	const [perspective, setperspective] = useState("");
 	const [px1, setPx1] = useState("px");
@@ -43,6 +45,8 @@ function Extra() {
 	};
 
 	const handleInput = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {

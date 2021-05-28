@@ -1,9 +1,11 @@
 import React, { useEffect, useContext, useState } from "react";
-import { ElementContext } from "../../../ElementContext";
+import { ElementContext,ElementContext2 } from "../../../ElementContext";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
+import { saveRecord,clearRedoRecord } from "../../../undo";
 let px;
 
 export default function General() {
+	const [selectedTarget]=useContext(ElementContext2);
 	const [selectedElement, setSelectedElement] = useContext(ElementContext);
 	const [display, setDisplay] = useState("");
 	const [position, setPosition] = useState("");
@@ -88,6 +90,8 @@ export default function General() {
 	};
 
 	const handleSelect = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();	
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		temp[e.target.name] = e.target.value;
@@ -96,6 +100,8 @@ export default function General() {
 	};
 
 	const handleInput = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();	
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {
@@ -120,6 +126,8 @@ export default function General() {
 	};
 
 	const handlePx = e => {
+		// saveRecord(selectedTarget, "unit-change");
+		// clearRedoRecord();	
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {

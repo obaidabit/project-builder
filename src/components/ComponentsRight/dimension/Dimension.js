@@ -1,11 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
-import { ElementContext } from "../../../ElementContext";
+import { ElementContext,ElementContext2 } from "../../../ElementContext";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
+import { saveRecord,clearRedoRecord } from "../../../undo";
+
 import Margin from "./Margin";
 import Padding from "./Padding";
 let px;
 
 function Dimension() {
+	const [selectedTarget] = useContext(ElementContext2);
 	const [selectedElement, setSelectedElement] = useContext(ElementContext);
 	const [width, setWidth] = useState("");
 	const [height, setHeight] = useState("");
@@ -80,6 +83,8 @@ function Dimension() {
 	};
 
 	const handleInput = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();	
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {

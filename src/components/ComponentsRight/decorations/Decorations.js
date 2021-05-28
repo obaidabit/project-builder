@@ -1,9 +1,12 @@
 import React, { useEffect, useContext, useState } from "react";
-import { ElementContext } from "../../../ElementContext";
+import { ElementContext,ElementContext2 } from "../../../ElementContext";
 import BorderRadius from "./BorderRadius";
 import Border from "./Border";
+import { saveRecord, clearRedoRecord } from "../../../undo";
+
 
 function Decorations() {
+	const [selectedTarget] = useContext(ElementContext2);
 	const [selectedElement, setSelectedElement] = useContext(ElementContext);
 	const [opacity, setopacity] = useState("");
 
@@ -22,6 +25,8 @@ function Decorations() {
 	};
 
 	const handleInput = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {

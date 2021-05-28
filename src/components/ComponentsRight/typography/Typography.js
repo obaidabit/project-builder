@@ -10,11 +10,12 @@ import {
 } from "react-icons/fi";
 import { GrStrikeThrough } from "react-icons/gr";
 import { RiCloseLine } from "react-icons/ri";
-import { saveRecord } from "../../../undo";
+import { saveRecord, clearRedoRecord } from "../../../undo";
 let px;
 
 function Typography() {
-  const [selectedTarget] = useContext(ElementContext2); //this variable is used for undo and redo functions
+  const [selectedTarget] = useContext(ElementContext2);
+  //this variable is used for undo and redo functions
   const [selectedElement, setSelectedElement] = useContext(ElementContext);
   const [fontFamily, setfontFamily] = useState("");
   const [fontSize, setfontSize] = useState("");
@@ -135,15 +136,17 @@ function Typography() {
   };
 
   const handleSelect = (e) => {
+    saveRecord(selectedTarget, "style-change");
+    clearRedoRecord();
     updateState(e.target.name, e.target.value);
     const temp = selectedElement;
     temp[e.target.name] = e.target.value;
-    // selectedTarget.style=temp;
-    saveRecord(selectedTarget, "style-change");
     setSelectedElement(temp);
   };
 
   const handleInput = (e) => {
+    saveRecord(selectedTarget, "style-change");
+    clearRedoRecord();
     updateState(e.target.name, e.target.value);
     const temp = selectedElement;
     switch (e.target.name) {
@@ -166,11 +169,12 @@ function Typography() {
       default:
         break;
     }
-    saveRecord(selectedTarget, "style-change");
     setSelectedElement(temp);
   };
 
   const handlePx = (e) => {
+    saveRecord(selectedTarget, "style-change");
+    clearRedoRecord();
     updateState(e.target.name, e.target.value);
     const temp = selectedElement;
     switch (e.target.name) {

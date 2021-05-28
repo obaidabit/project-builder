@@ -1,9 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import { ElementContext } from "../../../ElementContext";
+import { ElementContext, ElementContext2 } from "../../../ElementContext";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
+import { saveRecord, clearRedoRecord } from "../../../undo";
+
 let px;
 
 function Border() {
+	const [selectedTarget] = useContext(ElementContext2);
 	const [selectedElement, setSelectedElement] = useContext(ElementContext);
 	const [borderWidth, setborderWidth] = useState("");
 	const [borderStyle, setborderStyle] = useState("");
@@ -80,6 +83,8 @@ function Border() {
 	};
 
 	const handleSelect = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		temp[e.target.name] = e.target.value;
@@ -87,6 +92,8 @@ function Border() {
 	};
 
 	const handleInput = e => {
+		saveRecord(selectedTarget, "style-change");
+		clearRedoRecord();
 		updateState(e.target.name, e.target.value);
 		const temp = selectedElement;
 		switch (e.target.name) {
