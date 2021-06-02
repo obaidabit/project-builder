@@ -1,8 +1,17 @@
 import React, { useRef } from "react";
-import { undo,redo } from "../undo";
+import { undo, redo } from "../undo";
+import { MdUndo, MdRedo } from "react-icons/md";
+import { AiOutlineClear } from "react-icons/ai";
 
 export default function Navbar() {
   const headref = useRef();
+
+  const clearPage = () => {
+    localStorage.clear();
+    const iframeDocument =
+      document.querySelector("iframe").contentWindow.document;
+    iframeDocument.body.innerHTML = "";
+  };
 
   const changeScreen = (e) => {
     const iframe = document.querySelector("iframe");
@@ -31,9 +40,11 @@ export default function Navbar() {
   const toggleFullScreen = (e) => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen();
+      e.target.classList.add("btn-selected");
     } else {
       if (document.exitFullscreen) {
         document.exitFullscreen();
+        e.target.classList.remove("btn-selected");
       }
     }
   };
@@ -78,33 +89,52 @@ export default function Navbar() {
         </button>
 
         <div className="screen-group">
-          <button onClick={changeScreen} className="screen-btn">
+          <button onClick={changeScreen} className="screen-btn" title="Phone">
             <img src="img/light/phone.svg" alt="phone" />
           </button>
-          <button onClick={changeScreen} className="screen-btn">
+          <button onClick={changeScreen} className="screen-btn" title="Tablet">
             <img src="img/light/tablet.svg" alt="tablet" />
           </button>
-          <button onClick={changeScreen} className="screen-btn btn-selected">
+          <button
+            onClick={changeScreen}
+            className="screen-btn btn-selected"
+            title="Monitor"
+          >
             <img src="img/light/monitor.svg" alt="monitor" />
           </button>
         </div>
 
         <div className="tools-group">
-          <button onClick={toggleDash} className="screen-btn btn-selected">
+          <button onClick={clearPage} className="screen-btn" title="Clear page">
+            <AiOutlineClear />
+          </button>
+          <button
+            onClick={toggleDash}
+            className="screen-btn btn-selected"
+            title="Dash elements"
+          >
             <img src="img/light/shape.svg" alt="outline" />
           </button>
-          <button onClick={toggleTargetPage} className="screen-btn">
+          <button
+            onClick={toggleTargetPage}
+            className="screen-btn"
+            title="View page"
+          >
             <img src="img/light/visibility.svg" alt="show page button" />
           </button>
-          <button onClick={toggleFullScreen} className="screen-btn">
+          <button
+            onClick={toggleFullScreen}
+            className="screen-btn"
+            title="Full screen"
+          >
             <img src="img/light/full-screen.svg" alt="full screen button" />
           </button>
-          <button onClick={redo} className="screen-btn">
-            <img src="img/light/full-screen.svg" alt="full screen button" />
+          <button onClick={undo} className="screen-btn" title="Undo">
+            <MdUndo />
           </button>
-          <button onClick={undo} className="screen-btn">
-            <img src="img/light/full-screen.svg" alt="full screen button" />
-          </button> 
+          <button onClick={redo} className="screen-btn" title="Redo">
+            <MdRedo />
+          </button>
         </div>
       </div>
     </header>

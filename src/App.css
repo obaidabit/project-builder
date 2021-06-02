@@ -181,6 +181,7 @@ body {
 }
 .screen-btn:active {
   outline: none;
+  background: var(--bg-page);
 }
 
 .btn-selected {
@@ -189,7 +190,8 @@ body {
   border-radius: 3px;
 }
 
-.screen-btn img {
+.screen-btn img,
+.screen-btn svg {
   padding: 3px 2px 0px 2px;
   width: 25px;
   height: 25px;
