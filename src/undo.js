@@ -3,16 +3,16 @@ import savePage from "./savePage";
 let undo_record = [];
 let redo_record = [];
 
-const saveRecord = (selectedElement, type,oldId) => {
+const saveRecord = (selectedElement, type) => {
   let Record = {
-    element: selectedElement.cloneNode(),
+    element:selectedElement,
     ParentElement: null,
     NextElement: null,
     PreviousElement: null,
     action_type: type,
   };
-  if(oldId!=null){
-    Record.oldId=oldId;
+  if(type=="style-change"){
+    Record.element=selectedElement.cloneNode()
   }
   let frame = document.querySelector("iframe");
   Record.ParentElement = frame.contentWindow.document.getElementById(
@@ -26,15 +26,20 @@ const saveRecord = (selectedElement, type,oldId) => {
   ).previousSibling;
   Record.element.innerHTML = selectedElement.innerHTML;
   undo_record.push(Record);
+  // console.log("undo is ")
+  // console.log(undo_record);
 };
 const saveRedoRecord = (selectedElement, type) => {
   let Record = {
-    element: selectedElement.cloneNode(),
+    element:selectedElement,
     ParentElement: null,
     NextElement: null,
     PreviousElement: null,
     action_type: type,
   };
+  if(type=="style-change"){
+    Record.element=selectedElement.cloneNode()
+  }
   Record.element.innerHTML = selectedElement.innerHTML;
   let frame = document.querySelector("iframe");
   Record.ParentElement = frame.contentWindow.document.getElementById(
@@ -47,6 +52,9 @@ const saveRedoRecord = (selectedElement, type) => {
     Record.element.id
   ).previousSibling;
   redo_record.push(Record);
+  // console.log("redo is ")
+  // console.log(redo_record);
+
 };
 
 const undo = () => {
@@ -65,30 +73,27 @@ const undo = () => {
       case "move":
         saveRedoRecord(element, "move");
         element.remove();
-        if (Record.PreviousElement)
-          Record.ParentElement.insertBefore(element, Record.NextElement);
-        else if (Record.NextElement)
-          Record.ParentElement.insertBefore(element, Record.PreviousElement);
-        else Record.ParentElement.appendChild(element);
+        if (Record.NextElement) {
+          Record.ParentElement.insertBefore(Record.element, Record.NextElement);
+        }
+        else {
+          Record.ParentElement.appendChild(Record.element);
+          saveRedoRecord(Record.element, "remove");
+        }
         break;
       case "remove":
-        if (Record.PreviousElement)
-          Record.ParentElement.insertBefore(
-            Record.element,
-            Record.PreviousElement
-          );
-        else if (Record.NextElement)
+        if (Record.NextElement) {
           Record.ParentElement.insertBefore(Record.element, Record.NextElement);
-        else Record.ParentElement.appendChild(Record.element);
-        saveRedoRecord(Record.element, "remove");
+        }
+        else {
+          Record.ParentElement.appendChild(Record.element);
+          saveRedoRecord(Record.element, "remove");
+        }
         break;
       case "style-change":
         saveRedoRecord(element, "style-change");
         element.style.cssText = Record.element.style.cssText;
         break;
-      case "id-change":
-        element.id=Record.oldId;
-        
     }
     savePage();
   }
@@ -104,9 +109,7 @@ const redo = () => {
     // eslint-disable-next-line default-case
     switch (Record.action_type) {
       case "added":
-        if (Record.PreviousElement)
-          Record.ParentElement.insertBefore(Record.element, Record.NextElement);
-        else if (Record.NextElement)
+         if (Record.NextElement)
           Record.ParentElement.insertBefore(
             Record.element,
             Record.PreviousElement
@@ -117,9 +120,7 @@ const redo = () => {
       case "move":
         saveRecord(Record.element, "move");
         Record.element.remove();
-        if (Record.PreviousElement)
-          Record.ParentElement.insertBefore(Record.element, Record.NextElement);
-        else if (Record.NextElement)
+         if (Record.NextElement)
           Record.ParentElement.insertBefore(
             Record.element,
             Record.PreviousElement
@@ -142,5 +143,14 @@ const redo = () => {
 const clearRedoRecord = () => {
   redo_record = [];
 };
+
+// else if (Record.PreviousElement) {
+//   console.log("previous element");
+//   Record.ParentElement.insertBefore(
+//     Record.element,
+//     Record.PreviousElement
+//   );
+// }
+
 
 export { saveRecord, undo, redo, clearRedoRecord };
