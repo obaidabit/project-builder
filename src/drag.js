@@ -10,7 +10,7 @@ import Section from "./components/elements/Section";
 import Video from "./components/elements/Video";
 import ReactDOMServer from "react-dom/server";
 import Container from "./components/elements/Container";
-import { saveRecord,clearRedoRecord } from "./undo";
+import { saveRecord, clearRedoRecord } from "./undo";
 import Two from "./components/elements/Two";
 import Three from "./components/elements/Three";
 import List from "./components/elements/List";
@@ -21,6 +21,7 @@ import Label from "./components/elements/Label";
 import TextArea from "./components/elements/TextArea";
 import Select from "./components/elements/Select";
 import FormButton from "./components/elements/FormButton";
+import Columns from "./components/elements/Columns";
 
 let tempElement = null;
 let inIframe = false;
@@ -112,6 +113,9 @@ const SelectTag = (element) => {
       break;
     case "form-button":
       tag = <FormButton />;
+      break;
+    case "columns":
+      tag = <Columns />;
       break;
     default:
       tag = <Test />;

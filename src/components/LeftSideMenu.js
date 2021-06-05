@@ -121,6 +121,20 @@ export default function LeftSideMenu({ ...props }) {
             />
             <p>Container</p>
           </div>
+          <div
+            className="element shadow"
+            id="columns"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/section.svg"
+              alt="button"
+            />
+            <p>Columns</p>
+          </div>
         </div>
         <div className="toggle p-2 m-t-1  " onClick={toggleBasics}>
           <h5>Basic</h5>

@@ -2,8 +2,8 @@ import React, { useEffect, useContext } from "react";
 import { ElementContext, ElementContext2 } from "../ElementContext";
 
 export default function Iframe({ children, ...props }) {
-  const [selectedElement, setSelectedElement] = useContext(ElementContext);
-  const [selectedTarget, setSelectedTarget] = useContext(ElementContext2);
+  const [, setSelectedElement] = useContext(ElementContext);
+  const [, setSelectedTarget] = useContext(ElementContext2);
 
   useEffect(() => {
     const frame = document.querySelector("iframe");

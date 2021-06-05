@@ -24,54 +24,6 @@ body {
   display: block;
 }
 
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  min-height: 50px;
-}
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-
-.row {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-@media (max-width: 768px) {
-  .row {
-    flex-wrap: wrap;
-  }
-}
-
-.col {
-  flex: 1 1 0;
-}
-
 .dash-elements * {
   outline: 1px dashed #66a2ff;
 }
@@ -129,7 +81,6 @@ input[type="text"]:focus {
   height: 250px;
 }
 .image {
-  margin: 1.5rem;
   width: 250px;
   height: 250px;
   border: 1px solid black;

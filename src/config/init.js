@@ -36,14 +36,17 @@ const init = () => {
   const iframe = document.querySelector("iframe");
   const doc = iframe.contentWindow.document;
   let link = document.createElement("link");
+  let grid = document.createElement("link");
   let selectedElement = null;
 
-  link.href = "elements-style.css"; /**** your CSS file ****/
-  link.rel = "stylesheet";
-  link.type = "text/css";
+  grid.href = "css/grid.css";
+  link.href = "css/style.css"; /**** your CSS file ****/
+  grid.rel = link.rel = "stylesheet";
+  grid.type = link.type = "text/css";
 
   if (iframe) {
     doc.head.appendChild(link);
+    doc.head.appendChild(grid);
     doc.body.ondrag = drag;
     doc.body.ondrop = drop;
     doc.body.ondragover = dragOver;
