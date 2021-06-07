@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ElementContext2 } from "../../ElementContext";
+import savePage from "../../savePage";
 import { saveRecord, clearRedoRecord } from "../../undo";
 
 function Settings() {
@@ -24,21 +25,23 @@ function Settings() {
       default:
         break;
     }
+    savePage(false);
   };
 
-	const handleText = e => {
-		let oldId = selectedTarget.id;
-		updateState(e.target.name, e.target.value);
-		const temp = selectedTarget;
-		temp[e.target.name] = e.target.value;
-		if (selectedTarget.id !== oldId) {
-			saveRecord(selectedTarget, "id-change", oldId);
-		} else {
-			saveRecord(selectedTarget,"style-change");
-		}
-		clearRedoRecord();
-		setSelectedTarget(temp);
-	};
+  const handleText = (e) => {
+    let oldId = selectedTarget.id;
+    updateState(e.target.name, e.target.value);
+    const temp = selectedTarget;
+    temp[e.target.name] = e.target.value;
+    if (selectedTarget.id !== oldId) {
+      saveRecord(selectedTarget, "id-change", oldId);
+    } else {
+      saveRecord(selectedTarget, "style-change");
+    }
+    clearRedoRecord();
+    setSelectedTarget(temp);
+    savePage(false);
+  };
 
   return (
     <div className="style-group" style={{ display: "none" }}>

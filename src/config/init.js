@@ -1,5 +1,16 @@
 import { drag, dragStart, dragOver, drop, dragLeave, dragEnter } from "../drag";
+import * as resizeEdit from "../resize";
 
+const closeSelectBox = () => {
+  const iframe = document.querySelector("iframe");
+  const tool = document.querySelector(".selected-element");
+  const editable =
+    iframe.contentWindow.document.querySelectorAll("[contenteditable]");
+  editable.forEach((item) => {
+    if (item.contentEditable) item.contentEditable = false;
+  });
+  tool.style.display = "none";
+};
 const resize = (target, iframe, event) => {
   if (!target) return;
 
@@ -9,7 +20,7 @@ const resize = (target, iframe, event) => {
   const rect = target.getBoundingClientRect();
   const frect = iframe.getBoundingClientRect();
 
-  if (rect.top <= 5) {
+  if (rect.top <= 20) {
     if (rect.height < 20) {
       tools.style.top = rect.height + "px";
       tag.style.top = rect.height + "px";
@@ -30,6 +41,14 @@ const resize = (target, iframe, event) => {
   div.style.height = rect.height + "px";
   div.style.top = frect.top + rect.top + "px";
   div.style.left = frect.left + rect.left + "px";
+
+  if (rect.width < 80) {
+    tools.style.left = rect.width + "px";
+    tools.style.right = "auto";
+  } else {
+    tools.style.left = "";
+    tools.style.right = -4 + "px";
+  }
 };
 
 const init = () => {
@@ -69,9 +88,13 @@ const init = () => {
 
     iframe.contentWindow.addEventListener("resize", (e) => {
       resize(selectedElement, iframe);
+      const panel = document.querySelector("[data-panel]");
+      if (panel) resizeEdit.default(panel, selectedElement);
     });
     iframe.contentWindow.addEventListener("scroll", (e) => {
       resize(selectedElement, iframe);
+      const panel = document.querySelector("[data-panel]");
+      if (panel) resizeEdit.default(panel, selectedElement);
     });
     iframe.contentWindow.addEventListener("mouseover", (e) => {
       e.target.style.outline = "#66a2ff solid 2px";
@@ -81,5 +104,6 @@ const init = () => {
     });
   }
 };
+export { resize, closeSelectBox };
 
 export default init;

@@ -3,6 +3,8 @@ export function toJSON(node) {
   let propFix = { for: "htmlFor", class: "className" };
   let specialGetters = {
     style: (node) => node.style.cssText,
+    "data-name": (node) => node.getAttribute("data-name"),
+    "data-edit": (node) => node.getAttribute("data-edit"),
   };
   let attrDefaultValues = { style: "" };
   let obj = {
@@ -47,6 +49,7 @@ export function toJSON(node) {
         break;
     }
     let arr = [];
+
     for (let [name, defaultValue] of defaultValues) {
       let propName = propFix[name] || name;
       let specialGetter = specialGetters[propName];
@@ -60,6 +63,7 @@ export function toJSON(node) {
     }
   }
   let childNodes = node.childNodes;
+
   // Don't process children for a textarea since we used `value` above.
   if (obj.tagName !== "textarea" && childNodes && childNodes.length) {
     let arr = (obj.childNodes = []);
@@ -73,6 +77,10 @@ export function toJSON(node) {
 export function toDOM(input) {
   let obj = typeof input === "string" ? JSON.parse(input) : input;
   let propFix = { for: "htmlFor", class: "className" };
+  let specialGetters = {
+    "data-name": true,
+    "data-edit": true,
+  };
   let node;
   let nodeType = obj.nodeType;
   switch (nodeType) {
@@ -83,7 +91,11 @@ export function toDOM(input) {
         for (let [attrName, value] of obj.attributes) {
           let propName = propFix[attrName] || attrName;
           // Note: this will throw if setting the value of an input[type=file]
-          node[propName] = value;
+          if (specialGetters[attrName]) {
+            node.setAttribute(attrName, value);
+          } else {
+            node[propName] = value;
+          }
         }
       }
       break;

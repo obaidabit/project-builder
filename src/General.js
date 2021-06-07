@@ -17,6 +17,7 @@ export default function General() {
     setLeft(selectedElement.style.left);
     setRight(selectedElement.style.right);
     setBottom(selectedElement.style.bottom);
+    //console.log("sasdfsds dfdf");
   }, [selectedElement]);
 
   const updateState = (name, value) => {

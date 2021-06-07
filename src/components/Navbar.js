@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import { undo, redo } from "../undo";
 import { MdUndo, MdRedo } from "react-icons/md";
 import { AiOutlineClear } from "react-icons/ai";
-
-export default function Navbar() {
+import { closeSelectBox } from "../config/init";
+export default function Navbar(props) {
   const headref = useRef();
 
   const clearPage = () => {
@@ -11,6 +11,8 @@ export default function Navbar() {
     const iframeDocument =
       document.querySelector("iframe").contentWindow.document;
     iframeDocument.body.innerHTML = "";
+    closeSelectBox();
+    props.closeEdit();
   };
 
   const changeScreen = (e) => {

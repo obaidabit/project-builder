@@ -131,7 +131,9 @@ body {
 
 .tools {
   pointer-events: all;
-  display: inline;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 3px;
   position: absolute;
   background: #6aa6f5;
   top: -22px;
@@ -152,8 +154,8 @@ body {
   top: -18px;
   left: -4px;
   border-radius: 2px;
-  text-transform: lowercase;
-  padding: 0 5px;
+  text-transform: capitalize;
+  padding: 0 5px 3px 5px;
 }
 
 .container-edit {

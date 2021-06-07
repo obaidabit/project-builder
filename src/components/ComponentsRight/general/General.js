@@ -1,22 +1,23 @@
 import React, { useEffect, useContext, useState } from "react";
-import { ElementContext,ElementContext2 } from "../../../ElementContext";
+import { ElementContext, ElementContext2 } from "../../../ElementContext";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
-import { saveRecord,clearRedoRecord } from "../../../undo";
+import { saveRecord, clearRedoRecord } from "../../../undo";
+import savePage from "../../../savePage";
 let px;
 
 export default function General() {
-	const [selectedTarget]=useContext(ElementContext2);
-	const [selectedElement, setSelectedElement] = useContext(ElementContext);
-	const [display, setDisplay] = useState("");
-	const [position, setPosition] = useState("");
-	const [top, setTop] = useState("");
-	const [left, setLeft] = useState("");
-	const [right, setRight] = useState("");
-	const [bottom, setBottom] = useState("");
-	const [px1, setPx1] = useState("px");
-	const [px2, setPx2] = useState("px");
-	const [px3, setPx3] = useState("px");
-	const [px4, setPx4] = useState("px");
+  const [selectedTarget] = useContext(ElementContext2);
+  const [selectedElement, setSelectedElement] = useContext(ElementContext);
+  const [display, setDisplay] = useState("");
+  const [position, setPosition] = useState("");
+  const [top, setTop] = useState("");
+  const [left, setLeft] = useState("");
+  const [right, setRight] = useState("");
+  const [bottom, setBottom] = useState("");
+  const [px1, setPx1] = useState("px");
+  const [px2, setPx2] = useState("px");
+  const [px3, setPx3] = useState("px");
+  const [px4, setPx4] = useState("px");
 
   useEffect(() => {
     setDisplay(selectedElement.display);
@@ -35,6 +36,7 @@ export default function General() {
     let num = "";
     px = "";
     if (value === "") {
+      savePage(false);
       return;
     } else {
       if (value !== undefined) {
@@ -47,6 +49,7 @@ export default function General() {
         }
         px = value.slice(num);
         value = value.slice(0, num);
+        savePage(false);
         return value;
       }
     }
@@ -87,66 +90,69 @@ export default function General() {
       default:
         break;
     }
+    savePage(false);
   };
 
-	const handleSelect = e => {
-		saveRecord(selectedTarget, "style-change");
-		clearRedoRecord();	
-		updateState(e.target.name, e.target.value);
-		const temp = selectedElement;
-		temp[e.target.name] = e.target.value;
-		console.log("e.target.value");
-		setSelectedElement(temp);
-	};
+  const handleSelect = (e) => {
+    saveRecord(selectedTarget, "style-change");
+    clearRedoRecord();
+    updateState(e.target.name, e.target.value);
+    const temp = selectedElement;
+    temp[e.target.name] = e.target.value;
+    setSelectedElement(temp);
+    savePage(false);
+  };
 
-	const handleInput = e => {
-		saveRecord(selectedTarget, "style-change");
-		clearRedoRecord();	
-		updateState(e.target.name, e.target.value);
-		const temp = selectedElement;
-		switch (e.target.name) {
-			case "top":
-				temp[e.target.name] = e.target.value + px1;
-				break;
-			case "bottom":
-				temp[e.target.name] = e.target.value + px2;
-				break;
-			case "right":
-				temp[e.target.name] = e.target.value + px3;
-				break;
-			case "left":
-				temp[e.target.name] = e.target.value + px4;
-				break;
+  const handleInput = (e) => {
+    saveRecord(selectedTarget, "style-change");
+    clearRedoRecord();
+    updateState(e.target.name, e.target.value);
+    const temp = selectedElement;
+    switch (e.target.name) {
+      case "top":
+        temp[e.target.name] = e.target.value + px1;
+        break;
+      case "bottom":
+        temp[e.target.name] = e.target.value + px2;
+        break;
+      case "right":
+        temp[e.target.name] = e.target.value + px3;
+        break;
+      case "left":
+        temp[e.target.name] = e.target.value + px4;
+        break;
 
       default:
         break;
     }
 
     setSelectedElement(temp);
+    savePage(false);
   };
 
-	const handlePx = e => {
-		saveRecord(selectedTarget, "style-change");
-		clearRedoRecord();
-		updateState(e.target.name, e.target.value);
-		const temp = selectedElement;
-		switch (e.target.name) {
-			case "px1":
-				temp.top = top + e.target.value;
-				break;
-			case "px2":
-				temp.bottom = bottom + e.target.value;
-				break;
-			case "px3":
-				temp.right = right + e.target.value;
-				break;
-			case "px4":
-				temp.left = left + e.target.value;
-				break;
-			default:
-				break;
-		}
-	};
+  const handlePx = (e) => {
+    saveRecord(selectedTarget, "style-change");
+    clearRedoRecord();
+    updateState(e.target.name, e.target.value);
+    const temp = selectedElement;
+    switch (e.target.name) {
+      case "px1":
+        temp.top = top + e.target.value;
+        break;
+      case "px2":
+        temp.bottom = bottom + e.target.value;
+        break;
+      case "px3":
+        temp.right = right + e.target.value;
+        break;
+      case "px4":
+        temp.left = left + e.target.value;
+        break;
+      default:
+        break;
+    }
+    savePage(false);
+  };
 
   const checkInput = (e) => {
     var ch = String.fromCharCode(e.which);
@@ -164,6 +170,7 @@ export default function General() {
       updateState(e.target.name, e.target.value);
       handleInput(e);
     }
+    savePage(false);
   };
 
   const decrease = (e) => {
@@ -176,6 +183,7 @@ export default function General() {
       updateState(e.target.name, e.target.value);
       handleInput(e);
     }
+    savePage(false);
   };
 
   return (

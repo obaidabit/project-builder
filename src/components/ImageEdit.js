@@ -45,7 +45,7 @@ export default function ImageEdit(props) {
 
   if (props.show) {
     return (
-      <div ref={edit} className="image-edit shadow">
+      <div ref={edit} className="image-edit shadow" data-panel>
         <div className="media-label">Select Image :</div>
         <div>
           <form className="media-form" onSubmit={handleSubmit}>

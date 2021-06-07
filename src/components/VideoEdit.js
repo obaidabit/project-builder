@@ -75,7 +75,7 @@ export default function VideoEdit(props) {
 
   if (props.show)
     return (
-      <div ref={edit} className="image-edit shadow">
+      <div ref={edit} className="image-edit shadow" data-panel>
         <div className="media-label ">
           <span>Video Source</span>
           <MdClose onClick={hide} />

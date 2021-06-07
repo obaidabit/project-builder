@@ -25,7 +25,7 @@ export default function ContainerEdit(props) {
 
   if (props.show) {
     return (
-      <div className="shadow container-edit" ref={edit}>
+      <div className="shadow container-edit" ref={edit} data-panel>
         <div onClick={() => toggleContainer("container-fluid")}>Full width</div>
         <div onClick={() => toggleContainer("container")}>Normal width</div>
       </div>

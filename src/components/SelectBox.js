@@ -3,20 +3,14 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { ElementContext2 } from "../ElementContext";
 import savePage from "../savePage";
 import { saveRecord, clearRedoRecord } from "../undo";
+import { closeSelectBox } from "../config/init";
 
 export default function SelectBox(props) {
   const [selectedTarget] = useContext(ElementContext2);
   const [name, setName] = useState("");
 
   const close = () => {
-    const iframe = document.querySelector("iframe");
-    const tool = document.querySelector(".selected-element");
-    const editable =
-      iframe.contentWindow.document.querySelectorAll("[contenteditable]");
-    editable.forEach((item) => {
-      if (item.contentEditable) item.contentEditable = false;
-    });
-    tool.style.display = "none";
+    closeSelectBox();
     props.containerEdit.setShowContainer(false);
     props.columnsEdit.setShowColumns(false);
     props.imageEdit.setShowImage(false);
@@ -24,13 +18,12 @@ export default function SelectBox(props) {
   };
 
   const remove = () => {
+    close();
     if (selectedTarget.tagName === "BODY") {
-      close();
       return;
     }
     saveRecord(selectedTarget, "remove");
     clearRedoRecord();
-    close();
     selectedTarget.remove();
     savePage(false);
   };
@@ -57,7 +50,12 @@ export default function SelectBox(props) {
   };
 
   useEffect(() => {
-    if (selectedTarget.tagName) setName(selectedTarget.tagName.toLowerCase());
+    if (selectedTarget.tagName)
+      setName(
+        selectedTarget.dataset.name
+          ? selectedTarget.dataset.name.toLowerCase()
+          : selectedTarget.tagName.toLowerCase()
+      );
   }, [selectedTarget]);
 
   return (

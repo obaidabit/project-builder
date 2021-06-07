@@ -20,6 +20,12 @@ export default function App() {
   const [showImage, setShowImage] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
 
+  const closeEdit = () => {
+    setShowContainer(false);
+    setShowColumns(false);
+    setShowImage(false);
+    setShowVideo(false);
+  };
   useEffect(() => {
     init();
     savePage(true);
@@ -28,10 +34,11 @@ export default function App() {
   return (
     <ElementProvider>
       <div className="app">
-        <NavBar />
+        <NavBar closeEdit={closeEdit} />
         <main className="main">
           <LeftSideMenu onDragStart={dragStart} onDragOver={dragOver} />
           <IFrame
+            closeEdit={closeEdit}
             onDrop={drop}
             onDragEnter={dragEnter}
             onDragLeave={dragLeave}

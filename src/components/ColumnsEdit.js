@@ -67,7 +67,7 @@ export default function ColumnsEdit(props) {
 
   if (props.show)
     return (
-      <div className="columns-edit shadow" ref={edit}>
+      <div className="columns-edit shadow" ref={edit} data-panel>
         <div className="columns-label">Columns number:</div>
         <div className="columns-btn">
           <span onClick={addColumn}>Add</span>

@@ -22,6 +22,8 @@ import TextArea from "./components/elements/TextArea";
 import Select from "./components/elements/Select";
 import FormButton from "./components/elements/FormButton";
 import Columns from "./components/elements/Columns";
+import { resize as resizeSelectBox } from "./config/init";
+import resize from "./resize";
 
 let tempElement = null;
 let inIframe = false;
@@ -176,10 +178,22 @@ const drop = (e) => {
       break;
   }
 
+  const iframe = document.querySelector("iframe");
+  const panel = document.querySelector("[data-panel]");
+
   if (!inIframe) {
     clone.id = Math.random().toString(36).substr(2, 5);
     saveRecord(tempElement, "added");
     clearRedoRecord();
+    resizeSelectBox(e.target, iframe, null);
+    resize(panel, e.target);
+  } else {
+    const oldSelected =
+      iframe.contentWindow.document.querySelector("[data-selected]");
+    if (oldSelected) {
+      resizeSelectBox(oldSelected, iframe, null);
+      resize(panel, oldSelected);
+    }
   }
 
   e.target.style.background = oldBackground;
