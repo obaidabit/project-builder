@@ -19,6 +19,8 @@ export default function SelectBox(props) {
     tool.style.display = "none";
     props.containerEdit.setShowContainer(false);
     props.columnsEdit.setShowColumns(false);
+    props.imageEdit.setShowImage(false);
+    props.videoEdit.setShowVideo(false);
   };
 
   const remove = () => {
@@ -42,6 +44,12 @@ export default function SelectBox(props) {
         break;
       case "columns":
         props.columnsEdit.setShowColumns(!props.columnsEdit.showColumns);
+        break;
+      case "image":
+        props.imageEdit.setShowImage(!props.imageEdit.showImage);
+        break;
+      case "video":
+        props.videoEdit.setShowVideo(!props.videoEdit.showVideo);
         break;
       default:
         break;

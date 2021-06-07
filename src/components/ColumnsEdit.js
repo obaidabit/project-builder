@@ -1,6 +1,6 @@
 import React, { createRef, useContext, useEffect } from "react";
 import { ElementContext2 } from "../ElementContext";
-import resize from "../reasize";
+import resize from "../resize";
 
 export default function ColumnsEdit(props) {
   const [selectedTarget] = useContext(ElementContext2);
@@ -67,7 +67,7 @@ export default function ColumnsEdit(props) {
 
   if (props.show)
     return (
-      <div className="columns-edit" ref={edit}>
+      <div className="columns-edit shadow" ref={edit}>
         <div className="columns-label">Columns number:</div>
         <div className="columns-btn">
           <span onClick={addColumn}>Add</span>

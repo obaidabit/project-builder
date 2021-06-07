@@ -4,6 +4,7 @@
   --font-color: #707070;
   --bg-elements: #fafafa;
   --blue: #6aa6f5;
+  --border-color: #d4d4d4;
 }
 *,
 ::before,
@@ -174,7 +175,8 @@ body {
   font-size: 12px;
 }
 
-.columns-edit {
+.columns-edit,
+.image-edit {
   border: 1px solid var(--bg-page);
   border-radius: 3px;
   background: var(--bg-main);
@@ -204,7 +206,66 @@ body {
   margin-right: 6px;
   cursor: pointer;
 }
+.media-form {
+  display: flex;
+  align-items: center;
+}
+.media-label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.media-label svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.media-form input {
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  padding: 4px;
+  margin-right: 10px;
+  margin-top: 5px;
+  min-height: 30px;
+  max-height: 30px;
+  width: 200px;
+}
 
+.media-form input[type="submit"] {
+  background: var(--font-color);
+  color: white;
+  margin-left: 0;
+  padding: 0 10px;
+  width: auto;
+}
+
+.media-form select {
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  padding: 4px;
+  margin: 5px 10px 0 10px;
+  min-height: 30px;
+  max-height: 30px;
+}
+
+.video-atr {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 5px 0;
+}
+
+.video-atr input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.checkbox-label {
+  font-size: 14px;
+  margin-right: 5px;
+}
 /* ------------------------------ navbar ----------------------------*/
 .show-header {
   z-index: 5;

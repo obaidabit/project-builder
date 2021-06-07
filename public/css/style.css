@@ -77,9 +77,9 @@ input[type="text"]:focus {
 }
 
 .video {
-  width: 250px;
-  height: 250px;
+  width: 100%;
 }
+
 .image {
   width: 250px;
   height: 250px;

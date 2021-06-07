@@ -5,14 +5,14 @@ let redo_record = [];
 
 const saveRecord = (selectedElement, type) => {
   let Record = {
-    element:selectedElement,
+    element: selectedElement,
     ParentElement: null,
     NextElement: null,
     PreviousElement: null,
     action_type: type,
   };
-  if(type=="style-change"){
-    Record.element=selectedElement.cloneNode()
+  if (type === "style-change") {
+    Record.element = selectedElement.cloneNode();
   }
   let frame = document.querySelector("iframe");
   Record.ParentElement = frame.contentWindow.document.getElementById(
@@ -31,14 +31,14 @@ const saveRecord = (selectedElement, type) => {
 };
 const saveRedoRecord = (selectedElement, type) => {
   let Record = {
-    element:selectedElement,
+    element: selectedElement,
     ParentElement: null,
     NextElement: null,
     PreviousElement: null,
     action_type: type,
   };
-  if(type=="style-change"){
-    Record.element=selectedElement.cloneNode()
+  if (type === "style-change") {
+    Record.element = selectedElement.cloneNode();
   }
   Record.element.innerHTML = selectedElement.innerHTML;
   let frame = document.querySelector("iframe");
@@ -54,7 +54,6 @@ const saveRedoRecord = (selectedElement, type) => {
   redo_record.push(Record);
   // console.log("redo is ")
   // console.log(redo_record);
-
 };
 
 const undo = () => {
@@ -75,8 +74,7 @@ const undo = () => {
         element.remove();
         if (Record.NextElement) {
           Record.ParentElement.insertBefore(Record.element, Record.NextElement);
-        }
-        else {
+        } else {
           Record.ParentElement.appendChild(Record.element);
           saveRedoRecord(Record.element, "remove");
         }
@@ -84,8 +82,7 @@ const undo = () => {
       case "remove":
         if (Record.NextElement) {
           Record.ParentElement.insertBefore(Record.element, Record.NextElement);
-        }
-        else {
+        } else {
           Record.ParentElement.appendChild(Record.element);
           saveRedoRecord(Record.element, "remove");
         }
@@ -109,7 +106,7 @@ const redo = () => {
     // eslint-disable-next-line default-case
     switch (Record.action_type) {
       case "added":
-         if (Record.NextElement)
+        if (Record.NextElement)
           Record.ParentElement.insertBefore(
             Record.element,
             Record.PreviousElement
@@ -120,7 +117,7 @@ const redo = () => {
       case "move":
         saveRecord(Record.element, "move");
         Record.element.remove();
-         if (Record.NextElement)
+        if (Record.NextElement)
           Record.ParentElement.insertBefore(
             Record.element,
             Record.PreviousElement
@@ -151,6 +148,5 @@ const clearRedoRecord = () => {
 //     Record.PreviousElement
 //   );
 // }
-
 
 export { saveRecord, undo, redo, clearRedoRecord };

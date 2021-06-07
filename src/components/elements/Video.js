@@ -2,7 +2,12 @@ import React from "react";
 
 export default function Video() {
   return (
-    <video controls="" className="video" draggable="true">
+    <video
+      className="video"
+      draggable="true"
+      data-name="video"
+      data-edit={true}
+    >
       <source
         src="./img/AHHHHHHHHHH (Alternate Extended) (Big Enough) [HD] (online-video-cutter.com).mp4"
         type="video/mp4"

@@ -11,6 +11,7 @@ export default function Iframe({ children, ...props }) {
       setSelectedElement(e.target.style);
       setSelectedTarget(e.target);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

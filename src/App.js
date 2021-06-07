@@ -11,10 +11,14 @@ import { dragStart, dragOver, drop, dragLeave, dragEnter } from "./drag";
 import init from "./config/init";
 import savePage from "./savePage";
 import "./App.css";
+import ImageEdit from "./components/ImageEdit";
+import VideoEdit from "./components/VideoEdit";
 
 export default function App() {
   const [showContainer, setShowContainer] = useState(false);
   const [showColumns, setShowColumns] = useState(false);
+  const [showImage, setShowImage] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
     init();
@@ -38,9 +42,13 @@ export default function App() {
         <SelectBox
           containerEdit={{ showContainer, setShowContainer }}
           columnsEdit={{ showColumns, setShowColumns }}
+          imageEdit={{ showImage, setShowImage }}
+          videoEdit={{ showVideo, setShowVideo }}
         />
         <ContainerEdit show={showContainer} />
         <ColumnsEdit show={showColumns} />
+        <ImageEdit show={showImage} />
+        <VideoEdit show={showVideo} hide={setShowVideo} />
       </div>
     </ElementProvider>
   );

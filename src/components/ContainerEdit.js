@@ -1,6 +1,6 @@
 import React, { createRef, useContext, useEffect } from "react";
 import { ElementContext2 } from "../ElementContext";
-import resize from "../reasize";
+import resize from "../resize";
 
 export default function ContainerEdit(props) {
   const [selectedTarget] = useContext(ElementContext2);
