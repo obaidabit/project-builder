@@ -163,8 +163,6 @@ body {
   border-radius: 3px;
   background: var(--bg-main);
   padding: 0.5rem;
-  display: flex;
-  justify-content: space-evenly;
   position: absolute;
   top: 0;
   left: 0;
@@ -177,6 +175,15 @@ body {
   font-size: 12px;
 }
 
+.container-btn {
+  background: var(--bg-elements);
+  border: 1px solid #d4d4d4;
+  border-radius: 3px;
+  padding: 5px;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
 .columns-edit,
 .image-edit {
   border: 1px solid var(--bg-page);
@@ -187,12 +194,13 @@ body {
   top: 0;
   left: 0;
   height: auto;
-  min-width: 150px;
+  min-width: 200px;
 }
 
 .columns-label {
   font-size: 12px;
-  margin: 5px 0;
+  margin: 5px 5px;
+  display: flex;
 }
 
 .columns-btn {
@@ -207,6 +215,17 @@ body {
   padding: 5px;
   margin-right: 6px;
   cursor: pointer;
+}
+.col-img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.col-edit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .media-form {
   display: flex;
@@ -472,6 +491,7 @@ body {
 
 .img-ele {
   width: 35px;
+  height: 35px;
 }
 
 /* ------------------------------ right side menu ----------------------------*/

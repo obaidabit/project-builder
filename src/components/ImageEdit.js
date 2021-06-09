@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { ElementContext2 } from "../ElementContext";
+import { MdClose } from "react-icons/md";
 import resize from "../resize";
 import savePage from "../savePage";
 
@@ -36,6 +37,10 @@ export default function ImageEdit(props) {
     savePage(false);
   };
 
+  const hide = () => {
+    props.hide(false);
+  };
+
   useEffect(() => {
     if (selectedTarget && edit.current) {
       resize(edit.current, selectedTarget);
@@ -46,7 +51,10 @@ export default function ImageEdit(props) {
   if (props.show) {
     return (
       <div ref={edit} className="image-edit shadow" data-panel>
-        <div className="media-label">Select Image :</div>
+        <div className="media-label ">
+          <span>Select Image</span>
+          <MdClose onClick={hide} />
+        </div>
         <div>
           <form className="media-form" onSubmit={handleSubmit}>
             <input type="file" accept="image/*" ref={fileInput} />

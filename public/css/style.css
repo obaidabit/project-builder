@@ -9,11 +9,13 @@
 body {
   padding: 1px;
   min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .init {
-  min-height: 40px;
-  padding: 10px;
+  min-height: 30px;
+  min-width: 30px;
+  padding: 5px;
 }
 .init-label {
   width: 100%;
@@ -61,6 +63,26 @@ body {
   border: #ffffff 1px solid;
 }
 
+.navbar {
+  background-color: rgb(65, 66, 82);
+  color: #ddd;
+  min-height: 30px;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: auto;
+}
+.text,
+.link {
+  padding: 10px;
+}
+
 input[type="text"] {
   background-color: #4e5a63;
   color: white;
@@ -94,7 +116,6 @@ input[type="text"]:focus {
 }
 
 .radio-input {
-  display: none;
 }
 
 .radio-radio {

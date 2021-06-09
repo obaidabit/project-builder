@@ -7,7 +7,14 @@ export default function Link() {
   };
   return (
     // eslint-disable-next-line no-script-url
-    <a onClick={handleClick} href="javascript:void(0)">
+    <a
+      className="link"
+      onClick={handleClick}
+      data-name="link"
+      data-edit={true}
+      href="javascript:void(0)"
+      draggable={true}
+    >
       Link
     </a>
   );

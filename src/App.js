@@ -52,9 +52,9 @@ export default function App() {
           imageEdit={{ showImage, setShowImage }}
           videoEdit={{ showVideo, setShowVideo }}
         />
-        <ContainerEdit show={showContainer} />
-        <ColumnsEdit show={showColumns} />
-        <ImageEdit show={showImage} />
+        <ContainerEdit show={showContainer} hide={setShowContainer} />
+        <ColumnsEdit show={showColumns} hide={setShowColumns} />
+        <ImageEdit show={showImage} hide={setShowImage} />
         <VideoEdit show={showVideo} hide={setShowVideo} />
       </div>
     </ElementProvider>

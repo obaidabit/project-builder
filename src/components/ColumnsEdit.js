@@ -1,5 +1,7 @@
 import React, { createRef, useContext, useEffect } from "react";
 import { ElementContext2 } from "../ElementContext";
+import { MdClose } from "react-icons/md";
+import { FcDeleteColumn, FcAddColumn } from "react-icons/fc";
 import resize from "../resize";
 
 export default function ColumnsEdit(props) {
@@ -58,6 +60,10 @@ export default function ColumnsEdit(props) {
     elements.forEach((col) => selectedTarget.appendChild(col));
   };
 
+  const hide = () => {
+    props.hide(false);
+  };
+
   useEffect(() => {
     if (selectedTarget && edit.current) {
       resize(edit.current, selectedTarget);
@@ -68,17 +74,28 @@ export default function ColumnsEdit(props) {
   if (props.show)
     return (
       <div className="columns-edit shadow" ref={edit} data-panel>
-        <div className="columns-label">Columns number:</div>
-        <div className="columns-btn">
-          <span onClick={addColumn}>Add</span>
-          <span onClick={removeColumn}>Remove</span>
+        <div className="media-label">
+          <span>Columns Number:</span>
+          <MdClose onClick={hide} />
         </div>
+        <div className="flex-row">
+          <div className="columns-btn">
+            <span className="col-edit-btn" onClick={addColumn}>
+              <FcAddColumn className="col-img" />
+              Add
+            </span>
+            <span className="col-edit-btn" onClick={removeColumn}>
+              <FcDeleteColumn className="col-img" />
+              Remove
+            </span>
+          </div>
 
-        <div className="columns-label">Custome layout:</div>
-        <div className="columns-btn">
-          <span onClick={() => addCustomeLayout("1/3")}>1/3</span>
-          <span onClick={() => addCustomeLayout("2/3")}>2/3</span>
-          <span onClick={() => addCustomeLayout("2/4")}>2/4</span>
+          <div className="columns-label">Custome layout: </div>
+          <div className="columns-btn">
+            <span onClick={() => addCustomeLayout("1/3")}>1/3</span>
+            <span onClick={() => addCustomeLayout("2/3")}>2/3</span>
+            <span onClick={() => addCustomeLayout("2/4")}>2/4</span>
+          </div>
         </div>
       </div>
     );

@@ -22,6 +22,8 @@ import TextArea from "./components/elements/TextArea";
 import Select from "./components/elements/Select";
 import FormButton from "./components/elements/FormButton";
 import Columns from "./components/elements/Columns";
+import Text from "./components/elements/Text";
+
 import { resize as resizeSelectBox } from "./config/init";
 import resize from "./resize";
 
@@ -32,7 +34,14 @@ const mousePosition = {
   x: 0,
   y: 0,
 };
-
+function randomID(node) {
+  node.id = Math.random().toString(36).substr(2, 5);
+  if (node.children.length > 0) {
+    for (let i = 0; i < node.children.length; i++) {
+      randomID(node.children[i]);
+    }
+  }
+}
 const dropPosition = (targetNode) => {
   const targetRec = targetNode.getBoundingClientRect();
 
@@ -119,6 +128,9 @@ const SelectTag = (element) => {
     case "columns":
       tag = <Columns />;
       break;
+    case "text":
+      tag = <Text />;
+      break;
     default:
       tag = <Test />;
       break;
@@ -182,7 +194,8 @@ const drop = (e) => {
   const panel = document.querySelector("[data-panel]");
 
   if (!inIframe) {
-    clone.id = Math.random().toString(36).substr(2, 5);
+    randomID(clone);
+
     saveRecord(tempElement, "added");
     clearRedoRecord();
     resizeSelectBox(e.target, iframe, null);

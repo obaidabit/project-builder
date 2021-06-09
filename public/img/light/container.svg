@@ -5,7 +5,7 @@
    viewBox="0 0 35 29"
    version="1.1"
    id="svg7"
-   sodipodi:docname="columns.svg"
+   sodipodi:docname="container.svg"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -41,7 +41,7 @@
      id="namedview9"
      showgrid="false"
      inkscape:zoom="11.313708"
-     inkscape:cx="7.7781749"
+     inkscape:cx="6.540738"
      inkscape:cy="17.058952"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
@@ -54,7 +54,7 @@
      fill="none"
      stroke="#707070"
      stroke-width="1"
-     style="opacity:1;mix-blend-mode:normal;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+     style="opacity:1;mix-blend-mode:normal;stroke-width:2.00000003;stroke-miterlimit:4;stroke-dasharray:4.00000007,2.00000003;stroke-dashoffset:0"
      transform="matrix(0.96728651,0,0,0.96728651,0.57248607,0.47434561)">
     <rect
        width="35"
@@ -62,7 +62,7 @@
        rx="3"
        stroke="none"
        id="rect2"
-       style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       style="stroke-width:2.00000003;stroke-miterlimit:4;stroke-dasharray:4.00000007,2.00000003;stroke-dashoffset:0"
        x="0"
        y="0" />
     <rect
@@ -73,30 +73,6 @@
        rx="2.5"
        fill="none"
        id="rect4"
-       style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+       style="stroke-width:2.00000003;stroke-miterlimit:4;stroke-dasharray:4.00000007,2.00000003;stroke-dashoffset:0" />
   </g>
-  <rect
-     style="fill:#707070;fill-opacity:1;stroke-width:15.001"
-     id="rect31"
-     width="27.160852"
-     height="1.9152999"
-     x="-28.0173"
-     y="-18.280874"
-     transform="matrix(0,-1,-1,0,0,0)" />
-  <rect
-     style="fill:#707070;fill-opacity:1;stroke-width:15.001"
-     id="rect10"
-     width="27.160852"
-     height="1.9152999"
-     x="-28.0173"
-     y="-10.149144"
-     transform="matrix(0,-1,-1,0,0,0)" />
-  <rect
-     style="fill:#707070;fill-opacity:1;stroke-width:15.001"
-     id="rect12"
-     width="27.160852"
-     height="1.9152999"
-     x="-28.0173"
-     y="-26.412603"
-     transform="matrix(0,-1,-1,0,0,0)" />
 </svg>

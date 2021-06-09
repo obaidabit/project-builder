@@ -1,7 +1,14 @@
 import React from "react";
 
-export default function Container() {
+export default function Container({ children, className }) {
   return (
-    <div className="container" data-edit={true} data-name="container"></div>
+    <div
+      className={`container ${className}`}
+      data-edit={true}
+      data-name="container"
+      draggable={true}
+    >
+      {children}
+    </div>
   );
 }

@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-
+import { BiText } from "react-icons/bi";
+import { AiOutlineLine, AiOutlineBars, AiOutlineForm } from "react-icons/ai";
+import { MdRadioButtonChecked, MdShortText } from "react-icons/md";
+import { RiCheckboxLine } from "react-icons/ri";
+import { BsTextareaT } from "react-icons/bs";
 export default function LeftSideMenu({ ...props }) {
   const [tabIndex, setTabIndex] = useState(1);
   const [layout, setLayout] = useState(true);
@@ -88,7 +92,7 @@ export default function LeftSideMenu({ ...props }) {
             <img
               draggable="false"
               className="img-ele"
-              src="img/light/section.svg"
+              src="img/light/two-columns.svg"
               alt="button"
             />
             <p>2 Column</p>
@@ -102,7 +106,7 @@ export default function LeftSideMenu({ ...props }) {
             <img
               draggable="false"
               className="img-ele"
-              src="img/light/section.svg"
+              src="img/light/three-columns.svg"
               alt="button"
             />
             <p>3 Column</p>
@@ -116,7 +120,7 @@ export default function LeftSideMenu({ ...props }) {
             <img
               draggable="false"
               className="img-ele"
-              src="img/light/section.svg"
+              src="img/light/container.svg"
               alt="button"
             />
             <p>Container</p>
@@ -130,7 +134,7 @@ export default function LeftSideMenu({ ...props }) {
             <img
               draggable="false"
               className="img-ele"
-              src="img/light/section.svg"
+              src="img/light/columns.svg"
               alt="button"
             />
             <p>Columns</p>
@@ -168,12 +172,8 @@ export default function LeftSideMenu({ ...props }) {
             <p>Link</p>
           </div>
           <div className="element shadow" id="list" {...props} draggable="true">
-            <img
-              draggable="false"
-              className="img-ele"
-              src="img/light/link.svg"
-              alt="link"
-            />
+            <AiOutlineBars draggable="false" className="img-ele" />
+
             <p>List</p>
           </div>
           <div
@@ -182,13 +182,13 @@ export default function LeftSideMenu({ ...props }) {
             {...props}
             draggable="true"
           >
-            <img
-              draggable="false"
-              className="img-ele"
-              src="img/light/link.svg"
-              alt="link"
-            />
+            <AiOutlineLine draggable="false" className="img-ele" />
+
             <p>List Item</p>
+          </div>
+          <div className="element shadow" id="text" {...props} draggable="true">
+            <BiText className="img-ele" />
+            <p>Text</p>
           </div>
           <div className="element shadow" id="test" {...props} draggable="true">
             <h4>Test</h4>
@@ -245,13 +245,9 @@ export default function LeftSideMenu({ ...props }) {
             {...props}
             draggable="true"
           >
-            <img
-              draggable="false"
-              className="img-ele"
-              src="img/light/input.svg"
-              alt="link"
-            />
-            <p>Form block</p>
+            <AiOutlineForm draggable="false" className="img-ele" />
+
+            <p>Form</p>
           </div>
           <div
             className="element shadow"
@@ -259,12 +255,8 @@ export default function LeftSideMenu({ ...props }) {
             {...props}
             draggable="true"
           >
-            <img
-              draggable="false"
-              className="img-ele"
-              src="img/light/input.svg"
-              alt="link"
-            />
+            <MdShortText draggable="false" className="img-ele" />
+
             <p>Label</p>
           </div>
           <div
@@ -287,12 +279,8 @@ export default function LeftSideMenu({ ...props }) {
             {...props}
             draggable="true"
           >
-            <img
-              draggable="false"
-              className="img-ele"
-              src="img/light/radio-button.svg"
-              alt="video"
-            />
+            <MdRadioButtonChecked draggable="false" className="img-ele" />
+
             <p>Radio</p>
           </div>
           <div
@@ -301,12 +289,7 @@ export default function LeftSideMenu({ ...props }) {
             {...props}
             draggable="true"
           >
-            <img
-              draggable="false"
-              className="img-ele"
-              src="img/light/radio-button.svg"
-              alt="video"
-            />
+            <RiCheckboxLine draggable="false" className="img-ele" />
             <p>Checkbox</p>
           </div>
           <div
@@ -315,12 +298,7 @@ export default function LeftSideMenu({ ...props }) {
             {...props}
             draggable="true"
           >
-            <img
-              draggable="false"
-              className="img-ele"
-              src="img/light/radio-button.svg"
-              alt="video"
-            />
+            <BsTextareaT draggable="false" className="img-ele" />
             <p>Text Area</p>
           </div>
           <div
@@ -332,7 +310,7 @@ export default function LeftSideMenu({ ...props }) {
             <img
               draggable="false"
               className="img-ele"
-              src="img/light/radio-button.svg"
+              src="img/light/dropdown.svg"
               alt="video"
             />
             <p>Select</p>
@@ -346,10 +324,10 @@ export default function LeftSideMenu({ ...props }) {
             <img
               draggable="false"
               className="img-ele"
-              src="img/light/radio-button.svg"
+              src="img/light/input-button.svg"
               alt="video"
             />
-            <p>Form button</p>
+            <p>Button</p>
           </div>
         </div>
         <div className="toggle p-2 m-t-1 " onClick={toggleExtra}>

@@ -5,7 +5,7 @@
    viewBox="0 0 35 29"
    version="1.1"
    id="svg7"
-   sodipodi:docname="columns.svg"
+   sodipodi:docname="two-columns.svg"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -41,8 +41,8 @@
      id="namedview9"
      showgrid="false"
      inkscape:zoom="11.313708"
-     inkscape:cx="7.7781749"
-     inkscape:cy="17.058952"
+     inkscape:cx="5.833631"
+     inkscape:cy="11.048543"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -81,22 +81,6 @@
      width="27.160852"
      height="1.9152999"
      x="-28.0173"
-     y="-18.280874"
-     transform="matrix(0,-1,-1,0,0,0)" />
-  <rect
-     style="fill:#707070;fill-opacity:1;stroke-width:15.001"
-     id="rect10"
-     width="27.160852"
-     height="1.9152999"
-     x="-28.0173"
-     y="-10.149144"
-     transform="matrix(0,-1,-1,0,0,0)" />
-  <rect
-     style="fill:#707070;fill-opacity:1;stroke-width:15.001"
-     id="rect12"
-     width="27.160852"
-     height="1.9152999"
-     x="-28.0173"
-     y="-26.412603"
+     y="-18.457649"
      transform="matrix(0,-1,-1,0,0,0)" />
 </svg>
