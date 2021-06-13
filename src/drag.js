@@ -24,8 +24,12 @@ import FormButton from "./components/elements/FormButton";
 import Columns from "./components/elements/Columns";
 import Text from "./components/elements/Text";
 
-import { resize as resizeSelectBox } from "./config/init";
+import init, { resize as resizeSelectBox } from "./config/init";
 import resize from "./resize";
+import SlideShow from "./components/elements/SlideShow";
+import Tabs from "./components/elements/Tabs";
+import FullScreenVideo from "./components/elements/FullScreenVideo";
+import Hero from "./components/elements/Hero";
 
 let tempElement = null;
 let inIframe = false;
@@ -35,7 +39,7 @@ const mousePosition = {
   y: 0,
 };
 function randomID(node) {
-  node.id = Math.random().toString(36).substr(2, 5);
+  if (!node.id) node.id = Math.random().toString(36).substr(2, 5);
   if (node.children.length > 0) {
     for (let i = 0; i < node.children.length; i++) {
       randomID(node.children[i]);
@@ -131,6 +135,18 @@ const SelectTag = (element) => {
     case "text":
       tag = <Text />;
       break;
+    case "slideshow":
+      tag = <SlideShow />;
+      break;
+    case "tabs":
+      tag = <Tabs />;
+      break;
+    case "fullscreen":
+      tag = <FullScreenVideo />;
+      break;
+    case "hero":
+      tag = <Hero />;
+      break;
     default:
       tag = <Test />;
       break;
@@ -212,6 +228,7 @@ const drop = (e) => {
   e.target.style.background = oldBackground;
   e.target.style.outline = "1px dotted #2196f3";
   savePage(false);
+  iframe.contentWindow.main();
 };
 
 const dragOver = (e) => {

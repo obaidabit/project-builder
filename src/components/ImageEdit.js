@@ -30,7 +30,6 @@ export default function ImageEdit(props) {
       });
     } else {
       if (imageURL.current) {
-        console.log(imageURL.current);
         selectedTarget.src = imageURL.current.value.toString();
       }
     }

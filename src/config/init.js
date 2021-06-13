@@ -54,6 +54,7 @@ const resize = (target, iframe, event) => {
 const init = () => {
   const iframe = document.querySelector("iframe");
   const doc = iframe.contentWindow.document;
+  let script = document.createElement("script");
   let link = document.createElement("link");
   let grid = document.createElement("link");
   let selectedElement = null;
@@ -62,10 +63,13 @@ const init = () => {
   link.href = "css/style.css"; /**** your CSS file ****/
   grid.rel = link.rel = "stylesheet";
   grid.type = link.type = "text/css";
+  script.defer = true;
+  script.src = "js/index.js";
 
   if (iframe) {
     doc.head.appendChild(link);
     doc.head.appendChild(grid);
+    doc.head.appendChild(script);
     doc.body.ondrag = drag;
     doc.body.ondrop = drop;
     doc.body.ondragover = dragOver;

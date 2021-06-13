@@ -53,7 +53,7 @@ export function toJSON(node) {
     for (let [name, defaultValue] of defaultValues) {
       let propName = propFix[name] || name;
       let specialGetter = specialGetters[propName];
-      let value = specialGetter ? specialGetter(node) : node[propName];
+      let value = specialGetter ? specialGetter(node) : node.getAttribute(name);
       if (value !== defaultValue) {
         arr.push([name, value]);
       }
@@ -76,11 +76,6 @@ export function toJSON(node) {
 
 export function toDOM(input) {
   let obj = typeof input === "string" ? JSON.parse(input) : input;
-  let propFix = { for: "htmlFor", class: "className" };
-  let specialGetters = {
-    "data-name": true,
-    "data-edit": true,
-  };
   let node;
   let nodeType = obj.nodeType;
   switch (nodeType) {
@@ -89,13 +84,9 @@ export function toDOM(input) {
       node = document.createElement(obj.tagName);
       if (obj.attributes) {
         for (let [attrName, value] of obj.attributes) {
-          let propName = propFix[attrName] || attrName;
           // Note: this will throw if setting the value of an input[type=file]
-          if (specialGetters[attrName]) {
-            node.setAttribute(attrName, value);
-          } else {
-            node[propName] = value;
-          }
+
+          node.setAttribute(attrName, value);
         }
       }
       break;

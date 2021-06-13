@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { BiText } from "react-icons/bi";
 import { AiOutlineLine, AiOutlineBars, AiOutlineForm } from "react-icons/ai";
-import { MdRadioButtonChecked, MdShortText } from "react-icons/md";
+import {
+  MdRadioButtonChecked,
+  MdShortText,
+  MdVideoLabel,
+} from "react-icons/md";
 import { RiCheckboxLine } from "react-icons/ri";
 import { BsTextareaT } from "react-icons/bs";
 export default function LeftSideMenu({ ...props }) {
@@ -351,6 +355,48 @@ export default function LeftSideMenu({ ...props }) {
               alt="link"
             />
             <p>NavBar</p>
+          </div>
+          <div
+            className="element shadow"
+            id="slideshow"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/slider.svg"
+              alt="link"
+            />
+            <p>SlideShow</p>
+          </div>
+          <div className="element shadow" id="tabs" {...props} draggable="true">
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/tabs.svg"
+              alt="link"
+            />
+            <p>Tabs</p>
+          </div>
+          <div
+            className="element shadow"
+            id="fullscreen"
+            {...props}
+            draggable="true"
+          >
+            <MdVideoLabel draggable="false" className="img-ele" />
+
+            <p>FullScreen Video</p>
+          </div>
+          <div className="element shadow" id="hero" {...props} draggable="true">
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/hero.svg"
+              alt="link"
+            />
+            <p>Hero</p>
           </div>
         </div>
       </div>

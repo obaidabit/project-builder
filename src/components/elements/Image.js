@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function Image() {
+export default function Image({ classes, src }) {
   return (
     <img
-      className="image"
+      className={classes ? classes : "image"}
       data-name="image"
       data-edit={true}
-      src="./img/adult-beanie-crisis-220365.jpg"
+      src={src ? src : "./img/adult-beanie-crisis-220365.jpg"}
       alt=""
     />
   );
