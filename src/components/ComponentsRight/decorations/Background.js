@@ -85,26 +85,12 @@ function Background() {
 		savePage(false)
 	}
 
-	const handleInput = e => {
-		console.log(e.target.value)
-		saveRecord(selectedTarget, "style-change")
-		clearRedoRecord()
-		updateState(e.target.name, e.target.value)
-		const temp = selectedElement
-		switch (e.target.name) {
-			case "backgroundColor":
-				temp[e.target.name] = e.target.value
-				break
-			default:
-				break
-		}
-		setSelectedElement(temp)
-		savePage(false)
-	}
 	const checkInput = e => {
 		var ch = String.fromCharCode(e.which)
-		if (!/[0-9-auto]/.test(ch)) {
-			e.preventDefault()
+		if (e.target.name !== "borderColor") {
+			if (!/[0-9-#]/.test(ch)) {
+				e.preventDefault()
+			}
 		}
 	}
 	const uploadImage = e => {
@@ -122,32 +108,6 @@ function Background() {
 		}
 		setSelectedElement(temp)
 		fileReader.readAsDataURL(file)
-		savePage(false)
-	}
-
-	const increase = e => {
-		var value = e.target.value
-		if (value === "") {
-			updateState(e.target.name, "0")
-		} else {
-			value = parseInt(value) + 1
-			e.target.value = value.toString()
-			updateState(e.target.name, e.target.value)
-			handleInput(e)
-		}
-		savePage(false)
-	}
-
-	const decrease = e => {
-		var value = e.target.value
-		if (value === "") {
-			updateState(e.target.name, "0")
-		} else {
-			value = parseInt(value) - 1
-			e.target.value = value.toString()
-			updateState(e.target.name, e.target.value)
-			handleInput(e)
-		}
 		savePage(false)
 	}
 

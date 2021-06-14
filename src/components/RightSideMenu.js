@@ -1,20 +1,20 @@
-import React from "react";
-import Settings from "./ComponentsRight/Settings";
-import General from "./ComponentsRight/general/General";
-import Dimension from "./ComponentsRight/dimension/Dimension";
-import Typography from "./ComponentsRight/typography/Typography";
-import Decorations from "./ComponentsRight/decorations/Decorations";
-import Extra from "./ComponentsRight/extra/Extra";
-import Flex from "./ComponentsRight/flex/Flex";
+import React from "react"
+import Settings from "./ComponentsRight/Setting/Settings"
+import General from "./ComponentsRight/general/General"
+import Dimension from "./ComponentsRight/dimension/Dimension"
+import Typography from "./ComponentsRight/typography/Typography"
+import Decorations from "./ComponentsRight/decorations/Decorations"
+import Extra from "./ComponentsRight/extra/Extra"
+import Flex from "./ComponentsRight/flex/Flex"
 
 export default function RightSideMenu(props) {
 	function show(e) {
 		if (e.target.parentNode.nextElementSibling.style.display === "none") {
-			e.target.parentNode.nextElementSibling.style.display = "grid";
-			e.target.parentElement.querySelector("img").src = "img/light/line.svg";
+			e.target.parentNode.nextElementSibling.style.display = "grid"
+			e.target.parentElement.querySelector("img").src = "img/light/line.svg"
 		} else {
-			e.target.parentNode.nextElementSibling.style.display = "none";
-			e.target.parentElement.querySelector("img").src = "img/light/plus.svg";
+			e.target.parentNode.nextElementSibling.style.display = "none"
+			e.target.parentElement.querySelector("img").src = "img/light/plus.svg"
 		}
 	}
 
@@ -76,5 +76,5 @@ export default function RightSideMenu(props) {
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
