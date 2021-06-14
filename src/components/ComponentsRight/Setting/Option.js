@@ -15,10 +15,6 @@ function Option() {
 			case "modifie":
 				setmodOption(e.target.value)
 				break
-			case "index":
-				setindexOption(e.target.value)
-				break
-
 			default:
 				break
 		}
