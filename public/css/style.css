@@ -345,13 +345,11 @@ svg {
 }
 
 input[type="text"] {
-  background-color: #4e5a63;
   color: white;
   padding: 5px;
   margin: 8px 0;
   box-sizing: border-box;
-  border: none;
-  outline: none;
+  border: 1px solid lightgray;
 }
 
 input[type="text"]:focus {
@@ -364,9 +362,7 @@ input[type="text"]:focus {
 }
 
 .image {
-  width: 250px;
-  height: 250px;
-  border: 1px solid black;
+  width: 100%;
 }
 
 .radio {
