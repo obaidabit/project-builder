@@ -3,6 +3,7 @@ import { undo, redo } from "../undo";
 import { MdUndo, MdRedo } from "react-icons/md";
 import { AiOutlineClear } from "react-icons/ai";
 import { closeSelectBox } from "../config/init";
+import download from "./downloadPage";
 export default function Navbar(props) {
   const headref = useRef();
 
@@ -107,6 +108,9 @@ export default function Navbar(props) {
         </div>
 
         <div className="tools-group">
+        <button onClick={download} className="screen-btn" title="download page">
+          <img src="img/light/full-screen.svg" alt="download " />
+          </button>
           <button onClick={clearPage} className="screen-btn" title="Clear page">
             <AiOutlineClear />
           </button>
