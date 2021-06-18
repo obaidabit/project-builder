@@ -1,5 +1,5 @@
 import React from "react";
-import Settings from "./ComponentsRight/Settings";
+import Settings from "./ComponentsRight/Setting/Settings";
 import General from "./ComponentsRight/general/General";
 import Dimension from "./ComponentsRight/dimension/Dimension";
 import Typography from "./ComponentsRight/typography/Typography";
