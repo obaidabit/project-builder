@@ -2,6 +2,7 @@ import React, { createRef, useContext, useEffect } from "react";
 import { ElementContext2 } from "../ElementContext";
 import { MdClose } from "react-icons/md";
 import resize from "../resize";
+import * as init from "../config/init";
 
 export default function ContainerEdit(props) {
   const [selectedTarget] = useContext(ElementContext2);
@@ -15,6 +16,7 @@ export default function ContainerEdit(props) {
       selectedTarget.className = cName;
     }
     resize(edit.current, selectedTarget);
+    init.resize(selectedTarget, document.querySelector("iframe"));
   };
 
   const hide = () => {

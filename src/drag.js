@@ -23,8 +23,7 @@ import Select from "./components/elements/Select";
 import FormButton from "./components/elements/FormButton";
 import Columns from "./components/elements/Columns";
 import Text from "./components/elements/Text";
-
-import init, { resize as resizeSelectBox } from "./config/init";
+import { resize as resizeSelectBox } from "./config/init";
 import resize from "./resize";
 import SlideShow from "./components/elements/SlideShow";
 import Tabs from "./components/elements/Tabs";

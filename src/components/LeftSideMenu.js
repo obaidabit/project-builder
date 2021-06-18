@@ -6,6 +6,7 @@ import {
   MdShortText,
   MdVideoLabel,
 } from "react-icons/md";
+import { AiOutlineVideoCamera } from "react-icons/ai";
 import { RiCheckboxLine } from "react-icons/ri";
 import { BsTextareaT } from "react-icons/bs";
 export default function LeftSideMenu({ ...props }) {
@@ -226,12 +227,8 @@ export default function LeftSideMenu({ ...props }) {
             {...props}
             draggable="true"
           >
-            <img
-              draggable="false"
-              className="img-ele"
-              src="img/light/youtube.svg"
-              alt="video"
-            />
+            <AiOutlineVideoCamera draggable="false" className="img-ele" />
+
             <p>Video</p>
           </div>
         </div>

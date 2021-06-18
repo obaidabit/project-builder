@@ -45,6 +45,7 @@ const resize = (target, iframe, event) => {
   if (rect.width < 80) {
     tools.style.left = rect.width + "px";
     tools.style.right = "auto";
+    tag.style.top = rect.height + "px";
   } else {
     tools.style.left = "";
     tools.style.right = -4 + "px";
