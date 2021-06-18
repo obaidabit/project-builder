@@ -16,15 +16,26 @@ const download = () => {
         pageElements[i].removeAttribute("draggable");
     }
     let link = document.createElement('link');
+    let link2 = document.createElement('link');
+    let jslink=document.createElement('script')
+    jslink.src="index.js";
     link.rel = 'stylesheet';
     link.type = 'text/css';
     link.href = 'style.css';
+    link2.rel = 'stylesheet';
+    link2.type = 'text/css';
+    link2.href = 'grid.css';
     frame.contentWindow.document.head.appendChild(link);
+    frame.contentWindow.document.head.appendChild(link2);
+    frame.contentWindow.document.head.appendChild(jslink);
     let htmlPage = "<html>" + encodeURIComponent(frame.contentWindow.document.documentElement.innerHTML) + "</html>";
     startDownload('data:text/plain;charset=utf-8,' + htmlPage, "index.html");
-    startDownload('./css/grid.css', "css/grid.css")
-    startDownload('./css/style.css', "css/style.css")
+    startDownload('./css/grid.css', "grid.css",);
+    startDownload('./css/style.css', "style.css",);
+    startDownload('./js/index.js', "index.js",);
     link.remove();
+    link2.remove();
+    jslink.remove();
 
     /*  var htmlFile = document.createElement('a');
     htmlFile.setAttribute('href', 'data:text/plain;charset=utf-8,' + htmlPage);
