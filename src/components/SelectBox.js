@@ -1,12 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { IoSettingsSharp } from "react-icons/io5";
+import { AiOutlineArrowUp } from "react-icons/ai";
 import { ElementContext2 } from "../ElementContext";
 import savePage from "../savePage";
 import { saveRecord, clearRedoRecord } from "../undo";
-import { closeSelectBox } from "../config/init";
+import { closeSelectBox, resize } from "../config/init";
 
 export default function SelectBox(props) {
-  const [selectedTarget] = useContext(ElementContext2);
+  const [selectedTarget, setSelectedTarget] = useContext(ElementContext2);
   const [name, setName] = useState("");
 
   const close = () => {
@@ -15,6 +16,7 @@ export default function SelectBox(props) {
     props.columnsEdit.setShowColumns(false);
     props.imageEdit.setShowImage(false);
     props.videoEdit.setShowVideo(false);
+    props.linkEdit.setShowLink(false);
   };
 
   const remove = () => {
@@ -44,8 +46,18 @@ export default function SelectBox(props) {
       case "video":
         props.videoEdit.setShowVideo(!props.videoEdit.showVideo);
         break;
+      case "link":
+        props.linkEdit.setShowLink(!props.linkEdit.showLink);
+        break;
       default:
         break;
+    }
+  };
+
+  const selectParent = () => {
+    if (selectedTarget) {
+      setSelectedTarget(selectedTarget.parentNode);
+      resize(selectedTarget.parentNode, document.querySelector("iframe"), null);
     }
   };
 
@@ -68,9 +80,14 @@ export default function SelectBox(props) {
           </button>
         ) : null}
         {selectedTarget.tagName === "BODY" ? null : (
-          <button onClick={remove}>
-            <img className="tools-icon" src="img/remove.svg" alt="" />
-          </button>
+          <>
+            <button onClick={remove}>
+              <img className="tools-icon" src="img/remove.svg" alt="" />
+            </button>
+            <button onClick={selectParent}>
+              <AiOutlineArrowUp fill="#fff" className="tools-icon" />
+            </button>
+          </>
         )}
         <button onClick={close}>
           <img className="tools-icon" src="img/cancel.svg" alt="" />

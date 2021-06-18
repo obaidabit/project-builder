@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { undo, redo } from "../undo";
 import { MdUndo, MdRedo } from "react-icons/md";
 import { AiOutlineClear } from "react-icons/ai";
+import { FiDownload } from "react-icons/fi";
 import { closeSelectBox } from "../config/init";
 import download from "./downloadPage";
 export default function Navbar(props) {
@@ -91,26 +92,36 @@ export default function Navbar(props) {
           <img src="img/light/hide.svg" alt="full screen button" />
         </button>
 
-        <div className="screen-group">
-          <button onClick={changeScreen} className="screen-btn" title="Phone">
-            <img src="img/light/phone.svg" alt="phone" />
-          </button>
-          <button onClick={changeScreen} className="screen-btn" title="Tablet">
-            <img src="img/light/tablet.svg" alt="tablet" />
-          </button>
+        <div className="flex-row flex-align-strech">
           <button
-            onClick={changeScreen}
-            className="screen-btn btn-selected"
-            title="Monitor"
+            onClick={download}
+            className="screen-btn export-btn"
+            title="Download page"
           >
-            <img src="img/light/monitor.svg" alt="monitor" />
+            <FiDownload stroke="white" />
           </button>
+          <div className="screen-group">
+            <button onClick={changeScreen} className="screen-btn" title="Phone">
+              <img src="img/light/phone.svg" alt="phone" />
+            </button>
+            <button
+              onClick={changeScreen}
+              className="screen-btn"
+              title="Tablet"
+            >
+              <img src="img/light/tablet.svg" alt="tablet" />
+            </button>
+            <button
+              onClick={changeScreen}
+              className="screen-btn btn-selected"
+              title="Monitor"
+            >
+              <img src="img/light/monitor.svg" alt="monitor" />
+            </button>
+          </div>
         </div>
 
         <div className="tools-group">
-        <button onClick={download} className="screen-btn" title="download page">
-          <img src="img/light/full-screen.svg" alt="download " />
-          </button>
           <button onClick={clearPage} className="screen-btn" title="Clear page">
             <AiOutlineClear />
           </button>

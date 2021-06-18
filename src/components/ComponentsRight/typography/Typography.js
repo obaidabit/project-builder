@@ -463,7 +463,7 @@ function Typography() {
         <div>
           <span>Text Align </span>
         </div>
-        <div style={{ display: "flex" }}>
+        <div className="text-align shadow">
           <div>
             <input
               id="r1"
@@ -474,10 +474,7 @@ function Typography() {
               onChange={handleInput}
               style={{ display: "none" }}
             />
-            <label
-              htmlFor="r1"
-              style={{ cursor: "pointer", display: "block", padding: "5px" }}
-            >
+            <label htmlFor="r1" className="text-align-label">
               <FiAlignLeft />
             </label>
           </div>
@@ -492,10 +489,7 @@ function Typography() {
               onChange={handleInput}
               style={{ display: "none" }}
             />
-            <label
-              htmlFor="r3"
-              style={{ cursor: "pointer", display: "block", padding: "5px" }}
-            >
+            <label htmlFor="r3" className="text-align-label">
               <FiAlignCenter />
             </label>
           </div>
@@ -509,10 +503,7 @@ function Typography() {
               onChange={handleInput}
               style={{ display: "none" }}
             />
-            <label
-              htmlFor="r2"
-              style={{ cursor: "pointer", display: "block", padding: "5px" }}
-            >
+            <label htmlFor="r2" className="text-align-label">
               <FiAlignRight />
             </label>
           </div>
@@ -526,10 +517,7 @@ function Typography() {
               onChange={handleInput}
               style={{ display: "none" }}
             />
-            <label
-              htmlFor="r4"
-              style={{ cursor: "pointer", display: "block", padding: "5px" }}
-            >
+            <label htmlFor="r4" className="text-align-label">
               <FiAlignJustify />
             </label>
           </div>
@@ -540,7 +528,7 @@ function Typography() {
         <div>
           <span>Text Decoration </span>
         </div>
-        <div style={{ display: "flex" }}>
+        <div className="text-align shadow">
           <div>
             <input
               id="r5"
@@ -551,10 +539,7 @@ function Typography() {
               onChange={handleInput}
               style={{ display: "none" }}
             />
-            <label
-              htmlFor="r5"
-              style={{ cursor: "pointer", display: "block", padding: "5px" }}
-            >
+            <label htmlFor="r5" className="text-align-label">
               <RiCloseLine />
             </label>
           </div>
@@ -568,10 +553,7 @@ function Typography() {
               onChange={handleInput}
               style={{ display: "none" }}
             />
-            <label
-              htmlFor="r6"
-              style={{ cursor: "pointer", display: "block", padding: "5px" }}
-            >
+            <label htmlFor="r6" className="text-align-label">
               <FiUnderline />
             </label>
           </div>
@@ -585,10 +567,7 @@ function Typography() {
               onChange={handleInput}
               style={{ display: "none" }}
             />
-            <label
-              htmlFor="r7"
-              style={{ cursor: "pointer", display: "block", padding: "5px" }}
-            >
+            <label htmlFor="r7" className="text-align-label">
               <GrStrikeThrough />
             </label>
           </div>

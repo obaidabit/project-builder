@@ -288,6 +288,49 @@ body {
   font-size: 14px;
   margin-right: 5px;
 }
+
+.link-edit {
+  border: 1px solid var(--bg-page);
+  border-radius: 3px;
+  background: var(--bg-main);
+  padding: 0.5rem;
+  position: absolute;
+  height: auto;
+  min-width: 200px;
+}
+
+.link-edit-attr {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.link-edit input[type="url"] {
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  padding: 4px;
+  margin-right: 10px;
+  min-height: 30px;
+  max-height: 30px;
+  width: 200px;
+}
+
+.link-edit button {
+  border: 1px solid var(--border-color);
+  background: var(--dark-blue);
+  border-radius: 3px;
+  min-height: 30px;
+  color: white;
+  margin-left: 0;
+  padding: 4px 10px;
+  width: auto;
+}
+
+.link-edit label {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 10px;
+}
 /* ------------------------------ navbar ----------------------------*/
 .show-header {
   z-index: 5;
@@ -332,6 +375,17 @@ body {
   pointer-events: none;
 }
 
+.export-btn {
+  background: var(--blue);
+  border-radius: 3px;
+  margin-right: 10px;
+}
+.export-btn:active {
+  outline: none;
+  background: var(--blue);
+  opacity: 0.7;
+}
+
 .hide {
   display: none;
 }
@@ -353,6 +407,9 @@ body {
   height: 25px;
 }
 
+.flex-align-strech {
+  align-items: stretch !important;
+}
 /* ------------------------------ main section ----------------------------*/
 
 .app {
@@ -495,7 +552,7 @@ body {
   height: 35px;
 }
 
-/* ------------------------------ right side menu ----------------------------*/
+/* ------------------------------------- right side menu -------------------------------------*/
 .right-side-menu {
   color: var(--font-color);
   margin-left: 5px;
@@ -666,4 +723,19 @@ input[type="color"]::-webkit-color-swatch {
 
 .sub-head {
   font-weight: bold;
+}
+
+.text-align {
+  display: flex;
+  justify-content: center;
+  background: white;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+
+.text-align-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
 }

@@ -13,19 +13,23 @@ import savePage from "./savePage";
 import "./App.css";
 import ImageEdit from "./components/ImageEdit";
 import VideoEdit from "./components/VideoEdit";
+import LinkEdit from "./components/LinkEdit";
 
 export default function App() {
   const [showContainer, setShowContainer] = useState(false);
   const [showColumns, setShowColumns] = useState(false);
   const [showImage, setShowImage] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
+  const [showLink, setShowLink] = useState(false);
 
   const closeEdit = () => {
     setShowContainer(false);
     setShowColumns(false);
     setShowImage(false);
     setShowVideo(false);
+    setShowLink(false);
   };
+
   useEffect(() => {
     init();
     savePage(true);
@@ -51,11 +55,13 @@ export default function App() {
           columnsEdit={{ showColumns, setShowColumns }}
           imageEdit={{ showImage, setShowImage }}
           videoEdit={{ showVideo, setShowVideo }}
+          linkEdit={{ showLink, setShowLink }}
         />
         <ContainerEdit show={showContainer} hide={setShowContainer} />
         <ColumnsEdit show={showColumns} hide={setShowColumns} />
         <ImageEdit show={showImage} hide={setShowImage} />
         <VideoEdit show={showVideo} hide={setShowVideo} />
+        <LinkEdit show={showLink} hide={setShowLink} />
       </div>
     </ElementProvider>
   );

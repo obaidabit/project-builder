@@ -94,6 +94,15 @@ function main() {
   }
 
   // ------------ End FullScreen video ----------
+
+  let links = document.querySelectorAll("[data-name=link]");
+  if (links[0])
+    links.forEach((link) =>
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        return false;
+      })
+    );
 }
 
 main();

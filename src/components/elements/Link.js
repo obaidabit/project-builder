@@ -4,6 +4,7 @@ import React from "react";
 export default function Link() {
   const handleClick = (e) => {
     e.preventDefault();
+    console.log("clicked");
   };
   return (
     // eslint-disable-next-line no-script-url
@@ -12,7 +13,7 @@ export default function Link() {
       onClick={handleClick}
       data-name="link"
       data-edit={true}
-      href="javascript:void(0)"
+      href="#"
       draggable={true}
     >
       Link
