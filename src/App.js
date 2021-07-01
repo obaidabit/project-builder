@@ -62,6 +62,7 @@ export default function App() {
         <ImageEdit show={showImage} hide={setShowImage} />
         <VideoEdit show={showVideo} hide={setShowVideo} />
         <LinkEdit show={showLink} hide={setShowLink} />
+        <hr className="position-line" />
       </div>
     </ElementProvider>
   );

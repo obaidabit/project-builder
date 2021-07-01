@@ -30,13 +30,15 @@ import Tabs from "./components/elements/Tabs";
 import FullScreenVideo from "./components/elements/FullScreenVideo";
 import Hero from "./components/elements/Hero";
 
+let hr = null;
 let tempElement = null;
 let inIframe = false;
-let oldBackground = "";
+
 const mousePosition = {
   x: 0,
   y: 0,
 };
+
 function randomID(node) {
   if (!node.id) node.id = Math.random().toString(36).substr(2, 5);
   if (node.children.length > 0) {
@@ -45,6 +47,7 @@ function randomID(node) {
     }
   }
 }
+
 const dropPosition = (targetNode) => {
   const targetRec = targetNode.getBoundingClientRect();
 
@@ -64,7 +67,7 @@ const dropPosition = (targetNode) => {
   } else {
     position = "add";
   }
-
+  console.log(position);
   return position;
 };
 
@@ -169,15 +172,19 @@ const dragStart = (e) => {
     inIframe = false;
     tempElement = SelectTag(e.target);
   }
+  hr = document.querySelector("hr");
 };
 
 const dragEnter = (e) => {
-  oldBackground = e.target.style.background;
-  e.target.style.background = "#afc7ff";
+  if (e.target !== tempElement) {
+    e.target.classList.add("hover");
+  }
 };
 
 const dragLeave = (e) => {
-  e.target.style.background = oldBackground;
+  if (e.target !== tempElement) {
+    e.target.classList.remove("hover");
+  }
 };
 
 const drop = (e) => {
@@ -188,7 +195,7 @@ const drop = (e) => {
   let clone = null;
 
   if (e.target === tempElement) {
-    e.target.style.background = oldBackground;
+    e.target.classList.remove("hover");
     return;
   }
 
@@ -210,7 +217,6 @@ const drop = (e) => {
 
   if (!inIframe) {
     randomID(clone);
-
     saveRecord(tempElement, "added");
     clearRedoRecord();
     resizeSelectBox(e.target, iframe, null);
@@ -223,8 +229,8 @@ const drop = (e) => {
       resize(panel, oldSelected);
     }
   }
-
-  e.target.style.background = oldBackground;
+  hr.style.display = "none";
+  e.target.classList.remove("hover");
   e.target.style.outline = "1px dotted #2196f3";
   savePage(false);
   iframe.contentWindow.main();
@@ -232,11 +238,29 @@ const drop = (e) => {
 
 const dragOver = (e) => {
   e.preventDefault();
-};
-
-const drag = (e) => {
   mousePosition.x = e.clientX;
   mousePosition.y = e.clientY;
+  const dim = e.target.getBoundingClientRect();
+  if (tempElement !== e.target)
+    switch (dropPosition(e.target)) {
+      case "before": {
+        hr.style.display = "inline";
+        hr.style.width = dim.width + "px";
+        hr.style.top = dim.top + 44 + "px";
+        hr.style.left = dim.left + 265 + "px";
+        break;
+      }
+      case "after": {
+        hr.style.display = "inline";
+        hr.style.width = dim.width + "px";
+        hr.style.top = dim.height + dim.top + 47 + "px";
+        hr.style.left = dim.left + 265 + "px";
+        break;
+      }
+      default:
+        hr.style.display = "none";
+        break;
+    }
 };
 
-export { drag, dragStart, dragOver, drop, dragLeave, dragEnter };
+export { dragStart, dragOver, drop, dragLeave, dragEnter };

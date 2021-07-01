@@ -37,6 +37,15 @@ body {
   overflow: hidden;
 }
 
+input {
+  font-family: monospace;
+}
+
+.position-line {
+  z-index: 10;
+  position: absolute;
+  border: 2px solid #fdae53;
+}
 .white {
   background: white !important;
 }

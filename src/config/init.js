@@ -1,4 +1,4 @@
-import { drag, dragStart, dragOver, drop, dragLeave, dragEnter } from "../drag";
+import { dragStart, dragOver, drop, dragLeave, dragEnter } from "../drag";
 import * as resizeEdit from "../resize";
 
 const closeSelectBox = () => {
@@ -71,7 +71,6 @@ const init = () => {
     doc.head.appendChild(link);
     doc.head.appendChild(grid);
     doc.head.appendChild(script);
-    doc.body.ondrag = drag;
     doc.body.ondrop = drop;
     doc.body.ondragover = dragOver;
     doc.body.ondragenter = dragEnter;

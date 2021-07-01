@@ -12,6 +12,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.hover {
+  background-color: #ccebff !important;
+}
+
 .init {
   min-height: 30px;
   min-width: 30px;
