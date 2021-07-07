@@ -30,7 +30,9 @@ import Tabs from "./components/elements/Tabs";
 import FullScreenVideo from "./components/elements/FullScreenVideo";
 import Hero from "./components/elements/Hero";
 
-let hr = null;
+import ShoesLayout from "./components/Layouts/ShoesLayout";
+
+let hr = null;  
 let tempElement = null;
 let inIframe = false;
 
@@ -148,6 +150,9 @@ const SelectTag = (element) => {
       break;
     case "hero":
       tag = <Hero />;
+      break;
+    case "ShoesLayout":
+      tag = <ShoesLayout />;
       break;
     default:
       tag = <Test />;

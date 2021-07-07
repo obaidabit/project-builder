@@ -16,6 +16,7 @@ export default function LeftSideMenu({ ...props }) {
   const [media, setMedia] = useState(true);
   const [form, setForm] = useState(true);
   const [extra, setExtra] = useState(true);
+  const [homePage, setHomePage] = useState(true);
 
   const toggleTab = (index) => {
     setTabIndex(index);
@@ -24,6 +25,9 @@ export default function LeftSideMenu({ ...props }) {
   const toggleLayout = () => {
     setLayout(!layout);
   };
+  const toggleHomePage = () => {
+    setHomePage(!homePage);
+  }
 
   const toggleBasics = () => {
     setBasics(!basics);
@@ -394,6 +398,31 @@ export default function LeftSideMenu({ ...props }) {
               alt="link"
             />
             <p>Hero</p>
+          </div>
+        </div>
+      </div>
+      <div className={tabIndex === 2 ? "group-elements p-x-1" : "hide"}>
+        <div className="toggle p-2 m-t-1  " onClick={toggleHomePage}>
+          <h5>Layout</h5>
+          <img
+            src={homePage ? "img/light/line.svg" : "img/light/plus.svg"}
+            alt=""
+          />
+        </div>
+        <div className={layout ? "elements" : "hide"}>
+          <div
+            className="element shadow"
+            id="ShoesLayout"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/section.svg"
+              alt="button"
+            />
+            <p>Section</p>
           </div>
         </div>
       </div>
