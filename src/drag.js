@@ -31,8 +31,9 @@ import FullScreenVideo from "./components/elements/FullScreenVideo";
 import Hero from "./components/elements/Hero";
 
 import ShoesLayout from "./components/Layouts/ShoesLayout";
+import ParallaxLayout from "./components/Layouts/ParallaxLayout";
 
-let hr = null;  
+let hr = null;
 let tempElement = null;
 let inIframe = false;
 
@@ -151,8 +152,11 @@ const SelectTag = (element) => {
     case "hero":
       tag = <Hero />;
       break;
-    case "ShoesLayout":
+    case "shoesLayout":
       tag = <ShoesLayout />;
+      break;
+    case "parallaxLayout":
+      tag = <ParallaxLayout />
       break;
     default:
       tag = <Test />;

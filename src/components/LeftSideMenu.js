@@ -412,7 +412,7 @@ export default function LeftSideMenu({ ...props }) {
         <div className={layout ? "elements" : "hide"}>
           <div
             className="element shadow"
-            id="ShoesLayout"
+            id="shoesLayout"
             {...props}
             draggable="true"
           >
@@ -422,8 +422,23 @@ export default function LeftSideMenu({ ...props }) {
               src="img/light/section.svg"
               alt="button"
             />
-            <p>Section</p>
+            <p>ShoesStore</p>
           </div>
+          <div
+            className="element shadow"
+            id="parallaxLayout"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/section.svg"
+              alt="button"
+            />
+            <p>ParallaxSite</p>
+          </div>
+
         </div>
       </div>
     </div>
