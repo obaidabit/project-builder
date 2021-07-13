@@ -50,12 +50,11 @@ function TextShadow() {
         //Blur
         value = value.slice(3);
         blur = value.slice(0, value.indexOf("p"));
+        savePage(false);
       }
     } else {
-      savePage(false);
       return "#000000";
     }
-    savePage(false);
   };
 
   const updateState = (name, value) => {

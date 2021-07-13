@@ -56,9 +56,9 @@ function Transform() {
         //Valaue in rotateZ
         ScaleZ = value.slice(value.indexOf("(") + 1, value.indexOf(")"));
         value = value.slice(value.indexOf(")") + 1);
+        savePage(false);
       }
     }
-    savePage(false);
   };
 
   const updateState = (name, value) => {

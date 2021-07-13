@@ -69,7 +69,6 @@ function Typography() {
         return "#" + r + g + b;
       }
     } else {
-      savePage(false);
       return "#000000";
     }
   };

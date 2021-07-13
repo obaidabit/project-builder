@@ -45,7 +45,6 @@ function Background() {
         return "#" + r + g + b;
       }
     } else {
-      savePage(false);
       return "#000000";
     }
   };
@@ -105,10 +104,10 @@ function Background() {
 
     fileReader.onload = () => {
       temp[e.target.name] = `url(${fileReader.result})`;
+      setSelectedElement(temp);
+      savePage(false);
     };
-    setSelectedElement(temp);
     fileReader.readAsDataURL(file);
-    savePage(false);
   };
 
   return (
@@ -127,7 +126,6 @@ function Background() {
             name="backgroundImage"
             id="myFile"
             type="file"
-            value={backgroundImage ? backgroundImage : ""}
             onChange={uploadImage}
           ></input>
         </div>

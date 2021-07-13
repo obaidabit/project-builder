@@ -91,7 +91,9 @@ export default function Navbar(props) {
   return (
     <header className="show-header" ref={headref}>
       <div className="navbar shadow">
-        <h3>Logo</h3>
+        <a className="logo-link" href="/">
+          <img src="./img/logo_h.svg" className="logo" alt="redesign logo" />
+        </a>
         <button onClick={toggleTargetPage} className="hide hide-page">
           <img src="img/light/hide.svg" alt="full screen button" />
         </button>

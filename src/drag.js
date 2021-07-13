@@ -67,7 +67,7 @@ const dropPosition = (targetNode) => {
   } else {
     position = "add";
   }
-  console.log(position);
+
   return position;
 };
 
@@ -246,14 +246,14 @@ const dragOver = (e) => {
       case "before": {
         hr.style.display = "inline";
         hr.style.width = dim.width + "px";
-        hr.style.top = dim.top + 44 + "px";
+        hr.style.top = dim.top + 48 + "px";
         hr.style.left = dim.left + 265 + "px";
         break;
       }
       case "after": {
         hr.style.display = "inline";
         hr.style.width = dim.width + "px";
-        hr.style.top = dim.height + dim.top + 47 + "px";
+        hr.style.top = dim.height + dim.top + 53 + "px";
         hr.style.left = dim.left + 265 + "px";
         break;
       }

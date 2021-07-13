@@ -37,11 +37,8 @@ body {
   overflow: hidden;
 }
 
-input {
-  font-family: monospace;
-}
-
 .position-line {
+  display: none;
   z-index: 10;
   position: absolute;
   border: 2px solid #fdae53;
@@ -369,7 +366,14 @@ input {
   outline: none;
   background: var(--bg-page);
 }
-
+.logo-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  height: 33px;
+}
 .btn-selected {
   background: var(--bg-page);
   outline: none;

@@ -5,7 +5,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   padding: 1px;
   min-height: 100%;
@@ -39,7 +38,7 @@ body {
   background-color: #00bebe;
   border: none;
   border-radius: 0;
-  cursor: grab;
+  cursor: pointer;
   margin: 0.5rem;
   padding: 0.5rem;
   text-align: center;

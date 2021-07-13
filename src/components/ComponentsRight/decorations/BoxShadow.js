@@ -66,11 +66,11 @@ function TextShadow() {
         if (type !== "inset") {
           type = "";
         }
+        savePage(false);
       }
     } else {
       return "#000000";
     }
-    savePage(false);
   };
 
   const updateState = (name, value) => {

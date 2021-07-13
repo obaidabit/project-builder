@@ -34,7 +34,7 @@ export default function LinkEdit(props) {
     return (
       <div ref={edit} className="link-edit" data-panel>
         <div className="media-label">
-          <span>Video Source</span>
+          <span>Link URL</span>
           <MdClose onClick={hide} />
         </div>
         <div className="link-edit-attr">

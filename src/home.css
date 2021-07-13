@@ -1,0 +1,290 @@
+* {
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 100%;
+  padding: 10px;
+  z-index: 4;
+}
+
+.square {
+  display: inline;
+  width: 90px;
+  height: 90px;
+  background-color: rgba(196, 196, 196, 0.3);
+  position: fixed;
+  bottom: -100px;
+  /* right: -100px; */
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav .container {
+  display: flex;
+  justify-content: center;
+}
+
+.home-logo-v {
+  width: 100px;
+  height: 90px;
+  margin-top: 20px;
+}
+.home-logo-h {
+  display: none;
+  width: 100px;
+  margin-top: 10px;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: #f5f5f5;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+}
+.page {
+  flex: none;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.page .container {
+  margin-top: 130px;
+}
+.land-img {
+  width: 100%;
+  box-shadow: 0 4px 4px 0 rgba(156, 156, 156, 0.25);
+  border-radius: 5px;
+}
+.box {
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+.box h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.box p {
+  text-align: center;
+  font-size: 18px;
+  min-height: 66px;
+}
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  bottom: 120px;
+}
+.btn-wrapper .button {
+  color: #f5f5f5;
+  background: #6aa6f5;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 7px 24px;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.dot-wrapper {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 160px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.dot.active {
+  background-color: #666;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 93px;
+  background: #e4e4e4;
+}
+
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 28px;
+}
+.logo-footer {
+  width: 62px;
+}
+
+@keyframes go {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-100vw, -120vh) rotate(360deg);
+  }
+}
+
+/*----------------------------------------- screen ---------------------------------------*/
+
+@media (min-width: 400px) and (min-height: 800px) {
+  .home-logo-v {
+    width: 140px;
+    height: 137px;
+    margin-top: 30px;
+  }
+
+  .page .container {
+    margin-top: 200px;
+  }
+
+  .dot-wrapper {
+    bottom: 200px;
+  }
+
+  .btn-wrapper {
+    bottom: 150px;
+  }
+}
+@media (min-width: 375px) and (min-height: 800px) {
+  .home-logo-v {
+    width: 140px;
+    height: 137px;
+    margin-top: 30px;
+  }
+
+  .page .container {
+    margin-top: 200px;
+  }
+
+  .dot-wrapper {
+    bottom: 200px;
+  }
+
+  .btn-wrapper {
+    bottom: 150px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1100px;
+  }
+  nav .container {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .page .container {
+    margin-top: 70px;
+  }
+  .home-logo-v {
+    display: none;
+  }
+  .home-logo-h {
+    display: inline;
+    margin-left: 28px;
+  }
+  .land-img {
+    width: 750px;
+    margin: 0 175px;
+  }
+
+  .box {
+    background: #ffffffe3;
+    width: 350px;
+    padding: 30px;
+    position: relative;
+    border-radius: 3px;
+    box-shadow: 0 4px 4px 0 rgba(156, 156, 156, 0.25);
+  }
+  .wrapper .page:nth-child(3) .box {
+    top: -180px;
+    left: 700px;
+  }
+  .wrapper .page:nth-child(4) .box {
+    top: -380px;
+    left: 700px;
+  }
+  .wrapper .page:nth-child(5) .box {
+    top: -180px;
+    left: -50px;
+  }
+  .btn-wrapper {
+    bottom: 75px;
+    z-index: 6;
+  }
+  .dot-wrapper {
+    bottom: 113px;
+  }
+  footer {
+    height: 60px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .land-img {
+    width: 100%;
+    margin: 0;
+  }
+  .container {
+    width: 1320px;
+  }
+  .home-logo-h {
+    width: 140px;
+  }
+  .page .container {
+    margin-top: 120px;
+  }
+  .land-img {
+    width: 1140px;
+    margin: 0 115px;
+  }
+
+  .wrapper .page:nth-child(3) .box {
+    top: -180px;
+    left: 1000px;
+  }
+  .wrapper .page:nth-child(4) .box {
+    top: -500px;
+    left: 1000px;
+  }
+  .wrapper .page:nth-child(5) .box {
+    top: -180px;
+    left: -20px;
+  }
+  .btn-wrapper {
+    bottom: 150px;
+    z-index: 6;
+  }
+  .dot-wrapper {
+    bottom: 200px;
+  }
+  footer {
+    height: 90px;
+  }
+}
