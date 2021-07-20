@@ -32,6 +32,8 @@ import Hero from "./components/elements/Hero";
 
 import ShoesLayout from "./components/Layouts/ShoesLayout";
 import ParallaxLayout from "./components/Layouts/ParallaxLayout";
+import VioletLogInLayout from "./components/Layouts/VioletLogInLayout";
+
 
 let hr = null;
 let tempElement = null;
@@ -157,6 +159,9 @@ const SelectTag = (element) => {
       break;
     case "parallaxLayout":
       tag = <ParallaxLayout />
+      break;
+    case "violetLogInLayout":
+      tag = <VioletLogInLayout />
       break;
     default:
       tag = <Test />;

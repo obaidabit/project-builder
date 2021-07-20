@@ -17,6 +17,8 @@ export default function LeftSideMenu({ ...props }) {
   const [form, setForm] = useState(true);
   const [extra, setExtra] = useState(true);
   const [homePage, setHomePage] = useState(true);
+  const [logInPage, setLogInPage] = useState(true);
+
 
   const toggleTab = (index) => {
     setTabIndex(index);
@@ -44,6 +46,11 @@ export default function LeftSideMenu({ ...props }) {
   const toggleExtra = () => {
     setExtra(!extra);
   };
+
+  const toggleLogInPage = () => {
+    setLogInPage(!logInPage);
+  };
+
 
   return (
     <div className="left-side-menu">
@@ -403,13 +410,13 @@ export default function LeftSideMenu({ ...props }) {
       </div>
       <div className={tabIndex === 2 ? "group-elements p-x-1" : "hide"}>
         <div className="toggle p-2 m-t-1  " onClick={toggleHomePage}>
-          <h5>Layout</h5>
+          <h5>Home Page</h5>
           <img
             src={homePage ? "img/light/line.svg" : "img/light/plus.svg"}
             alt=""
           />
         </div>
-        <div className={layout ? "elements" : "hide"}>
+        <div className={homePage ? "elements" : "hide"}>
           <div
             className="element shadow"
             id="shoesLayout"
@@ -439,6 +446,29 @@ export default function LeftSideMenu({ ...props }) {
             <p>ParallaxSite</p>
           </div>
 
+        </div>
+        <div className="toggle p-2 m-t-1  " onClick={toggleLogInPage}>
+          <h5>LogIn Page</h5>
+          <img
+            src={logInPage ? "img/light/line.svg" : "img/light/plus.svg"}
+            alt=""
+          />
+        </div>
+        <div className={logInPage ? "elements" : "hide"}>
+          <div
+            className="element shadow"
+            id="violetLogInLayout"
+            {...props}
+            draggable="true"
+          >
+            <img
+              draggable="false"
+              className="img-ele"
+              src="img/light/section.svg"
+              alt="button"
+            />
+            <p>LogIn</p>
+          </div>
         </div>
       </div>
     </div>
