@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { ElementContext, ElementContext2 } from "../../../ElementContext";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 import { saveRecord, clearRedoRecord } from "../../../undo";
+import { resize } from "../../../config/init";
 import savePage from "../../../savePage";
 
 let RotateX, RotateY, RotateZ, ScaleX, ScaleY, ScaleZ;
@@ -139,6 +140,7 @@ function Transform() {
     }
 
     setSelectedElement(temp);
+    resize(selectedTarget, document.querySelector("iframe"), false);
     savePage(false);
   };
   const checkInput = (e) => {

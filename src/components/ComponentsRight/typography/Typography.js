@@ -1,6 +1,8 @@
 import React, { useEffect, useContext, useState } from "react";
 import { ElementContext, ElementContext2 } from "../../../ElementContext";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
+import { resize } from "../../../config/init";
+
 import {
   FiAlignLeft,
   FiAlignRight,
@@ -146,6 +148,7 @@ function Typography() {
     const temp = selectedElement;
     temp[e.target.name] = e.target.value;
     setSelectedElement(temp);
+    resize(selectedTarget, document.querySelector("iframe"), false);
     savePage(false);
   };
 
@@ -175,6 +178,7 @@ function Typography() {
         break;
     }
     setSelectedElement(temp);
+    resize(selectedTarget, document.querySelector("iframe"), false);
     savePage(false);
   };
 
