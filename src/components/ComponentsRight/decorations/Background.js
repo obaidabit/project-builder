@@ -6,7 +6,7 @@ import savePage from "../../../savePage";
 function Background() {
   const [selectedTarget] = useContext(ElementContext2);
   const [selectedElement, setSelectedElement] = useContext(ElementContext);
-  const [backgroundImage, setbackgroundImage] = useState("");
+  const [, setbackgroundImage] = useState("");
   const [backgroundRepeat, setbackgroundRepeat] = useState("");
   const [backgroundPosition, setbackgroundPosition] = useState("");
   const [backgroundAttachment, setbackgroundAttachment] = useState("");

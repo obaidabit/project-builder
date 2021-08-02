@@ -84,10 +84,19 @@ const init = () => {
       right.style.display = "block";
       selectedElement = e.target;
       resize(selectedElement, iframe, "select");
+
+      const textElements = doc.querySelectorAll("[contenteditable]");
+      textElements.forEach((item) => {
+        if (item === e.target) return;
+        item.removeAttribute("contenteditable");
+      });
     };
 
     doc.ondblclick = (e) => {
       e.target.contentEditable = "true";
+      e.target.addEventListener("input", () => {
+        resize(e.target, iframe, "select");
+      });
     };
 
     iframe.contentWindow.addEventListener("resize", (e) => {

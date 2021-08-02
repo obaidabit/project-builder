@@ -156,7 +156,7 @@ const SelectTag = (element) => {
       tag = <ShoesLayout />;
       break;
     case "parallaxLayout":
-      tag = <ParallaxLayout />
+      tag = <ParallaxLayout />;
       break;
     default:
       tag = <Test />;
@@ -247,23 +247,26 @@ const drop = (e) => {
 
 const dragOver = (e) => {
   e.preventDefault();
+  if (e.target.ownerDocument.body.id !== "target") return;
   mousePosition.x = e.clientX;
   mousePosition.y = e.clientY;
   const dim = e.target.getBoundingClientRect();
+  const iframe = document.querySelector("iframe").getBoundingClientRect();
+
   if (tempElement !== e.target)
     switch (dropPosition(e.target)) {
       case "before": {
         hr.style.display = "inline";
         hr.style.width = dim.width + "px";
         hr.style.top = dim.top + 48 + "px";
-        hr.style.left = dim.left + 265 + "px";
+        hr.style.left = dim.left + iframe.left + "px";
         break;
       }
       case "after": {
         hr.style.display = "inline";
         hr.style.width = dim.width + "px";
         hr.style.top = dim.height + dim.top + 53 + "px";
-        hr.style.left = dim.left + 265 + "px";
+        hr.style.left = dim.left + iframe.left + "px";
         break;
       }
       default:
