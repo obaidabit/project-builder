@@ -9,6 +9,8 @@ import {
 import { AiOutlineVideoCamera } from "react-icons/ai";
 import { RiCheckboxLine } from "react-icons/ri";
 import { BsTextareaT } from "react-icons/bs";
+import Pages from "./Pages";
+
 export default function LeftSideMenu({ ...props }) {
   const [tabIndex, setTabIndex] = useState(1);
   const [layout, setLayout] = useState(true);
@@ -19,7 +21,6 @@ export default function LeftSideMenu({ ...props }) {
   const [homePage, setHomePage] = useState(true);
   const [logInPage, setLogInPage] = useState(true);
 
-
   const toggleTab = (index) => {
     setTabIndex(index);
   };
@@ -29,7 +30,7 @@ export default function LeftSideMenu({ ...props }) {
   };
   const toggleHomePage = () => {
     setHomePage(!homePage);
-  }
+  };
 
   const toggleBasics = () => {
     setBasics(!basics);
@@ -50,7 +51,6 @@ export default function LeftSideMenu({ ...props }) {
   const toggleLogInPage = () => {
     setLogInPage(!logInPage);
   };
-
 
   return (
     <div className="left-side-menu">
@@ -445,7 +445,6 @@ export default function LeftSideMenu({ ...props }) {
             />
             <p>ParallaxSite</p>
           </div>
-
         </div>
         <div className="toggle p-2 m-t-1  " onClick={toggleLogInPage}>
           <h5>LogIn Page</h5>
@@ -470,6 +469,9 @@ export default function LeftSideMenu({ ...props }) {
             <p>LogIn</p>
           </div>
         </div>
+      </div>
+      <div className={tabIndex === 3 ? "group-elements p-x-1" : "hide"}>
+        <Pages />
       </div>
     </div>
   );

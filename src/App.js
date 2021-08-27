@@ -9,7 +9,7 @@ import ContainerEdit from "./components/ContainerEdit";
 import ColumnsEdit from "./components/ColumnsEdit";
 import { dragStart, dragOver, drop, dragLeave, dragEnter } from "./drag";
 import init from "./config/init";
-import savePage from "./savePage";
+import { loadPage } from "./savePage";
 import "./App.css";
 import ImageEdit from "./components/ImageEdit";
 import VideoEdit from "./components/VideoEdit";
@@ -32,7 +32,7 @@ export default function App() {
 
   useEffect(() => {
     init();
-    savePage(true);
+    loadPage(true);
   }, []);
 
   return (

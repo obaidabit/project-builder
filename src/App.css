@@ -113,6 +113,25 @@ body {
   margin-top: 15px;
 }
 
+.m-l-1 {
+  margin-left: 5px;
+}
+.m-l-2 {
+  margin-left: 10px;
+}
+.m-l-3 {
+  margin-left: 15px;
+}
+
+.m-r-1 {
+  margin-right: 5px;
+}
+.m-r-2 {
+  margin-right: 10px;
+}
+.m-r-3 {
+  margin-right: 15px;
+}
 .shadow {
   box-shadow: 0px 3px 6px #9a9a9a3f;
 }
@@ -466,7 +485,51 @@ body {
 }
 
 /* ------------------------------ left side menu ----------------------------*/
+.pages {
+}
+.pages .page {
+  cursor: pointer;
+  background-color: var(--bg-elements);
+  border: 1px solid #d4d4d4;
+  border-radius: 3px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  max-height: 34px;
+}
 
+.pages .page-input {
+  background: transparent;
+  color: var(--font-color);
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-family: "Roboto Condensed";
+}
+
+.pages .page-input:disabled {
+  cursor: pointer;
+}
+
+.active-page {
+  background: var(--bg-page) !important;
+}
+.pages-btn {
+  cursor: pointer;
+  border: 1px solid var(--blue);
+  border-radius: 2px;
+  background: var(--blue);
+  color: white;
+  font-family: "Roboto Condensed";
+}
+.hover-red:hover {
+  background: tomato;
+  border-radius: 2px;
+}
+.hover-red:hover path {
+  stroke: white;
+  fill: white;
+}
 .left-side-menu {
   color: var(--font-color);
   margin-right: 5px;

@@ -10,7 +10,10 @@ export default function Navbar(props) {
   const headref = useRef();
 
   const clearPage = () => {
-    localStorage.clear();
+    const iframe = document.querySelector("iframe");
+    const html = iframe.contentDocument.querySelector("html");
+    localStorage.removeItem(html.getAttribute("data-page-name"));
+
     const iframeDocument =
       document.querySelector("iframe").contentWindow.document;
     saveRecord(iframeDocument, "clear-page");
