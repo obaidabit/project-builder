@@ -6,7 +6,7 @@ export default function Image({ classes, src }) {
       className={classes ? classes : "image"}
       data-name="image"
       data-edit={true}
-      src={src ? src : "./img/adult-beanie-crisis-220365.jpg"}
+      src={src ? src : "./img/placeholder.png"}
       alt=""
     />
   );

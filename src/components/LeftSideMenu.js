@@ -206,9 +206,6 @@ export default function LeftSideMenu({ ...props }) {
             <BiText className="img-ele" />
             <p>Text</p>
           </div>
-          <div className="element shadow" id="test" {...props} draggable="true">
-            <h4>Test</h4>
-          </div>
         </div>
         <div className="toggle p-2 m-t-1  " onClick={toggleMedia}>
           <h5>Media</h5>

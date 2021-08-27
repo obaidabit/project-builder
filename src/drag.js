@@ -1,5 +1,4 @@
 import savePage from "./savePage";
-import Test from "./components/elements/Test";
 import Button from "./components/elements/Button";
 import Image from "./components/elements/Image";
 import Input from "./components/elements/Input";
@@ -33,7 +32,6 @@ import Hero from "./components/elements/Hero";
 import ShoesLayout from "./components/Layouts/ShoesLayout";
 import ParallaxLayout from "./components/Layouts/ParallaxLayout";
 import VioletLogInLayout from "./components/Layouts/VioletLogInLayout";
-
 
 let hr = null;
 let tempElement = null;
@@ -161,10 +159,9 @@ const SelectTag = (element) => {
       tag = <ParallaxLayout />;
       break;
     case "violetLogInLayout":
-      tag = <VioletLogInLayout />
+      tag = <VioletLogInLayout />;
       break;
     default:
-      tag = <Test />;
       break;
   }
 

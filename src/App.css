@@ -485,8 +485,7 @@ body {
 }
 
 /* ------------------------------ left side menu ----------------------------*/
-.pages {
-}
+
 .pages .page {
   cursor: pointer;
   background-color: var(--bg-elements);
