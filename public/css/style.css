@@ -344,11 +344,11 @@ svg {
 /* ---------------------------------------- End Hero section-------------------------------------- */
 /*-----------------------------------------Shoes Layout -------------------------------------------*/
 
- #ShoesLayout {
+#ShoesLayout {
   margin: 0;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   line-height: 1.6;
-} 
+}
 
 #ShoesLayout img {
   max-width: 100%;
@@ -378,15 +378,15 @@ svg {
   display: flex;
   gap: 1em;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 #ShoesLayout .split > * {
   -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
+  flex-basis: 30%;
   min-width: 15em;
 }
 
@@ -401,25 +401,21 @@ svg {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 1.125rem;
-  padding: .5em 1.25em;
+  padding: 0.5em 1.25em;
   background: var(--clr-accent, blue);
-  border-radius: .25em;
-  -webkit-transition: opacity 250ms linear,
- -webkit-transform 250ms ease-in-out;
-  transition: opacity 250ms linear,
- -webkit-transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out,
- opacity 250ms linear;
-  transition: transform 250ms ease-in-out,
- opacity 250ms linear,
- -webkit-transform 250ms ease-in-out;
+  border-radius: 0.25em;
+  -webkit-transition: opacity 250ms linear, -webkit-transform 250ms ease-in-out;
+  transition: opacity 250ms linear, -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, opacity 250ms linear;
+  transition: transform 250ms ease-in-out, opacity 250ms linear,
+    -webkit-transform 250ms ease-in-out;
 }
 
 #ShoesLayout .btn:hover,
 #ShoesLayout .btn:focus {
   -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  opacity: .9;
+  transform: scale(1.1);
+  opacity: 0.9;
 }
 
 #ShoesLayout .primary-title {
@@ -445,8 +441,9 @@ svg {
 }
 
 @supports (background-blend-mode: multiply) {
-  #ShoesLayout   .hero {
-    background: url(https://i.ibb.co/k3fzdKp/shoe-3.png), radial-gradient(#444, #111);
+  #ShoesLayout .hero {
+    background: url(https://i.ibb.co/k3fzdKp/shoe-3.png),
+      radial-gradient(#444, #111);
     background-blend-mode: multiply;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -462,7 +459,7 @@ svg {
   display: block;
   position: relative;
   -webkit-transform: scale(0.85);
-          transform: scale(0.85);
+  transform: scale(0.85);
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   transition: -webkit-transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -473,18 +470,20 @@ svg {
   line-height: 1.2;
 }
 
-#ShoesLayout .featured__item:hover, .featured__item:focus {
+#ShoesLayout .featured__item:hover,
+.featured__item:focus {
   -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
 }
 
-#ShoesLayout .featured__item:hover .featured__details,#ShoesLayout  .featured__item:focus .featured__details {
+#ShoesLayout .featured__item:hover .featured__details,
+#ShoesLayout .featured__item:focus .featured__details {
   opacity: 1;
   text-shadow: 0 0 2em white;
 }
 
 #ShoesLayout .featured__item::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 10%;
   left: 10%;
@@ -507,7 +506,10 @@ svg {
 }
 
 #ShoesLayout .product {
-  background: radial-gradient(var(--clr-inner, limegreen), var(--clr-outer, purple));
+  background: radial-gradient(
+    var(--clr-inner, limegreen),
+    var(--clr-outer, purple)
+  );
   padding: 3em;
   border-radius: 1em;
   margin-bottom: 5em;
@@ -527,21 +529,21 @@ svg {
 }
 
 @media (min-width: 45em) {
-  #ShoesLayout   .product {
+  #ShoesLayout .product {
     text-align: left;
     margin-bottom: 9em;
   }
-  #ShoesLayout   .product__title {
+  #ShoesLayout .product__title {
     margin: 0;
   }
-  #ShoesLayout   .product__image {
+  #ShoesLayout .product__image {
     float: right;
     width: 65%;
     shape-outside: url(../img/shoe-1.png);
     shape-margin: 1em;
     margin: 0 -5em 0 0;
   }
-  #ShoesLayout  .product.shoe-left .product__image {
+  #ShoesLayout .product.shoe-left .product__image {
     float: left;
     shape-outside: url(../img/shoe-2.png);
     margin: 0 0 0 -5em;
@@ -573,90 +575,92 @@ svg {
 /*# sourceMappingURL=main.css.map */
 /*-----------------------------------------End Shoes Layout -------------------------------------------*/
 /*---------------------------------------parallax Layout -----------------------------------------------*/
-#ParallaxLayout{
-  height:100%;
-  margin:0;
-  font-size:16px;
-  font-family:"Lato", sans-serif;
-  font-weight:400;
-  line-height:1.8em;
-  color:#666;
+#ParallaxLayout {
+  height: 100%;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.8em;
+  color: #666;
 }
 
-.pimg1, .pimg2, .pimg3{
-  position:relative;
-  opacity:0.70;
-  background-position:center;
-  background-size:cover;
-  background-repeat:no-repeat;
+.pimg1,
+.pimg2,
+.pimg3 {
+  position: relative;
+  opacity: 0.7;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   /*
     fixed = parallax
     scroll = normal
   */
-  background-attachment:fixed;
+  background-attachment: fixed;
 }
 
-.pimg1{
-  background-image:url('https://i.ibb.co/1Q1TKw1/image1.jpg');
-  min-height:100%;
+.pimg1 {
+  background-image: url("https://i.ibb.co/1Q1TKw1/image1.jpg");
+  min-height: 100%;
 }
 
-.pimg2{
-  background-image:url('https://i.ibb.co/jvFT3Ry/image2.jpg');
-  min-height:400px;
+.pimg2 {
+  background-image: url("https://i.ibb.co/jvFT3Ry/image2.jpg");
+  min-height: 400px;
 }
 
-.pimg3{
-  background-image:url('https://i.ibb.co/3fNZrWf/image3.jpg');
-  min-height:400px;
+.pimg3 {
+  background-image: url("https://i.ibb.co/3fNZrWf/image3.jpg");
+  min-height: 400px;
 }
 
-.section{
-  text-align:center;
-  padding:50px 80px;
+.section {
+  text-align: center;
+  padding: 50px 80px;
 }
 
-.section-light{
-  background-color:#f4f4f4;
-  color:#666;
+.section-light {
+  background-color: #f4f4f4;
+  color: #666;
 }
 
-.section-dark{
-  background-color:#282e34;
-  color:#ddd;
+.section-dark {
+  background-color: #282e34;
+  color: #ddd;
 }
 
-.ptext{
-  position:absolute;
-  top:50%;
-  width:100%;
-  text-align:center;
-  color:#000;
-  font-size:27px;
-  letter-spacing:8px;
-  text-transform:uppercase;
+.ptext {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-size: 27px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
 }
 
-.ptext .border{
-  background-color:#111;
-  color:#fff;
-  padding:20px;
+.ptext .border {
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
 }
 
-.ptext .border.trans{
-  background-color:transparent;
+.ptext .border.trans {
+  background-color: transparent;
 }
 
-@media(max-width:568px){
-  .pimg1, .pimg2, .pimg3{
-    background-attachment:scroll;
+@media (max-width: 568px) {
+  .pimg1,
+  .pimg2,
+  .pimg3 {
+    background-attachment: scroll;
   }
 }
 
 /*---------------------------------------End parallax Layout -----------------------------------------------*/
-
-
 
 .text,
 .link {
@@ -719,15 +723,18 @@ input[type="text"]:focus {
   transform: scale(1);
 }
 
-
 /*---------------------------------------LogIn Layout -----------------------------------------------*/
 #VioletLogInLayout {
-  background-color: #F3EBF6;
-  font-family: 'Ubuntu', sans-serif;
+  background-color: #f3ebf6;
+  font-family: "Ubuntu", sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #VioletLogInLayout .main {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 400px;
   height: 400px;
   margin: 0px auto;
@@ -738,30 +745,30 @@ input[type="text"]:focus {
 
 #VioletLogInLayout .sign {
   padding-top: 40px;
-  color: #8C55AA;
-  font-family: 'Ubuntu', sans-serif;
+  color: #8c55aa;
+  font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   font-size: 23px;
 }
 
 #VioletLogInLayout .un {
-width: 76%;
-color: rgb(38, 50, 56);
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-background: rgba(136, 126, 126, 0.04);
-padding: 10px 20px;
-border: none;
-border-radius: 20px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
-margin-left: 46px;
-text-align: center;
-margin-bottom: 27px;
-font-family: 'Ubuntu', sans-serif;
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: "Ubuntu", sans-serif;
 }
 
 #VioletLogInLayout form.form1 {
@@ -769,42 +776,41 @@ font-family: 'Ubuntu', sans-serif;
 }
 
 #VioletLogInLayout .pass {
-      width: 76%;
-color: rgb(38, 50, 56);
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-background: rgba(136, 126, 126, 0.04);
-padding: 10px 20px;
-border: none;
-border-radius: 20px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
-margin-left: 46px;
-text-align: center;
-margin-bottom: 27px;
-font-family: 'Ubuntu', sans-serif;
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: "Ubuntu", sans-serif;
 }
 
-
-#VioletLogInLayout .un:focus, #VioletLogInLayout .pass:focus {
+#VioletLogInLayout .un:focus,
+#VioletLogInLayout .pass:focus {
   border: 2px solid rgba(0, 0, 0, 0.18) !important;
-  
 }
 
 #VioletLogInLayout .submit {
-cursor: pointer;
+  cursor: pointer;
   border-radius: 5em;
   color: #fff;
-  background: linear-gradient(to right, #9C27B0, #E040FB);
+  background: linear-gradient(to right, #9c27b0, #e040fb);
   border: 0;
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 10px;
   padding-top: 10px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   margin-left: 35%;
   font-size: 13px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
@@ -812,19 +818,19 @@ cursor: pointer;
 
 #VioletLogInLayout .forgot {
   text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-  color: #E1BEE7;
+  color: #e1bee7;
   padding-top: 15px;
 }
 
 #VioletLogInLayout a {
   text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-  color: #E1BEE7;
-  text-decoration: none
+  color: #e1bee7;
+  text-decoration: none;
 }
 
 @media (max-width: 600px) {
   #VioletLogInLayout .main {
-      border-radius: 0px;
+    border-radius: 0px;
   }
 }
 /*---------------------------------------End LogIn Layout -----------------------------------------------*/

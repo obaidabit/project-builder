@@ -19,7 +19,8 @@ export const loadPage = (onLoad) => {
   let pageName = html.getAttribute("data-page-name");
 
   if (localStorage.length > 0) {
-    if (!pageName) pageName = localStorage.key(0);
+    if (!pageName)
+      pageName = localStorage.getItem("page0") ? "page0" : localStorage.key(0);
 
     page = toDOM(JSON.parse(localStorage.getItem(pageName)));
     const htmlBody = html.querySelector("body");

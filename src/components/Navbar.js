@@ -6,6 +6,7 @@ import { FiDownload } from "react-icons/fi";
 import { closeSelectBox } from "../config/init";
 import { saveRecord, clearRedoRecord } from "../undo";
 import download from "./downloadPage";
+import savePage from "../savePage";
 export default function Navbar(props) {
   const headref = useRef();
 
@@ -22,6 +23,7 @@ export default function Navbar(props) {
     iframeDocument.body.style = "";
     closeSelectBox();
     props.closeEdit();
+    savePage();
   };
 
   const changeScreen = (e) => {

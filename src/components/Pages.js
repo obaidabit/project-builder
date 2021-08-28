@@ -7,7 +7,7 @@ export default function Pages() {
 
   const addPage = () => {
     if (localStorage.length <= 0) savePage();
-    setPages([...pages, ""]);
+    setPages((prev) => [...prev, ""]);
   };
 
   const setPageName = (value, index) => {
@@ -23,6 +23,7 @@ export default function Pages() {
     const n = localStorage.length;
     if (n > 1) {
       for (let i = 1; i < n; i++) {
+        console.log(i);
         addPage();
         setPageName("page " + i, i);
       }

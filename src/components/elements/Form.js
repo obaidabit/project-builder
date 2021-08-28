@@ -3,7 +3,7 @@ import React from "react";
 export default function Form() {
   return (
     <form className="init">
-      <label className="init-label" for="fname">
+      <label className="init-label" htmlFor="fname">
         First name:
       </label>
       <input
@@ -13,7 +13,7 @@ export default function Form() {
         name="fname"
         value="John"
       />
-      <label className="init-label" for="lname">
+      <label className="init-label" htmlFor="lname">
         Last name:
       </label>
       <input
