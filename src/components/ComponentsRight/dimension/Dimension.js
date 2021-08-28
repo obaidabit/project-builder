@@ -36,7 +36,9 @@ function Dimension() {
     px = "";
     if (value === "") {
       return;
-    } else {
+    } else if (value === "auto") {
+			return "auto"
+		}else {
       if (value !== undefined) {
         num = value.indexOf("p");
         if (num === -1) {
@@ -141,7 +143,7 @@ function Dimension() {
 
   const checkInput = (e) => {
     var ch = String.fromCharCode(e.which);
-    if (!/[0-9]/.test(ch)) {
+    if (!/[0-9-auto]/.test(ch)) {
       e.preventDefault();
     }
   };
