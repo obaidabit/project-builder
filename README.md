@@ -9,7 +9,7 @@ This project is built as Fourth year project for Al-Baath University Software en
 - Undo and Redo system
 - Page export
 
-# Getting Started
+## Getting Started
 
 You can using the project by eather visiting the demo site or by installing it on your local system.
 
